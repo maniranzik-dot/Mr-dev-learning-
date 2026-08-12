@@ -1,77 +1,173 @@
-function showSubject(subject){
+function openNote(subject, topic) {
 
-  let topics = [];
+  document.getElementById("subjects").style.display = "none";
+  document.getElementById("note").style.display = "block";
 
-  if(subject === "Mathematics"){
+  document.getElementById("noteTitle").innerText =
+    currentClass + " - " + subject + " - " + topic;
 
-    if(currentClass === "Senior 1"){
-      topics = [
-        "Sets of Numbers",
-        "Linear Functions, Equations and Inequalities",
-        "Percentage, Discount, Profit and Loss",
-        "Ratio and Proportions",
-        "Points, Lines and Angles",
-        "Solids",
-        "Statistics",
-        "Probability"
-      ];
-    }
+  let content = "";
 
-    else if(currentClass === "Senior 2"){
-      topics = [
-        "Numbers",
-        "Algebra",
-        "Functions",
-        "Geometry",
-        "Statistics",
-        "Probability"
-      ];
-    }
+  if (currentClass === "Senior 1" &&
+      subject === "Mathematics" &&
+      topic === "Sets of Numbers") {
 
-    else if(currentClass === "Senior 3"){
-      topics = [
-        "Algebra",
-        "Functions",
-        "Geometry",
-        "Enlargement and Similarity",
-        "Statistics",
-        "Probability"
-      ];
-    }
-  }
+    content = `
+      <h3>📖 Unit 1: Sets of Numbers</h3>
 
-  else if(subject === "Science"){
+      <p>
+        A set is a collection of well-defined objects.
+        We can represent a set using braces { }.
+      </p>
 
-    topics = [
-      "Matter",
-      "Energy",
-      "Living Things",
-      "Environment"
-    ];
-  }
+      <br>
 
-  let html =
-    "<h3>📚 " + currentClass +
-    " - " + subject + "</h3>";
+      <h3>Example</h3>
 
-  topics.forEach(function(topic,index){
+      <p>
+        A = {1, 2, 3, 4, 5}
+      </p>
 
-    html += `
-      <div class="topic">
+      <p>
+        The numbers 1, 2, 3, 4 and 5 are elements
+        of set A.
+      </p>
 
-        <h3>Unit ${index + 1}: ${topic}</h3>
+      <br>
+
+      <h3>📝 Exercise</h3>
+
+      <p>
+        1. Write the set of natural numbers from 1 to 5.
+      </p>
+
+      <p>
+        2. How many elements are in
+        B = {2, 4, 6, 8}?
+      </p>
+
+      <br>
+
+      <button onclick="showAnswer('sets')">
+        ✅ Show Answers
+      </button>
+
+      <div id="setsAnswer"
+           style="display:none; margin-top:15px;">
+        <h3>✅ Answers</h3>
 
         <p>
-          REB curriculum learning material
+          1. A = {1, 2, 3, 4, 5}
         </p>
 
-        <button onclick="openNote('${subject}','${topic}')">
-          📖 Open Unit
-        </button>
+        <p>
+          2. B has 4 elements.
+        </p>
+      </div>
+    `;
+  }
+
+  else if (topic === "Linear Functions, Equations and Inequalities") {
+
+    content = `
+      <h3>📖 Unit: Linear Functions, Equations and Inequalities</h3>
+
+      <p>
+        A linear equation is an equation in which
+        the highest power of the variable is 1.
+      </p>
+
+      <br>
+
+      <h3>Example</h3>
+
+      <p>
+        Solve:
+        <strong>x + 5 = 12</strong>
+      </p>
+
+      <p>
+        x = 12 - 5
+      </p>
+
+      <p>
+        <strong>x = 7</strong>
+      </p>
+
+      <br>
+
+      <h3>📝 Exercise</h3>
+
+      <p>1. Solve: x + 8 = 15</p>
+
+      <p>2. Solve: x - 4 = 10</p>
+
+      <br>
+
+      <button onclick="showAnswer('linear')">
+        ✅ Show Answers
+      </button>
+
+      <div id="linearAnswer"
+           style="display:none; margin-top:15px;">
+
+        <h3>✅ Answers</h3>
+
+        <p>1. x = 7</p>
+        <p>2. x = 14</p>
 
       </div>
     `;
-  });
+  }
 
-  document.getElementById("topics").innerHTML = html;
+  else {
+
+    content = `
+      <h3>📖 ${topic}</h3>
+
+      <p>
+        This unit is part of the learning section.
+      </p>
+
+      <br>
+
+      <h3>📝 Exercise</h3>
+
+      <p>
+        More REB-aligned notes, examples and exercises
+        will be added to this unit.
+      </p>
+
+      <br>
+
+      <button onclick="showAnswer('general')">
+        ✅ Show Answer
+      </button>
+
+      <div id="generalAnswer"
+           style="display:none; margin-top:15px;">
+
+        <p>
+          Answers will appear here.
+        </p>
+
+      </div>
+    `;
+  }
+
+  document.getElementById("noteContent").innerHTML = content;
+}
+
+
+function showAnswer(type) {
+
+  let answerBox = document.getElementById(
+    type + "Answer"
+  );
+
+  if (answerBox.style.display === "none") {
+    answerBox.style.display = "block";
+  } else {
+    answerBox.style.display = "none";
+  }
 }
