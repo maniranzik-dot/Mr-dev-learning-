@@ -7,305 +7,244 @@
 
 <style>
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
 }
 
 body{
-background:#f4f7fb;
-color:#172033;
+  background:#f4f7fb;
+  color:#172033;
 }
 
 header{
-background:#075e54;
-color:white;
-text-align:center;
-padding:24px 15px;
+  background:#075e54;
+  color:white;
+  text-align:center;
+  padding:25px 15px;
 }
 
 header h1{
-margin-bottom:8px;
+  margin-bottom:8px;
 }
 
 nav{
-background:white;
-padding:12px;
-display:flex;
-justify-content:center;
-gap:8px;
-flex-wrap:wrap;
-box-shadow:0 2px 8px #0001;
+  background:white;
+  padding:12px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  box-shadow:0 2px 8px #0002;
 }
 
 button{
-border:0;
-padding:10px 16px;
-border-radius:8px;
-background:#075e54;
-color:white;
-cursor:pointer;
+  border:0;
+  padding:11px 16px;
+  border-radius:8px;
+  background:#075e54;
+  color:white;
+  cursor:pointer;
+  margin:3px;
 }
 
 button:hover{
-opacity:.9;
+  opacity:.9;
 }
 
 .hero{
-background:linear-gradient(135deg,#075e54,#128c7e);
-color:white;
-text-align:center;
-padding:45px 15px;
+  background:linear-gradient(135deg,#075e54,#128c7e);
+  color:white;
+  text-align:center;
+  padding:45px 15px;
 }
 
 .hero h2{
-font-size:30px;
-margin-bottom:10px;
-}
-
-.search{
-max-width:650px;
-margin:20px auto 0;
-display:flex;
-}
-
-.search input{
-flex:1;
-padding:14px;
-border:0;
-outline:0;
-border-radius:10px 0 0 10px;
-}
-
-.search button{
-background:#ffca28;
-color:#172033;
-border-radius:0 10px 10px 0;
+  font-size:30px;
+  margin-bottom:10px;
 }
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:25px 15px;
+  max-width:1100px;
+  margin:auto;
+  padding:25px 15px;
 }
 
-.dashboard{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:18px;
+.section{
+  display:none;
+  margin-top:20px;
 }
 
 .card{
-background:white;
-padding:22px;
-border-radius:15px;
-box-shadow:0 3px 12px #0001;
-margin-bottom:18px;
+  background:white;
+  padding:22px;
+  border-radius:15px;
+  box-shadow:0 3px 12px #0001;
+  margin-bottom:18px;
 }
 
-.card h3{
-margin:10px 0;
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:18px;
 }
 
-.card p{
-color:#667085;
-margin-bottom:15px;
-}
-
-.class-card{
-text-align:center;
-cursor:pointer;
-}
-
-.class-card:hover{
-transform:translateY(-3px);
-}
-
-.subjects,
-.note,
-.section,
-.ai-box{
-display:none;
-}
-
-.subject-buttons{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin:15px 0;
-}
-
-.subject-buttons button{
-background:#128c7e;
-}
-
-.topic{
-background:white;
-padding:18px;
-margin:12px 0;
-border-radius:12px;
-box-shadow:0 2px 8px #0001;
-}
-
-.note{
-background:white;
-padding:25px;
-margin-top:25px;
-border-radius:15px;
-box-shadow:0 3px 12px #0001;
-line-height:1.7;
-}
-
-.profile-input,
+.input,
 textarea,
 select{
-width:100%;
-padding:12px;
-margin-top:8px;
-border:1px solid #ddd;
-border-radius:8px;
-outline:none;
+  width:100%;
+  padding:13px;
+  margin:7px 0;
+  border:1px solid #ddd;
+  border-radius:8px;
+  outline:none;
 }
 
 textarea{
-min-height:140px;
-resize:vertical;
+  min-height:150px;
+  resize:vertical;
 }
 
-.progress-box{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 3px 12px #0001;
-margin-top:25px;
+.class-card{
+  text-align:center;
+}
+
+.class-card h2{
+  font-size:45px;
+}
+
+.topic{
+  background:white;
+  padding:18px;
+  margin:12px 0;
+  border-radius:12px;
+  box-shadow:0 2px 8px #0001;
+}
+
+.note{
+  background:white;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 3px 12px #0001;
+  line-height:1.7;
 }
 
 .progress{
-height:15px;
-background:#ddd;
-border-radius:20px;
-overflow:hidden;
-margin-top:10px;
+  height:15px;
+  background:#ddd;
+  border-radius:20px;
+  overflow:hidden;
 }
 
 .progress-bar{
-height:100%;
-width:0%;
-background:#075e54;
-transition:.4s;
+  height:100%;
+  width:0%;
+  background:#075e54;
+  transition:.5s;
 }
 
 .quiz-question{
-background:white;
-padding:20px;
-margin:15px 0;
-border-radius:12px;
-box-shadow:0 2px 8px #0001;
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:12px;
+  box-shadow:0 2px 8px #0001;
 }
 
 .option{
-display:block;
-margin:10px 0;
-padding:12px;
-background:#f4f7fb;
-border-radius:8px;
-cursor:pointer;
+  display:block;
+  padding:12px;
+  margin:8px 0;
+  background:#f4f7fb;
+  border-radius:8px;
 }
 
-.option:hover{
-background:#e8f5e9;
+.success{
+  color:#075e54;
+  font-weight:bold;
+  margin-top:12px;
 }
 
-.quiz-result{
-display:none;
-padding:25px;
-margin-top:20px;
-border-radius:15px;
-background:#e8f5e9;
-text-align:center;
+.error{
+  color:#c62828;
+  font-weight:bold;
+  margin-top:12px;
 }
 
-.premium-box{
-background:#fff8df;
-border:2px solid #ffca28;
-padding:20px;
-border-radius:15px;
-margin-top:25px;
+.ai-box{
+  background:#e8f5e9;
+  padding:25px;
+  border-radius:15px;
+}
+
+.premium{
+  background:#fff8df;
+  border:2px solid #ffca28;
+  padding:25px;
+  border-radius:15px;
 }
 
 .badge{
-display:inline-block;
-background:#ffca28;
-color:#172033;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-}
-
-.admin-card{
-border-left:5px solid #075e54;
-}
-
-.danger{
-background:#c62828;
-}
-
-.logout{
-background:#555;
-}
-
-.result{
-background:white;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-color:#172033;
+  background:#ffca28;
+  color:#172033;
+  padding:5px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
 }
 
 .whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#25d366;
-color:white;
-padding:14px 18px;
-border-radius:40px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0 3px 10px #0003;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25d366;
+  color:white;
+  padding:14px 18px;
+  border-radius:40px;
+  text-decoration:none;
+  box-shadow:0 3px 10px #0003;
 }
 
 footer{
-margin-top:40px;
-background:#172033;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-@media(max-width:600px){
-
-.hero h2{
-font-size:24px;
+  margin-top:40px;
+  background:#172033;
+  color:white;
+  text-align:center;
+  padding:30px;
 }
 
 .search{
-width:100%;
+  max-width:650px;
+  margin:20px auto;
+  display:flex;
 }
 
-nav button{
-font-size:12px;
-padding:9px 11px;
+.search input{
+  flex:1;
+  padding:14px;
+  border:0;
+  border-radius:8px 0 0 8px;
 }
 
+.search button{
+  border-radius:0 8px 8px 0;
+}
+
+@media(max-width:600px){
+  .hero h2{
+    font-size:24px;
+  }
+
+  nav button{
+    font-size:12px;
+    padding:9px 11px;
+  }
 }
 </style>
 </head>
 
 <body>
-
 
 <header>
 
@@ -318,19 +257,19 @@ padding:9px 11px;
 
 <nav>
 
-<button onclick="home()">🏠 Home</button>
+<button onclick="showHome()">🏠 Home</button>
 
-<button onclick="dashboard()">📊 Dashboard</button>
+<button onclick="showDashboard()">📊 Dashboard</button>
 
-<button onclick="showNotes()">📖 Notes</button>
+<button onclick="showClasses()">📚 Classes</button>
 
 <button onclick="showExercises()">📝 Exercises</button>
 
 <button onclick="showAI()">🤖 AI Teacher</button>
 
-<button onclick="showPremium()">⭐ Premium</button>
+<button onclick="showAccount()">👤 Account</button>
 
-<button onclick="showAdmin()">🔐 Admin</button>
+<button onclick="showPremium()">⭐ Premium</button>
 
 </nav>
 
@@ -340,18 +279,17 @@ padding:9px 11px;
 <h2>Learn Better, Succeed Faster 🎓</h2>
 
 <p>
-Mathematics and Science resources
-for Senior 1, Senior 2 and Senior 3.
+Mathematics and Science for Senior 1, Senior 2 and Senior 3
 </p>
 
 <div class="search">
 
 <input
 id="searchInput"
-placeholder="Search unit or topic..."
+placeholder="Search a unit..."
 >
 
-<button onclick="searchContent()">
+<button onclick="searchUnits()">
 🔎 Search
 </button>
 
@@ -365,33 +303,83 @@ placeholder="Search unit or topic..."
 <div class="container">
 
 
-<!-- PROFILE -->
+<!-- ACCOUNT -->
 
-<section id="profile">
+<section id="account" class="section">
 
-<div class="card">
+<div id="loginBox" class="card">
 
-<h2>👤 Student Profile</h2>
+<h2>👤 Student Account</h2>
 
 <br>
 
 <input
-id="studentName"
-class="profile-input"
-placeholder="Enter your name"
+id="registerName"
+class="input"
+placeholder="Full name"
 >
 
-<button
-style="margin-top:10px"
-onclick="saveProfile()">
+<input
+id="registerEmail"
+class="input"
+type="email"
+placeholder="Email"
+>
 
-💾 Save Profile
+<input
+id="registerPassword"
+class="input"
+type="password"
+placeholder="Password"
+>
 
+<button onclick="register()">
+📝 Register
 </button>
 
-<p id="welcome" style="margin-top:12px">
-Welcome, Student!
-</p>
+<hr style="margin:20px 0">
+
+<h3>Already have an account?</h3>
+
+<input
+id="loginEmail"
+class="input"
+type="email"
+placeholder="Email"
+>
+
+<input
+id="loginPassword"
+class="input"
+type="password"
+placeholder="Password"
+>
+
+<button onclick="login()">
+🔐 Login
+</button>
+
+<p id="authMessage"></p>
+
+</div>
+
+
+<div
+id="userBox"
+class="card"
+style="display:none">
+
+<h2>👋 Welcome</h2>
+
+<p id="userName"></p>
+
+<p id="userEmail"></p>
+
+<br>
+
+<button onclick="logout()">
+🚪 Logout
+</button>
 
 </div>
 
@@ -400,7 +388,7 @@ Welcome, Student!
 
 <!-- DASHBOARD -->
 
-<section id="dashboardSection">
+<section id="dashboard" class="section">
 
 <h2>📊 Student Dashboard</h2>
 
@@ -408,62 +396,46 @@ Welcome, Student!
 
 <div class="dashboard">
 
+<div class="card">
 
-<div
-class="card class-card"
-onclick="openClass('Senior 1')">
+<h3>👤 Student</h3>
 
-<div style="font-size:45px">1️⃣</div>
-
-<h3>Senior 1</h3>
-
-<p>Mathematics & Science</p>
-
-<button>Open Class</button>
-
-</div>
-
-
-<div
-class="card class-card"
-onclick="openClass('Senior 2')">
-
-<div style="font-size:45px">2️⃣</div>
-
-<h3>Senior 2</h3>
-
-<p>Mathematics & Science</p>
-
-<button>Open Class</button>
-
-</div>
-
-
-<div
-class="card class-card"
-onclick="openClass('Senior 3')">
-
-<div style="font-size:45px">3️⃣</div>
-
-<h3>Senior 3</h3>
-
-<p>Mathematics & Science</p>
-
-<button>Open Class</button>
-
-</div>
-
-</div>
-
-
-<div class="progress-box">
-
-<h3>📈 My Progress</h3>
-
-<p>
-Completed Units:
-<strong id="completedCount">0</strong>
+<p id="dashName">
+Not logged in
 </p>
+
+</div>
+
+
+<div class="card">
+
+<h3>🎯 Last Score</h3>
+
+<p id="dashScore">
+0%
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>📝 Tests Taken</h3>
+
+<p id="dashTests">
+0
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>📈 Learning Progress</h3>
+
+<br>
 
 <div class="progress">
 
@@ -474,14 +446,12 @@ class="progress-bar">
 
 </div>
 
-<p style="margin-top:10px">
-Progress:
-<strong id="progressText">0%</strong>
-</p>
+<p
+id="progressText"
+style="margin-top:10px">
 
-<p style="margin-top:10px">
-Last Quiz:
-<strong id="lastScore">0%</strong>
+0%
+
 </p>
 
 </div>
@@ -489,69 +459,76 @@ Last Quiz:
 </section>
 
 
-<!-- SUBJECTS -->
+<!-- CLASSES -->
 
-<section id="subjects" class="subjects">
+<section id="classes" class="section">
 
-<h2 id="selectedClass"></h2>
-
-<div class="subject-buttons">
-
-<button onclick="showSubject('Mathematics')">
-📐 Mathematics
-</button>
-
-<button onclick="showSubject('Science')">
-🔬 Science
-</button>
-
-</div>
-
-<div id="topics"></div>
-
-</section>
-
-
-<!-- NOTE -->
-
-<section id="note" class="note">
-
-<h2 id="noteTitle"></h2>
-
-<div id="noteContent"></div>
+<h2>📚 Choose Your Class</h2>
 
 <br>
 
-<button onclick="backTopics()">
-← Back
+<div class="dashboard">
+
+
+<div class="card class-card">
+
+<h2>1️⃣</h2>
+
+<h3>Senior 1</h3>
+
+<p>Mathematics & Science</p>
+
+<button onclick="openClass('Senior 1')">
+Open
 </button>
+
+</div>
+
+
+<div class="card class-card">
+
+<h2>2️⃣</h2>
+
+<h3>Senior 2</h3>
+
+<p>Mathematics & Science</p>
+
+<button onclick="openClass('Senior 2')">
+Open
+</button>
+
+</div>
+
+
+<div class="card class-card">
+
+<h2>3️⃣</h2>
+
+<h3>Senior 3</h3>
+
+<p>Mathematics & Science</p>
+
+<button onclick="openClass('Senior 3')">
+Open
+</button>
+
+</div>
+
+</div>
+
+
+<div id="subjectArea"></div>
 
 </section>
 
 
 <!-- EXERCISES -->
 
-<section id="exerciseSection" class="section">
+<section id="exercises" class="section">
 
 <h2>📝 Exercises & Quiz</h2>
 
 <br>
-
-<div class="card">
-
-<h3>Senior 1 Mathematics</h3>
-
-<p>Unit: Sets of Numbers</p>
-
-<button onclick="startQuiz()">
-▶ Start Quiz
-</button>
-
-</div>
-
-
-<div id="quiz" style="display:none">
-
 
 <div class="quiz-question">
 
@@ -605,7 +582,7 @@ B = {2,4,6,8}?
 <div class="quiz-question">
 
 <h3>
-3. Which number is a natural number?
+3. Which is a natural number?
 </h3>
 
 <label class="option">
@@ -630,41 +607,39 @@ B = {2,4,6,8}?
 ✅ Submit Quiz
 </button>
 
+<p id="quizResult"></p>
 
-<div id="quizResult" class="quiz-result">
-
-<h2 id="scoreTitle"></h2>
-
-<p id="scoreMessage"></p>
-
-<button
-onclick="retryQuiz()"
-style="margin-top:15px">
-
-🔄 Try Again
-
-</button>
-
-</div>
-
-</div>
+</section>
 
 
-<div class="premium-box">
+<!-- AI -->
 
-<span class="badge">⭐ PREMIUM</span>
+<section id="ai" class="section">
 
-<h3 style="margin-top:10px">
-Advanced Exercises
-</h3>
+<div class="ai-box">
+
+<h2>🤖 AI Teacher</h2>
 
 <p>
-More questions and revision tests.
+Ask a Mathematics or Science question.
 </p>
 
-<button onclick="unlockPremium()">
-🔐 Unlock Premium
+<br>
+
+<input
+id="aiQuestion"
+class="input"
+placeholder="Example: What is a set?"
+>
+
+<button onclick="askAI()">
+🤖 Ask Teacher
 </button>
+
+<p
+id="aiAnswer"
+style="margin-top:15px">
+</p>
 
 </div>
 
@@ -673,26 +648,28 @@ More questions and revision tests.
 
 <!-- PREMIUM -->
 
-<section id="premiumSection" class="section">
+<section id="premium" class="section">
 
-<div class="premium-box">
+<div class="premium">
 
-<span class="badge">⭐ PREMIUM</span>
+<span class="badge">
+⭐ PREMIUM
+</span>
 
-<h2 style="margin-top:10px">
-Premium Revision Package
+<h2 style="margin-top:12px">
+Premium Learning
 </h2>
 
-<p style="margin-top:10px">
+<br>
 
-Advanced exercises, revision tests,
-answers and learning materials.
-
+<p>
+Get advanced exercises, revision tests,
+answers and extra learning materials.
 </p>
 
 <br>
 
-<button onclick="unlockPremium()">
+<button onclick="premiumMessage()">
 ⭐ Unlock Premium
 </button>
 
@@ -701,228 +678,23 @@ answers and learning materials.
 </section>
 
 
-<!-- AI -->
+<!-- NOTE -->
 
-<section id="aiSection" class="ai-box">
+<section id="noteSection" class="section">
 
-<h2>🤖 AI Teacher</h2>
+<div class="note">
 
-<p>Ask a learning question.</p>
+<h2 id="noteTitle"></h2>
 
 <br>
 
-<input
-id="question"
-class="profile-input"
-placeholder="Example: What is a set?"
->
+<div id="noteContent"></div>
 
-<button
-style="margin-top:10px"
-onclick="askAI()">
+<br>
 
-Ask AI
-
+<button onclick="showClasses()">
+← Back to Classes
 </button>
-
-<p
-id="aiAnswer"
-style="margin-top:15px">
-</p>
-
-</section>
-
-
-<!-- ADMIN -->
-
-<section id="adminSection" class="section">
-
-<h2>🔐 Admin Dashboard</h2>
-
-<br>
-
-
-<!-- LOGIN -->
-
-<div class="card" id="adminLogin">
-
-<h3>Admin Login</h3>
-
-<p>
-Enter administrator password.
-</p>
-
-<input
-id="adminPassword"
-class="profile-input"
-type="password"
-placeholder="Admin password"
->
-
-<button
-style="margin-top:10px"
-onclick="adminLogin()">
-
-🔑 Login
-
-</button>
-
-</div>
-
-
-<!-- ADMIN PANEL -->
-
-<div id="adminPanel" style="display:none">
-
-
-<div class="dashboard">
-
-
-<div class="card admin-card">
-
-<h3>📚 Total Custom Units</h3>
-
-<p id="adminUnits">0</p>
-
-</div>
-
-
-<div class="card admin-card">
-
-<h3>📝 Exercises</h3>
-
-<p id="adminExercises">1</p>
-
-</div>
-
-
-<div class="card admin-card">
-
-<h3>👨‍🎓 Student Profile</h3>
-
-<p id="adminStudent">No student</p>
-
-</div>
-
-
-<div class="card admin-card">
-
-<h3>🎯 Last Score</h3>
-
-<p id="adminScore">0%</p>
-
-</div>
-
-</div>
-
-
-<br>
-
-
-<!-- ADD UNIT -->
-
-<div class="card">
-
-<h3>➕ Add Learning Unit</h3>
-
-<br>
-
-<label>Class</label>
-
-<select
-id="adminClass"
-class="profile-input">
-
-<option>Senior 1</option>
-<option>Senior 2</option>
-<option>Senior 3</option>
-
-</select>
-
-
-<label>Subject</label>
-
-<select
-id="adminSubject"
-class="profile-input">
-
-<option>Mathematics</option>
-<option>Science</option>
-
-</select>
-
-
-<label>Unit Name</label>
-
-<input
-id="adminUnit"
-class="profile-input"
-placeholder="Example: Algebra"
->
-
-
-<label>Notes</label>
-
-<textarea
-id="adminNote"
-class="profile-input"
-placeholder="Write the learning notes here...">
-</textarea>
-
-
-<button
-style="margin-top:10px"
-onclick="addUnit()">
-
-➕ Add Unit
-
-</button>
-
-</div>
-
-
-<br>
-
-
-<!-- CUSTOM UNITS -->
-
-<div class="card">
-
-<h3>📚 My Added Units</h3>
-
-<br>
-
-<div id="customUnits"></div>
-
-</div>
-
-
-<br>
-
-
-<!-- ADMIN TOOLS -->
-
-<div class="card">
-
-<h3>⚙️ Admin Tools</h3>
-
-<br>
-
-<button onclick="refreshAdmin()">
-🔄 Refresh Dashboard
-</button>
-
-<button
-class="logout"
-onclick="adminLogout()"
-style="margin-left:5px">
-
-🚪 Logout
-
-</button>
-
-</div>
-
 
 </div>
 
@@ -952,6 +724,8 @@ Rwanda Education Hub 🇷🇼
 Education for every student.
 </p>
 
+<br>
+
 <p>
 © 2026 Rwanda Education Hub
 </p>
@@ -961,20 +735,19 @@ Education for every student.
 
 <script>
 
+/* ==========================================
+   WEBSITE DATA
+========================================== */
 
-/* ==========================
-DATA
-========================== */
+const units = {
 
-const units={
-
-"Senior 1":{
+"Senior 1": {
 
 "Mathematics":[
 "Sets of Numbers",
 "Linear Functions, Equations and Inequalities",
 "Percentage, Discount, Profit and Loss",
-"Ratio and Proportions",
+"Ratio and Proportion",
 "Points, Lines and Angles",
 "Solids",
 "Statistics",
@@ -992,7 +765,8 @@ const units={
 
 },
 
-"Senior 2":{
+
+"Senior 2": {
 
 "Mathematics":[
 "Numbers",
@@ -1012,7 +786,8 @@ const units={
 
 },
 
-"Senior 3":{
+
+"Senior 3": {
 
 "Mathematics":[
 "Algebra",
@@ -1035,152 +810,31 @@ const units={
 };
 
 
-let currentClass="";
+/* ==========================================
+   HIDE ALL SECTIONS
+========================================== */
 
+function hideAll(){
 
-/* ==========================
-PROFILE
-========================== */
+document.querySelectorAll(
+".section"
+).forEach(
+function(section){
 
-function saveProfile(){
+section.style.display="none";
 
-let name=
-document.getElementById(
-"studentName"
-).value.trim();
-
-if(!name){
-
-alert("Enter your name.");
-
-return;
-
-}
-
-localStorage.setItem(
-"studentName",
-name
-);
-
-document.getElementById(
-"welcome"
-).innerText=
-"Welcome, "+name+"! 👋";
-
-updateAdmin();
-
-alert("Profile saved!");
+});
 
 }
 
 
-function loadProfile(){
+/* ==========================================
+   HOME
+========================================== */
 
-let name=
-localStorage.getItem(
-"studentName"
-);
+function showHome(){
 
-if(name){
-
-document.getElementById(
-"studentName"
-).value=name;
-
-document.getElementById(
-"welcome"
-).innerText=
-"Welcome, "+name+"! 👋";
-
-}
-
-}
-
-
-/* ==========================
-PROGRESS
-========================== */
-
-function updateProgress(){
-
-let completed=
-Number(
-localStorage.getItem(
-"completedUnits"
-)||0
-);
-
-let percent=
-Math.min(
-completed*10,
-100
-);
-
-document.getElementById(
-"completedCount"
-).innerText=
-completed;
-
-document.getElementById(
-"progressText"
-).innerText=
-percent+"%";
-
-document.getElementById(
-"progressBar"
-).style.width=
-percent+"%";
-
-
-let score=
-localStorage.getItem(
-"lastQuizScore"
-)||0;
-
-document.getElementById(
-"lastScore"
-).innerText=
-score+"%";
-
-}
-
-
-/* ==========================
-NAVIGATION
-========================== */
-
-function hideSections(){
-
-document.getElementById(
-"subjects"
-).style.display="none";
-
-document.getElementById(
-"note"
-).style.display="none";
-
-document.getElementById(
-"exerciseSection"
-).style.display="none";
-
-document.getElementById(
-"premiumSection"
-).style.display="none";
-
-document.getElementById(
-"aiSection"
-).style.display="none";
-
-document.getElementById(
-"adminSection"
-).style.display="none";
-
-}
-
-
-function home(){
-
-hideSections();
+hideAll();
 
 window.scrollTo({
 top:0,
@@ -1190,392 +844,585 @@ behavior:"smooth"
 }
 
 
-function dashboard(){
+/* ==========================================
+   DASHBOARD
+========================================== */
 
-hideSections();
+function showDashboard(){
+
+hideAll();
 
 document.getElementById(
-"dashboardSection"
+"dashboard"
 ).style.display="block";
 
-document.getElementById(
-"dashboardSection"
-).scrollIntoView({
-behavior:"smooth"
-});
+loadDashboard();
 
 }
 
 
-function showNotes(){
+/* ==========================================
+   CLASSES
+========================================== */
 
-hideSections();
+function showClasses(){
+
+hideAll();
 
 document.getElementById(
-"subjects"
+"classes"
 ).style.display="block";
-
-document.getElementById(
-"subjects"
-).scrollIntoView({
-behavior:"smooth"
-});
 
 }
 
+
+/* ==========================================
+   EXERCISES
+========================================== */
 
 function showExercises(){
 
-hideSections();
+hideAll();
 
 document.getElementById(
-"exerciseSection"
+"exercises"
 ).style.display="block";
-
-document.getElementById(
-"exerciseSection"
-).scrollIntoView({
-behavior:"smooth"
-});
 
 }
 
 
-function showPremium(){
-
-hideSections();
-
-document.getElementById(
-"premiumSection"
-).style.display="block";
-
-document.getElementById(
-"premiumSection"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
+/* ==========================================
+   AI
+========================================== */
 
 function showAI(){
 
-hideSections();
+hideAll();
 
 document.getElementById(
-"aiSection"
+"ai"
 ).style.display="block";
-
-document.getElementById(
-"aiSection"
-).scrollIntoView({
-behavior:"smooth"
-});
 
 }
 
 
-function showAdmin(){
+/* ==========================================
+   ACCOUNT
+========================================== */
 
-hideSections();
+function showAccount(){
+
+hideAll();
 
 document.getElementById(
-"adminSection"
+"account"
 ).style.display="block";
 
-document.getElementById(
-"adminSection"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-refreshAdmin();
+checkLogin();
 
 }
 
 
-/* ==========================
-CLASS
-========================== */
+/* ==========================================
+   PREMIUM
+========================================== */
 
-function openClass(className){
+function showPremium(){
 
-currentClass=className;
-
-hideSections();
+hideAll();
 
 document.getElementById(
-"subjects"
+"premium"
 ).style.display="block";
-
-document.getElementById(
-"selectedClass"
-).innerText=
-"📚 "+className;
-
-document.getElementById(
-"topics"
-).innerHTML=
-"<p>Choose Mathematics or Science.</p>";
-
-document.getElementById(
-"subjects"
-).scrollIntoView({
-behavior:"smooth"
-});
 
 }
 
 
-/* ==========================
-SUBJECT
-========================== */
+/* ==========================================
+   REGISTER
+========================================== */
 
-function showSubject(subject){
+function register(){
 
-if(!currentClass){
+let name =
+document.getElementById(
+"registerName"
+).value.trim();
 
-alert(
-"Choose a class first."
+let email =
+document.getElementById(
+"registerEmail"
+).value.trim();
+
+let password =
+document.getElementById(
+"registerPassword"
+).value;
+
+
+if(!name || !email || !password){
+
+showAuthMessage(
+"Please fill all fields.",
+"error"
 );
 
 return;
 
 }
 
-let list=
-units[currentClass][subject] || [];
+
+if(password.length < 6){
+
+showAuthMessage(
+"Password must have at least 6 characters.",
+"error"
+);
+
+return;
+
+}
 
 
-/* Add custom units */
-
-let customUnits=
+let users =
 JSON.parse(
 localStorage.getItem(
-"customUnits"
+"reh_users"
 )||"[]"
 );
 
-customUnits.forEach(
-function(item){
 
-if(
-item.className===currentClass &&
-item.subject===subject
-){
+let exists =
+users.find(
+function(user){
 
-list.push(item.unit);
-
-}
+return user.email===email;
 
 });
 
 
-let html=
-"<h3>📖 "+
-currentClass+
-" - "+
-subject+
-"</h3>";
+if(exists){
+
+showAuthMessage(
+"An account with this email already exists.",
+"error"
+);
+
+return;
+
+}
 
 
-list.forEach(
+let user={
+
+id:Date.now(),
+
+name:name,
+
+email:email,
+
+password:password,
+
+createdAt:new Date().toISOString()
+
+};
+
+
+users.push(user);
+
+
+localStorage.setItem(
+"reh_users",
+JSON.stringify(users)
+);
+
+
+localStorage.setItem(
+"reh_current_user",
+JSON.stringify(user)
+);
+
+
+showAuthMessage(
+"✅ Account created successfully!",
+"success"
+);
+
+
+checkLogin();
+
+loadDashboard();
+
+}
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+function login(){
+
+let email =
+document.getElementById(
+"loginEmail"
+).value.trim();
+
+let password =
+document.getElementById(
+"loginPassword"
+).value;
+
+
+let users =
+JSON.parse(
+localStorage.getItem(
+"reh_users"
+)||"[]"
+);
+
+
+let user =
+users.find(
+function(item){
+
+return(
+item.email===email &&
+item.password===password
+);
+
+});
+
+
+if(!user){
+
+showAuthMessage(
+"❌ Wrong email or password.",
+"error"
+);
+
+return;
+
+}
+
+
+localStorage.setItem(
+"reh_current_user",
+JSON.stringify(user)
+);
+
+
+showAuthMessage(
+"✅ Login successful!",
+"success"
+);
+
+
+checkLogin();
+
+loadDashboard();
+
+}
+
+
+/* ==========================================
+   AUTH MESSAGE
+========================================== */
+
+function showAuthMessage(
+message,
+type
+){
+
+let box =
+document.getElementById(
+"authMessage"
+);
+
+box.innerText=message;
+
+box.className=type;
+
+}
+
+
+/* ==========================================
+   CHECK LOGIN
+========================================== */
+
+function checkLogin(){
+
+let user =
+JSON.parse(
+localStorage.getItem(
+"reh_current_user"
+)||"null"
+);
+
+
+if(user){
+
+document.getElementById(
+"loginBox"
+).style.display="none";
+
+document.getElementById(
+"userBox"
+).style.display="block";
+
+
+document.getElementById(
+"userName"
+).innerText=
+"Name: "+user.name;
+
+
+document.getElementById(
+"userEmail"
+).innerText=
+"Email: "+user.email;
+
+
+}else{
+
+document.getElementById(
+"loginBox"
+).style.display="block";
+
+document.getElementById(
+"userBox"
+).style.display="none";
+
+}
+
+}
+
+
+/* ==========================================
+   LOGOUT
+========================================== */
+
+function logout(){
+
+localStorage.removeItem(
+"reh_current_user"
+);
+
+checkLogin();
+
+showHome();
+
+alert(
+"You have logged out."
+);
+
+}
+
+
+/* ==========================================
+   OPEN CLASS
+========================================== */
+
+function openClass(className){
+
+let area =
+document.getElementById(
+"subjectArea"
+);
+
+
+area.innerHTML=`
+
+<div class="card">
+
+<h2>📚 ${className}</h2>
+
+<p>
+Choose your subject.
+</p>
+
+<button onclick="showSubject('${className}','Mathematics')">
+📐 Mathematics
+</button>
+
+<button onclick="showSubject('${className}','Science')">
+🔬 Science
+</button>
+
+</div>
+
+<div id="topics"></div>
+
+`;
+
+}
+
+
+/* ==========================================
+   SHOW SUBJECT
+========================================== */
+
+function showSubject(
+className,
+subject
+){
+
+let topics =
+units[className][subject];
+
+
+let box =
+document.getElementById(
+"topics"
+);
+
+
+box.innerHTML=
+`<div class="card">
+<h2>
+${className} - ${subject}
+</h2>
+</div>`;
+
+
+topics.forEach(
 function(topic,index){
 
-html+=`
+let div =
+document.createElement(
+"div"
+);
 
-<div class="topic">
+div.className="topic";
+
+
+div.innerHTML=`
 
 <h3>
 Unit ${index+1}: ${topic}
 </h3>
 
 <p>
-Learning Unit
+${subject} • ${className}
 </p>
 
-<button
-onclick="openNote('${subject}',${JSON.stringify(topic)})">
-
+<button>
 📖 Open Unit
-
 </button>
-
-</div>
 
 `;
 
+
+div.querySelector(
+"button"
+).onclick=
+function(){
+
+openNote(
+className,
+subject,
+topic
+);
+
+};
+
+
+box.appendChild(div);
+
 });
-
-
-document.getElementById(
-"topics"
-).innerHTML=html;
 
 }
 
 
-/* ==========================
-NOTE
-========================== */
+/* ==========================================
+   OPEN NOTE
+========================================== */
 
-function openNote(subject,topic){
+function openNote(
+className,
+subject,
+topic
+){
+
+hideAll();
+
 
 document.getElementById(
-"subjects"
-).style.display="none";
-
-document.getElementById(
-"note"
+"noteSection"
 ).style.display="block";
+
 
 document.getElementById(
 "noteTitle"
 ).innerText=
-currentClass+
-" - "+
-subject+
-" - "+
-topic;
-
-
-let customUnits=
-JSON.parse(
-localStorage.getItem(
-"customUnits"
-)||"[]"
-);
-
-let custom=
-customUnits.find(
-function(item){
-
-return(
-item.className===currentClass &&
-item.subject===subject &&
-item.unit===topic
-);
-
-});
-
-
-let content="";
-
-
-if(custom){
-
-content=`
-
-<h3>
-📖 ${custom.unit}
-</h3>
-
-<p style="white-space:pre-line">
-${custom.note || "No notes added yet."}
-</p>
-
-`;
-
-}else{
-
-content=`
-
-<h3>
-📖 ${topic}
-</h3>
-
-<p>
-This is the learning section for
-${currentClass} ${subject}.
-</p>
-
-<br>
-
-<h3>
-💡 Example
-</h3>
-
-<p>
-Study the concept carefully and
-complete the related exercises.
-</p>
-
-<br>
-
-<h3>
-📝 Practice
-</h3>
-
-<p>
-Use the Exercises section to test
-your understanding.
-</p>
-
-`;
-
-}
+"📖 "+topic;
 
 
 document.getElementById(
 "noteContent"
-).innerHTML=
-content;
+).innerHTML=`
 
+<h3>
+${className} • ${subject}
+</h3>
 
-document.getElementById(
-"note"
-).scrollIntoView({
-behavior:"smooth"
-});
+<br>
+
+<p>
+Welcome to the learning unit:
+<strong>${topic}</strong>.
+</p>
+
+<br>
+
+<h3>📚 Study</h3>
+
+<p>
+Read this unit carefully, understand
+the main concepts and make your own
+short notes.
+</p>
+
+<br>
+
+<h3>📝 Practice</h3>
+
+<p>
+After studying the unit, go to the
+Exercises section and test your
+understanding.
+</p>
+
+<br>
+
+<h3>🎯 Goal</h3>
+
+<p>
+Understand the topic and be able to
+answer questions without help.
+</p>
+
+`;
 
 }
 
 
-function backTopics(){
-
-document.getElementById(
-"note"
-).style.display="none";
-
-document.getElementById(
-"subjects"
-).style.display="block";
-
-}
-
-
-/* ==========================
-QUIZ
-========================== */
-
-function startQuiz(){
-
-document.getElementById(
-"quiz"
-).style.display="block";
-
-document.getElementById(
-"quiz"
-).scrollIntoView({
-behavior:"smooth"
-});
-
-}
-
+/* ==========================================
+   QUIZ
+========================================== */
 
 function submitQuiz(){
 
-let q1=
+let q1 =
 document.querySelector(
 'input[name="q1"]:checked'
 );
 
-let q2=
+let q2 =
 document.querySelector(
 'input[name="q2"]:checked'
 );
 
-let q3=
+let q3 =
 document.querySelector(
 'input[name="q3"]:checked'
 );
@@ -1583,9 +1430,14 @@ document.querySelector(
 
 if(!q1 || !q2 || !q3){
 
-alert(
-"Please answer all questions."
-);
+document.getElementById(
+"quizResult"
+).innerText=
+"❌ Please answer all questions.";
+
+document.getElementById(
+"quizResult"
+).className="error";
 
 return;
 
@@ -1594,168 +1446,334 @@ return;
 
 let score=0;
 
+
 if(q1.value==="a")
 score++;
 
+
 if(q2.value==="b")
 score++;
+
 
 if(q3.value==="a")
 score++;
 
 
-let percent=
+let percent =
 Math.round(
 (score/3)*100
 );
 
 
-localStorage.setItem(
-"lastQuizScore",
-percent
-);
-
-
-document.getElementById(
-"quizResult"
-).style.display="block";
-
-
-document.getElementById(
-"scoreTitle"
-).innerText=
-"🎯 Your Score: "+
-percent+"%";
-
-
-if(percent>=50){
-
-document.getElementById(
-"scoreMessage"
-).innerText=
-"🎉 Congratulations! You passed.";
-
-let completed=
-Number(
+let user =
+JSON.parse(
 localStorage.getItem(
-"completedUnits"
-)||0
+"reh_current_user"
+)||"null"
 );
 
-completed++;
 
-if(completed>10)
-completed=10;
-
-localStorage.setItem(
-"completedUnits",
-completed
-);
-
-}else{
-
-document.getElementById(
-"scoreMessage"
-).innerText=
-"💪 Keep practicing. Try again!";
-
-}
-
-
-updateProgress();
-
-updateAdmin();
-
-}
-
-
-function retryQuiz(){
-
-document.querySelectorAll(
-'input[type="radio"]'
-).forEach(
-function(input){
-
-input.checked=false;
-
-});
-
-document.getElementById(
-"quizResult"
-).style.display="none";
-
-}
-
-
-/* ==========================
-PREMIUM
-========================== */
-
-function unlockPremium(){
+if(!user){
 
 alert(
-"⭐ Premium payment will be connected "+
-"after we build the secure backend."
-);
-
-}
-
-
-/* ==========================
-AI
-========================== */
-
-function askAI(){
-
-let question=
-document.getElementById(
-"question"
-).value.trim();
-
-if(!question){
-
-alert(
-"Write your question first."
+"Please login first to save your score."
 );
 
 return;
 
 }
 
+
+/* Save score */
+
+let scores =
+JSON.parse(
+localStorage.getItem(
+"reh_scores"
+)||"[]"
+);
+
+
+scores.push({
+
+userId:user.id,
+
+score:percent,
+
+date:new Date().toISOString()
+
+});
+
+
+localStorage.setItem(
+"reh_scores",
+JSON.stringify(scores)
+);
+
+
 document.getElementById(
-"aiAnswer"
+"quizResult"
 ).innerText=
-"🤖 AI Teacher received your question. "+
-"The real AI API will be connected in a later stage.";
+"🎯 Your Score: "+
+percent+"% — saved successfully!";
+
+
+document.getElementById(
+"quizResult"
+).className="success";
+
+
+loadDashboard();
 
 }
 
 
-/* ==========================
-SEARCH
-========================== */
+/* ==========================================
+   DASHBOARD
+========================================== */
 
-function searchContent(){
+function loadDashboard(){
 
-let query=
+let user =
+JSON.parse(
+localStorage.getItem(
+"reh_current_user"
+)||"null"
+);
+
+
+if(!user){
+
+document.getElementById(
+"dashName"
+).innerText=
+"Not logged in";
+
+document.getElementById(
+"dashScore"
+).innerText="0%";
+
+document.getElementById(
+"dashTests"
+).innerText="0";
+
+document.getElementById(
+"progressBar"
+).style.width="0%";
+
+document.getElementById(
+"progressText"
+).innerText="0%";
+
+return;
+
+}
+
+
+document.getElementById(
+"dashName"
+).innerText=
+user.name;
+
+
+let scores =
+JSON.parse(
+localStorage.getItem(
+"reh_scores"
+)||"[]"
+);
+
+
+let myScores =
+scores.filter(
+function(item){
+
+return item.userId===user.id;
+
+});
+
+
+if(!myScores.length){
+
+document.getElementById(
+"dashScore"
+).innerText="0%";
+
+document.getElementById(
+"dashTests"
+).innerText="0";
+
+return;
+
+}
+
+
+let total=0;
+
+myScores.forEach(
+function(item){
+
+total += Number(item.score);
+
+});
+
+
+let average =
+Math.round(
+total/myScores.length
+);
+
+
+document.getElementById(
+"dashScore"
+).innerText=
+average+"%";
+
+
+document.getElementById(
+"dashTests"
+).innerText=
+myScores.length;
+
+
+document.getElementById(
+"progressBar"
+).style.width=
+average+"%";
+
+
+document.getElementById(
+"progressText"
+).innerText=
+average+"%";
+
+}
+
+
+/* ==========================================
+   AI TEACHER
+========================================== */
+
+function askAI(){
+
+let question =
+document.getElementById(
+"aiQuestion"
+).value.trim();
+
+
+let answer =
+document.getElementById(
+"aiAnswer"
+);
+
+
+if(!question){
+
+answer.innerText=
+"Please write a question.";
+
+return;
+
+}
+
+
+let q =
+question.toLowerCase();
+
+
+if(
+q.includes("set") &&
+q.includes("math")
+){
+
+answer.innerText=
+"🤖 A set is a well-defined collection "+
+"of distinct objects. Example: A = {1,2,3}.";
+
+return;
+
+}
+
+
+if(
+q.includes("percentage")
+){
+
+answer.innerText=
+"🤖 Percentage means a number expressed "+
+"out of 100. For example, 25% means 25 out of 100.";
+
+return;
+
+}
+
+
+if(
+q.includes("science") ||
+q.includes("matter")
+){
+
+answer.innerText=
+"🤖 Matter is anything that has mass "+
+"and occupies space. The common states "+
+"are solid, liquid and gas.";
+
+return;
+
+}
+
+
+answer.innerText=
+"🤖 I received your question. "+
+"The full AI Teacher will be connected "+
+"to an AI API in the next development stage.";
+
+}
+
+
+/* ==========================================
+   PREMIUM
+========================================== */
+
+function premiumMessage(){
+
+alert(
+"⭐ Premium payment will be connected "+
+"after the secure payment system is added."
+);
+
+}
+
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+function searchUnits(){
+
+let query =
 document.getElementById(
 "searchInput"
 ).value
 .toLowerCase()
 .trim();
 
-let results=
+
+let result =
 document.getElementById(
 "searchResults"
 );
 
+
 if(!query){
 
-results.innerHTML="";
+result.innerHTML="";
 
 return;
 
 }
+
 
 let found=[];
 
@@ -1794,60 +1812,29 @@ topic
 });
 
 
-let customUnits=
-JSON.parse(
-localStorage.getItem(
-"customUnits"
-)||"[]"
-);
-
-customUnits.forEach(
-function(item){
-
-if(
-item.unit
-.toLowerCase()
-.includes(query)
-){
-
-found.push(
-item.className+
-" • "+
-item.subject+
-" • "+
-item.unit
-);
-
-}
-
-});
-
-
 if(!found.length){
 
-results.innerHTML=`
-
-<div class="result">
-❌ No unit found.
-</div>
-
-`;
+result.innerHTML=
+"<p>❌ Unit not found.</p>";
 
 return;
 
 }
 
 
-results.innerHTML=
+result.innerHTML=
 found.map(
 function(item){
 
 return`
-
-<div class="result">
+<div style="
+background:white;
+color:#172033;
+padding:10px;
+margin:5px;
+border-radius:8px">
 📚 ${item}
 </div>
-
 `;
 
 }).join("");
@@ -1855,453 +1842,19 @@ return`
 }
 
 
-/* ==========================
-ADMIN LOGIN
-========================== */
-
-function adminLogin(){
-
-let password=
-document.getElementById(
-"adminPassword"
-).value;
-
-
-/*
-Temporary prototype password.
-
-DO NOT use this for production.
-*/
-
-if(password==="admin123"){
-
-sessionStorage.setItem(
-"adminLoggedIn",
-"true"
-);
-
-document.getElementById(
-"adminLogin"
-).style.display="none";
-
-document.getElementById(
-"adminPanel"
-).style.display="block";
-
-refreshAdmin();
-
-}else{
-
-alert(
-"❌ Wrong password."
-);
-
-}
-
-}
-
-
-/* ==========================
-ADMIN LOGOUT
-========================== */
-
-function adminLogout(){
-
-sessionStorage.removeItem(
-"adminLoggedIn"
-);
-
-document.getElementById(
-"adminLogin"
-).style.display="block";
-
-document.getElementById(
-"adminPanel"
-).style.display="none";
-
-document.getElementById(
-"adminPassword"
-).value="";
-
-}
-
-
-/* ==========================
-CHECK ADMIN
-========================== */
-
-function refreshAdmin(){
-
-let logged=
-sessionStorage.getItem(
-"adminLoggedIn"
-);
-
-
-if(logged==="true"){
-
-document.getElementById(
-"adminLogin"
-).style.display="none";
-
-document.getElementById(
-"adminPanel"
-).style.display="block";
-
-loadAdminUnits();
-
-updateAdmin();
-
-}else{
-
-document.getElementById(
-"adminLogin"
-).style.display="block";
-
-document.getElementById(
-"adminPanel"
-).style.display="none";
-
-}
-
-}
-
-
-/* ==========================
-ADD UNIT
-========================== */
-
-function addUnit(){
-
-let className=
-document.getElementById(
-"adminClass"
-).value;
-
-let subject=
-document.getElementById(
-"adminSubject"
-).value;
-
-let unit=
-document.getElementById(
-"adminUnit"
-).value.trim();
-
-let note=
-document.getElementById(
-"adminNote"
-).value.trim();
-
-
-if(!unit){
-
-alert(
-"Enter a unit name."
-);
-
-return;
-
-}
-
-
-let customUnits=
-JSON.parse(
-localStorage.getItem(
-"customUnits"
-)||"[]"
-);
-
-
-customUnits.push({
-
-id:Date.now(),
-
-className:className,
-
-subject:subject,
-
-unit:unit,
-
-note:note
-
-});
-
-
-localStorage.setItem(
-"customUnits",
-JSON.stringify(customUnits)
-);
-
-
-document.getElementById(
-"adminUnit"
-).value="";
-
-document.getElementById(
-"adminNote"
-).value="";
-
-
-loadAdminUnits();
-
-alert(
-"✅ Unit added successfully!"
-);
-
-}
-
-
-/* ==========================
-LOAD ADMIN UNITS
-========================== */
-
-function loadAdminUnits(){
-
-let customUnits=
-JSON.parse(
-localStorage.getItem(
-"customUnits"
-)||"[]"
-);
-
-
-let container=
-document.getElementById(
-"customUnits"
-);
-
-if(!customUnits.length){
-
-container.innerHTML=
-"<p>No custom units yet.</p>";
-
-}else{
-
-container.innerHTML="";
-
-
-customUnits.forEach(
-function(item){
-
-let div=
-document.createElement("div");
-
-div.className="topic";
-
-
-div.innerHTML=`
-
-<h3>
-${item.unit}
-</h3>
-
-<p>
-${item.className} •
-${item.subject}
-</p>
-
-<button
-onclick="editUnit(${item.id})">
-
-✏️ Edit
-
-</button>
-
-<button
-class="danger"
-onclick="deleteUnit(${item.id})"
-style="margin-left:5px">
-
-🗑️ Delete
-
-</button>
-
-`;
-
-
-container.appendChild(div);
-
-});
-
-}
-
-
-document.getElementById(
-"adminUnits"
-).innerText=
-customUnits.length;
-
-}
-
-
-/* ==========================
-EDIT UNIT
-========================== */
-
-function editUnit(id){
-
-let customUnits=
-JSON.parse(
-localStorage.getItem(
-"customUnits"
-)||"[]"
-);
-
-
-let item=
-customUnits.find(
-function(x){
-return x.id===id;
-});
-
-
-if(!item)
-return;
-
-
-let newName=
-prompt(
-"Unit name:",
-item.unit
-);
-
-if(newName===null)
-return;
-
-
-let newNote=
-prompt(
-"Notes:",
-item.note
-);
-
-
-item.unit=
-newName.trim() || item.unit;
-
-if(newNote!==null)
-item.note=newNote;
-
-
-localStorage.setItem(
-"customUnits",
-JSON.stringify(customUnits)
-);
-
-
-loadAdminUnits();
-
-alert(
-"✅ Unit updated."
-);
-
-}
-
-
-/* ==========================
-DELETE UNIT
-========================== */
-
-function deleteUnit(id){
-
-if(
-!confirm(
-"Delete this unit?"
-)
-)
-return;
-
-
-let customUnits=
-JSON.parse(
-localStorage.getItem(
-"customUnits"
-)||"[]"
-);
-
-
-customUnits=
-customUnits.filter(
-function(item){
-
-return item.id!==id;
-
-});
-
-
-localStorage.setItem(
-"customUnits",
-JSON.stringify(customUnits)
-);
-
-
-loadAdminUnits();
-
-alert(
-"🗑️ Unit deleted."
-);
-
-}
-
-
-/* ==========================
-ADMIN STATS
-========================== */
-
-function updateAdmin(){
-
-let customUnits=
-JSON.parse(
-localStorage.getItem(
-"customUnits"
-)||"[]"
-);
-
-document.getElementById(
-"adminUnits"
-).innerText=
-customUnits.length;
-
-
-let name=
-localStorage.getItem(
-"studentName"
-)||"No student";
-
-document.getElementById(
-"adminStudent"
-).innerText=
-name;
-
-
-let score=
-localStorage.getItem(
-"lastQuizScore"
-)||0;
-
-document.getElementById(
-"adminScore"
-).innerText=
-score+"%";
-
-}
-
+/* ==========================================
+   START
+========================================== */
 
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
-loadProfile();
+checkLogin();
 
-updateProgress();
-
-updateAdmin();
-
-refreshAdmin();
+loadDashboard();
 
 });
-
 
 </script>
 
