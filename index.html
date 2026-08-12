@@ -1,455 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rwanda Education Hub</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-}
-
-body{
-  background:#f4f7fb;
-  color:#172033;
-}
-
-header{
-  background:#075e54;
-  color:white;
-  padding:20px;
-  text-align:center;
-}
-
-nav{
-  background:white;
-  padding:12px;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  box-shadow:0 2px 8px #0001;
-}
-
-nav button,
-button{
-  border:0;
-  padding:10px 16px;
-  border-radius:8px;
-  background:#075e54;
-  color:white;
-  cursor:pointer;
-}
-
-.hero{
-  background:linear-gradient(135deg,#075e54,#128c7e);
-  color:white;
-  padding:35px 15px;
-  text-align:center;
-}
-
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 15px;
-}
-
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
-}
-
-.card{
-  background:white;
-  padding:22px;
-  border-radius:15px;
-  box-shadow:0 3px 12px #0001;
-}
-
-.card h3{
-  margin:10px 0;
-}
-
-.card p{
-  color:#667085;
-  margin-bottom:15px;
-}
-
-.class-card{
-  text-align:center;
-  cursor:pointer;
-}
-
-.class-card:hover{
-  transform:translateY(-3px);
-}
-
-.subjects{
-  display:none;
-  margin-top:30px;
-}
-
-.subject-buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:15px 0;
-}
-
-.subject-buttons button{
-  background:#128c7e;
-}
-
-.topic{
-  background:white;
-  padding:18px;
-  margin:12px 0;
-  border-radius:12px;
-  box-shadow:0 2px 8px #0001;
-}
-
-.topic button{
-  margin-top:10px;
-}
-
-.note{
-  display:none;
-  background:white;
-  padding:22px;
-  margin-top:20px;
-  border-radius:15px;
-  box-shadow:0 3px 12px #0001;
-  line-height:1.7;
-}
-
-.whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#25d366;
-  color:white;
-  padding:14px 18px;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-footer{
-  margin-top:40px;
-  background:#172033;
-  color:white;
-  text-align:center;
-  padding:25px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <h1>📚 Rwanda Education Hub</h1>
-  <p>Learn • Practice • Succeed</p>
-</header>
-
-<nav>
-  <button onclick="goHome()">🏠 Home</button>
-  <button onclick="showDashboard()">📊 Dashboard</button>
-  <button onclick="showAllNotes()">📖 Notes</button>
-  <button onclick="alert('Exercises will be added in Part 3')">
-    📝 Exercises
-  </button>
-  <button onclick="alert('AI Teacher will be added later')">
-    🤖 AI Teacher
-  </button>
-</nav>
-
-<section class="hero">
-  <h2>Student Dashboard 🎓</h2>
-  <p>Select your class to start learning.</p>
-</section>
-
-<div class="container">
-
-  <h2>Choose Your Class</h2>
-  <br>
-
-  <div class="dashboard">
-
-    <div class="card class-card"
-         onclick="openClass('Senior 1')">
-      <div style="font-size:45px">1️⃣</div>
-      <h3>Senior 1</h3>
-      <p>Mathematics & Science</p>
-      <button>Open Class</button>
-    </div>
-
-    <div class="card class-card"
-         onclick="openClass('Senior 2')">
-      <div style="font-size:45px">2️⃣</div>
-      <h3>Senior 2</h3>
-      <p>Mathematics & Science</p>
-      <button>Open Class</button>
-    </div>
-
-    <div class="card class-card"
-         onclick="openClass('Senior 3')">
-      <div style="font-size:45px">3️⃣</div>
-      <h3>Senior 3</h3>
-      <p>Mathematics & Science</p>
-      <button>Open Class</button>
-    </div>
-
-  </div>
-
-
-  <div id="subjects" class="subjects">
-
-    <h2 id="selectedClass"></h2>
-
-    <div class="subject-buttons">
-
-      <button onclick="showSubject('Mathematics')">
-        📐 Mathematics
-      </button>
-
-      <button onclick="showSubject('Science')">
-        🔬 Science
-      </button>
-
-    </div>
-
-    <div id="topics"></div>
-
-  </div>
-
-
-  <div id="note" class="note">
-
-    <h2 id="noteTitle"></h2>
-
-    <p id="noteContent"></p>
-
-    <br>
-
-    <button onclick="closeNote()">
-      ← Back to Topics
-    </button>
-
-  </div>
-
-</div>
-
-
-<a class="whatsapp"
-   href="https://wa.me/250738939769"
-   target="_blank">
-   💬 WhatsApp
-</a>
-
-
-<footer>
-  <h3>Rwanda Education Hub 🇷🇼</h3>
-  <p>Education for every student</p>
-  <p>© 2026 Rwanda Education Hub</p>
-</footer>
-
-
-<script>
-
-let currentClass = "";
-
-
-function openClass(className){
-
-  currentClass = className;
-
-  document.getElementById("selectedClass").innerText =
-    "📚 " + className;
-
-  document.getElementById("subjects").style.display =
-    "block";
-
-  document.getElementById("topics").innerHTML =
-    "<p>Choose Mathematics or Science.</p>";
-
-  document.getElementById("subjects").scrollIntoView({
-    behavior:"smooth"
-  });
-}
-
-
 function showSubject(subject){
 
   let topics = [];
 
   if(subject === "Mathematics"){
 
-    topics = [
-      "Numbers",
-      "Algebra",
-      "Geometry",
-      "Statistics",
-      "Measurement"
-    ];
+    if(currentClass === "Senior 1"){
+      topics = [
+        "Sets of Numbers",
+        "Linear Functions, Equations and Inequalities",
+        "Percentage, Discount, Profit and Loss",
+        "Ratio and Proportions",
+        "Points, Lines and Angles",
+        "Solids",
+        "Statistics",
+        "Probability"
+      ];
+    }
 
+    else if(currentClass === "Senior 2"){
+      topics = [
+        "Numbers",
+        "Algebra",
+        "Functions",
+        "Geometry",
+        "Statistics",
+        "Probability"
+      ];
+    }
+
+    else if(currentClass === "Senior 3"){
+      topics = [
+        "Algebra",
+        "Functions",
+        "Geometry",
+        "Enlargement and Similarity",
+        "Statistics",
+        "Probability"
+      ];
+    }
   }
 
-  if(subject === "Science"){
+  else if(subject === "Science"){
 
     topics = [
-      "Living Things",
       "Matter",
       "Energy",
-      "Environment",
-      "Human Body"
+      "Living Things",
+      "Environment"
     ];
-
   }
 
-
   let html =
-    "<h3>📖 " +
-    currentClass +
-    " - " +
-    subject +
-    "</h3>";
-
+    "<h3>📚 " + currentClass +
+    " - " + subject + "</h3>";
 
   topics.forEach(function(topic,index){
 
     html += `
       <div class="topic">
 
-        <h3>${index + 1}. ${topic}</h3>
+        <h3>Unit ${index + 1}: ${topic}</h3>
 
         <p>
-          Learn the main concepts of
-          ${topic}.
+          REB curriculum learning material
         </p>
 
-        <button
-          onclick="openNote('${subject}','${topic}')">
-          📖 Read Note
+        <button onclick="openNote('${subject}','${topic}')">
+          📖 Open Unit
         </button>
 
       </div>
     `;
-
   });
 
-
-  document.getElementById("topics").innerHTML =
-    html;
-
+  document.getElementById("topics").innerHTML = html;
 }
-
-
-function openNote(subject,topic){
-
-  document.getElementById("subjects").style.display =
-    "none";
-
-  document.getElementById("note").style.display =
-    "block";
-
-  document.getElementById("noteTitle").innerText =
-    currentClass +
-    " - " +
-    subject +
-    " - " +
-    topic;
-
-
-  let content = "";
-
-  if(topic === "Numbers"){
-
-    content = `
-      <strong>Introduction to Numbers</strong><br><br>
-
-      Numbers are used to count, measure and
-      describe quantities.
-
-      <br><br>
-
-      Examples:<br>
-      1, 2, 3, 4, 5 are natural numbers.
-
-      <br><br>
-
-      <strong>Exercise:</strong><br>
-      Write five natural numbers.
-    `;
-
-  }else{
-
-    content = `
-      <strong>Introduction to ${topic}</strong><br><br>
-
-      This lesson will contain the complete
-      ${topic} notes for ${currentClass}.
-
-      <br><br>
-
-      We will add detailed explanations,
-      examples and exercises to this topic.
-    `;
-
-  }
-
-
-  document.getElementById("noteContent").innerHTML =
-    content;
-
-}
-
-
-function closeNote(){
-
-  document.getElementById("note").style.display =
-    "none";
-
-  document.getElementById("subjects").style.display =
-    "block";
-
-}
-
-
-function showDashboard(){
-
-  window.scrollTo({
-    top:document.body.scrollHeight / 4,
-    behavior:"smooth"
-  });
-
-}
-
-
-function showAllNotes(){
-
-  alert(
-    "Choose Senior 1, Senior 2 or Senior 3, then choose a subject."
-  );
-
-}
-
-
-function goHome(){
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-</script>
-
-</body>
-</html>
