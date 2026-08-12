@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rwanda Education Hub</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #172033;
+    }
+
+    header {
+      background: #075e54;
+      color: white;
+      padding: 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 25px;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 14px;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px;
+      box-shadow: 0 2px 8px #0001;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      border: none;
+      background: #075e54;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    .hero {
+      padding: 35px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #075e54, #128c7e);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      margin-bottom: 20px;
+    }
+
+    .search {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px 0 0 10px;
+      outline: none;
+    }
+
+    .search button {
+      padding: 14px 18px;
+      border: none;
+      background: #ffca28;
+      cursor: pointer;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 25px 15px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 15px;
+      box-shadow: 0 3px 12px #0001;
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 10px 0;
+    }
+
+    .card p {
+      color: #667085;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      border: none;
+      background: #075e54;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .premium {
+      background: #fff8df;
+      border: 2px solid #ffca28;
+    }
+
+    .premium button {
+      background: #e09b00;
+    }
+
+    .ai {
+      background: #e8f5e9;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 15px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px #0003;
+    }
+
+    footer {
+      margin-top: 30px;
+      background: #172033;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 Rwanda Education Hub</h1>
+  <p>Learn • Practice • Succeed</p>
+</header>
+
+<nav>
+  <button onclick="showSection('home')">Home</button>
+  <button onclick="showSection('notes')">Notes</button>
+  <button onclick="showSection('exercises')">Exercises</button>
+  <button onclick="showSection('ai')">AI Teacher</button>
+  <button onclick="showSection('premium')">Premium</button>
+</nav>
+
+<section class="hero" id="home">
+  <h2>Learn Better, Succeed Faster 🎓</h2>
+  <p>Mathematics and Science resources for Senior 1, Senior 2 and Senior 3.</p>
+
+  <div class="search">
+    <input id="searchInput" type="text"
+           placeholder="Search Mathematics, Science, Notes...">
+    <button onclick="search()">🔎</button>
+  </div>
+</section>
+
+<div class="container">
+
+  <h2 class="section-title">Choose Your Class</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div style="font-size:40px;">1️⃣</div>
+      <h3>Senior 1</h3>
+      <p>Mathematics and Science notes and exercises.</p>
+      <button onclick="openClass('Senior 1')">Open</button>
+    </div>
+
+    <div class="card">
+      <div style="font-size:40px;">2️⃣</div>
+      <h3>Senior 2</h3>
+      <p>Mathematics and Science learning materials.</p>
+      <button onclick="openClass('Senior 2')">Open</button>
+    </div>
+
+    <div class="card">
+      <div style="font-size:40px;">3️⃣</div>
+      <h3>Senior 3</h3>
+      <p>Revision materials, exercises and preparation.</p>
+      <button onclick="openClass('Senior 3')">Open</button>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <h2 class="section-title">Our Services</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <div style="font-size:40px;">📖</div>
+      <h3>Notes</h3>
+      <p>Read lessons online anytime.</p>
+      <button onclick="showSection('notes')">View Notes</button>
+    </div>
+
+    <div class="card">
+      <div style="font-size:40px;">📝</div>
+      <h3>Exercises</h3>
+      <p>Practice questions and answers.</p>
+      <button onclick="showSection('exercises')">Practice</button>
+    </div>
+
+    <div class="card ai">
+      <div style="font-size:40px;">🤖</div>
+      <h3>AI Teacher</h3>
+      <p>Ask questions and get help with your studies.</p>
+      <button onclick="showSection('ai')">Ask AI</button>
+    </div>
+
+    <div class="card premium">
+      <div style="font-size:40px;">⭐</div>
+      <h3>Premium</h3>
+      <p>Special revision packages and premium exercises.</p>
+      <button onclick="showSection('premium')">View Premium</button>
+    </div>
+
+  </div>
+
+  <div id="notes" style="display:none; margin-top:30px;">
+    <h2>📖 Notes</h2>
+    <p>Senior 1 • Senior 2 • Senior 3</p>
+    <br>
+    <button onclick="alert('Notes will be added here.')">
+      Open Mathematics
+    </button>
+    <button onclick="alert('Notes will be added here.')">
+      Open Science
+    </button>
+  </div>
+
+  <div id="exercises" style="display:none; margin-top:30px;">
+    <h2>📝 Exercises</h2>
+    <p>Practice Mathematics and Science questions.</p>
+    <br>
+    <button onclick="alert('Exercises will be added here.')">
+      Start Exercise
+    </button>
+  </div>
+
+  <div id="ai" style="display:none; margin-top:30px;">
+    <h2>🤖 AI Teacher</h2>
+    <p>AI Teacher will be connected in the next step.</p>
+    <br>
+    <input id="question"
+           placeholder="Ask a question..."
+           style="width:70%; padding:12px;">
+    <button onclick="askAI()">Ask</button>
+    <p id="answer" style="margin-top:15px;"></p>
+  </div>
+
+  <div id="premium" style="display:none; margin-top:30px;">
+    <h2>⭐ Premium Education</h2>
+    <p>
+      Premium content will help us create a system where
+      students can pay for special learning materials.
+    </p>
+    <br>
+
+    <div class="card premium">
+      <h3>Premium Revision Package</h3>
+      <p>Notes + exercises + answers + revision materials.</p>
+      <button onclick="buyPremium()">Get Premium</button>
+    </div>
+  </div>
+
+</div>
+
+<a class="whatsapp"
+   href="https://wa.me/250738939769"
+   target="_blank">
+  💬 WhatsApp
+</a>
+
+<footer>
+  <h3>Rwanda Education Hub</h3>
+  <p>Education for every student 🇷🇼</p>
+  <p>© 2026 Rwanda Education Hub</p>
+</footer>
+
+<script>
+
+function showSection(section) {
+
+  document.getElementById("notes").style.display = "none";
+  document.getElementById("exercises").style.display = "none";
+  document.getElementById("ai").style.display = "none";
+  document.getElementById("premium").style.display = "none";
+
+  if(section !== "home") {
+    document.getElementById(section).style.display = "block";
+    window.scrollTo({
+      top: document.getElementById(section).offsetTop,
+      behavior: "smooth"
+    });
+  }
+}
+
+function openClass(className) {
+  alert(className + " resources will open here.");
+}
+
+function search() {
+
+  let text = document.getElementById("searchInput").value;
+
+  if(text.trim() === "") {
+    alert("Please enter something to search.");
+  } else {
+    alert("Searching for: " + text);
+  }
+}
+
+function askAI() {
+
+  let question = document.getElementById("question").value;
+
+  if(question.trim() === "") {
+    alert("Write your question first.");
+    return;
+  }
+
+  document.getElementById("answer").innerHTML =
+    "🤖 AI Teacher: Your AI Teacher will answer this question after we connect the AI system.";
+}
+
+function buyPremium() {
+
+  alert(
+    "Premium payment system will be connected next. " +
+    "We can add Mobile Money payment for Rwanda."
+  );
+
+}
+
+</script>
+
+</body>
+</html>
