@@ -3,301 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Rwanda Education Hub</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+}
 
 body{
-  background:#f4f7fb;
-  color:#172033;
+background:#f4f7fb;
+color:#172033;
 }
 
 header{
-  background:#075e54;
-  color:white;
-  text-align:center;
-  padding:22px 15px;
+background:#075e54;
+color:white;
+text-align:center;
+padding:22px 15px;
 }
 
-header h1{margin-bottom:7px}
-
 nav{
-  background:white;
-  padding:12px;
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  box-shadow:0 2px 8px #0001;
+background:white;
+padding:12px;
+display:flex;
+justify-content:center;
+gap:8px;
+flex-wrap:wrap;
+box-shadow:0 2px 8px #0001;
 }
 
 button{
-  border:0;
-  padding:10px 16px;
-  border-radius:8px;
-  background:#075e54;
-  color:white;
-  cursor:pointer;
+border:0;
+padding:10px 16px;
+border-radius:8px;
+background:#075e54;
+color:white;
+cursor:pointer;
 }
 
-button:hover{opacity:.9}
+button:hover{
+opacity:.9;
+}
 
 .hero{
-  background:linear-gradient(135deg,#075e54,#128c7e);
-  color:white;
-  text-align:center;
-  padding:40px 15px;
+background:linear-gradient(135deg,#075e54,#128c7e);
+color:white;
+text-align:center;
+padding:40px 15px;
 }
 
 .hero h2{
-  font-size:29px;
-  margin-bottom:10px;
+font-size:29px;
+margin-bottom:10px;
 }
 
 .search{
-  max-width:650px;
-  margin:20px auto 0;
-  display:flex;
+max-width:650px;
+margin:20px auto 0;
+display:flex;
 }
 
 .search input{
-  flex:1;
-  padding:14px;
-  border:0;
-  outline:0;
-  border-radius:10px 0 0 10px;
+flex:1;
+padding:14px;
+border:0;
+outline:0;
+border-radius:10px 0 0 10px;
 }
 
 .search button{
-  background:#ffca28;
-  color:#172033;
-  border-radius:0 10px 10px 0;
+background:#ffca28;
+color:#172033;
+border-radius:0 10px 10px 0;
 }
 
 .container{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 15px;
+max-width:1100px;
+margin:auto;
+padding:25px 15px;
 }
 
 .dashboard{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:18px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+gap:18px;
 }
 
 .card{
-  background:white;
-  padding:22px;
-  border-radius:15px;
-  box-shadow:0 3px 12px #0001;
+background:white;
+padding:22px;
+border-radius:15px;
+box-shadow:0 3px 12px #0001;
 }
 
-.card h3{margin:10px 0}
+.card h3{
+margin:10px 0;
+}
 
 .card p{
-  color:#667085;
-  margin-bottom:15px;
+color:#667085;
+margin-bottom:15px;
 }
 
 .class-card{
-  text-align:center;
-  cursor:pointer;
+text-align:center;
+cursor:pointer;
 }
 
 .class-card:hover{
-  transform:translateY(-3px);
+transform:translateY(-3px);
 }
 
 .subjects{
-  display:none;
-  margin-top:35px;
+display:none;
+margin-top:35px;
 }
 
 .subject-buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:15px 0;
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin:15px 0;
 }
 
 .subject-buttons button{
-  background:#128c7e;
+background:#128c7e;
 }
 
 .topic{
-  background:white;
-  padding:18px;
-  margin:12px 0;
-  border-radius:12px;
-  box-shadow:0 2px 8px #0001;
-}
-
-.topic p{
-  color:#667085;
-  margin:8px 0;
+background:white;
+padding:18px;
+margin:12px 0;
+border-radius:12px;
+box-shadow:0 2px 8px #0001;
 }
 
 .note{
-  display:none;
-  background:white;
-  padding:25px;
-  margin-top:25px;
-  border-radius:15px;
-  box-shadow:0 3px 12px #0001;
-  line-height:1.7;
+display:none;
+background:white;
+padding:25px;
+margin-top:25px;
+border-radius:15px;
+box-shadow:0 3px 12px #0001;
+line-height:1.7;
 }
-
-.note h2,.note h3{margin-bottom:12px}
 
 .answer{
-  display:none;
-  background:#e8f5e9;
-  padding:15px;
-  border-radius:10px;
-  margin-top:15px;
-}
-
-.premium-box{
-  background:#fff8df;
-  border:2px solid #ffca28;
-  padding:20px;
-  border-radius:15px;
-  margin-top:25px;
-}
-
-.locked{
-  background:#f2f4f7;
-  padding:20px;
-  border-radius:12px;
-  text-align:center;
-  margin-top:15px;
-}
-
-.premium-btn{background:#e09b00}
-
-.badge{
-  display:inline-block;
-  background:#ffca28;
-  color:#172033;
-  padding:5px 10px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
+display:none;
+background:#e8f5e9;
+padding:15px;
+border-radius:10px;
+margin-top:15px;
 }
 
 .progress-box{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 3px 12px #0001;
-  margin-top:25px;
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 12px #0001;
+margin-top:25px;
 }
 
 .progress{
-  height:15px;
-  background:#ddd;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:10px;
+height:15px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
 }
 
 .progress-bar{
-  height:100%;
-  width:0%;
-  background:#075e54;
-  transition:.4s;
+height:100%;
+width:0%;
+background:#075e54;
+transition:.4s;
 }
 
 .profile-input{
-  width:100%;
-  padding:12px;
-  margin-top:8px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  outline:none;
-}
-
-.ai-box{
-  display:none;
-  background:#e8f5e9;
-  padding:20px;
-  border-radius:15px;
-  margin-top:25px;
-}
-
-.ai-box input{
-  width:70%;
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:8px;
-}
-
-#searchResults{margin-top:20px}
-
-.result{
-  background:white;
-  padding:15px;
-  margin:10px 0;
-  border-radius:10px;
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
 }
 
 .section{
-  display:none;
-  margin-top:30px;
+display:none;
+margin-top:30px;
+}
+
+.quiz-question{
+background:white;
+padding:20px;
+margin:15px 0;
+border-radius:12px;
+box-shadow:0 2px 8px #0001;
+}
+
+.option{
+display:block;
+margin:10px 0;
+padding:12px;
+background:#f4f7fb;
+border-radius:8px;
+cursor:pointer;
+}
+
+.option:hover{
+background:#e8f5e9;
+}
+
+.option input{
+margin-right:8px;
+}
+
+.quiz-result{
+display:none;
+padding:25px;
+margin-top:20px;
+border-radius:15px;
+background:#e8f5e9;
+text-align:center;
+}
+
+.premium-box{
+background:#fff8df;
+border:2px solid #ffca28;
+padding:20px;
+border-radius:15px;
+margin-top:25px;
+}
+
+.badge{
+display:inline-block;
+background:#ffca28;
+color:#172033;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.ai-box{
+display:none;
+background:#e8f5e9;
+padding:20px;
+border-radius:15px;
+margin-top:25px;
 }
 
 .whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#25d366;
-  color:white;
-  padding:14px 18px;
-  border-radius:40px;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 3px 10px #0003;
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25d366;
+color:white;
+padding:14px 18px;
+border-radius:40px;
+text-decoration:none;
+font-weight:bold;
 }
 
 footer{
-  margin-top:40px;
-  background:#172033;
-  color:white;
-  text-align:center;
-  padding:30px;
+margin-top:40px;
+background:#172033;
+color:white;
+text-align:center;
+padding:30px;
 }
 
 @media(max-width:600px){
-  .hero h2{font-size:24px}
-  .ai-box input{
-    width:100%;
-    margin-bottom:10px;
-  }
+
+.hero h2{
+font-size:24px;
 }
+
+.search{
+width:100%;
+}
+
+}
+
 </style>
 </head>
 
+
 <body>
 
+
 <header>
-<h1>📚 Rwanda Education Hub 🇷🇼</h1>
-<p>Learn • Practice • Revise • Succeed</p>
+
+<h1>
+📚 Rwanda Education Hub 🇷🇼
+</h1>
+
+<p>
+Learn • Practice • Revise • Succeed
+</p>
+
 </header>
 
+
 <nav>
-<button onclick="home()">🏠 Home</button>
-<button onclick="dashboard()">📊 Dashboard</button>
-<button onclick="showNotes()">📖 Notes</button>
-<button onclick="showExercises()">📝 Exercises</button>
-<button onclick="showAI()">🤖 AI Teacher</button>
-<button onclick="showPremium()">⭐ Premium</button>
+
+<button onclick="home()">
+🏠 Home
+</button>
+
+<button onclick="dashboard()">
+📊 Dashboard
+</button>
+
+<button onclick="showNotes()">
+📖 Notes
+</button>
+
+<button onclick="showExercises()">
+📝 Exercises
+</button>
+
+<button onclick="showAI()">
+🤖 AI Teacher
+</button>
+
+<button onclick="showPremium()">
+⭐ Premium
+</button>
+
 </nav>
 
-<section class="hero" id="homeSection">
 
-<h2>Learn Better, Succeed Faster 🎓</h2>
+<section class="hero">
+
+<h2>
+Learn Better, Succeed Faster 🎓
+</h2>
 
 <p>
 Mathematics and Science learning resources
@@ -305,12 +351,16 @@ for Senior 1, Senior 2 and Senior 3.
 </p>
 
 <div class="search">
+
 <input
 id="searchInput"
-type="text"
-placeholder="Search unit, subject or topic..."
+placeholder="Search unit or topic..."
 >
-<button onclick="searchContent()">🔎 Search</button>
+
+<button onclick="searchContent()">
+🔎 Search
+</button>
+
 </div>
 
 <div id="searchResults"></div>
@@ -320,17 +370,18 @@ placeholder="Search unit, subject or topic..."
 
 <div class="container">
 
-<!-- STUDENT PROFILE -->
 
-<section id="profileSection">
+<!-- PROFILE -->
+
+<section id="profile">
 
 <div class="card">
 
-<h2>👤 Student Profile</h2>
+<h2>
+👤 Student Profile
+</h2>
 
 <br>
-
-<label>Student Name</label>
 
 <input
 id="studentName"
@@ -341,12 +392,17 @@ placeholder="Enter your name"
 <button
 style="margin-top:10px"
 onclick="saveProfile()">
+
 💾 Save Profile
+
 </button>
 
-<p id="welcome"
+<p
+id="welcome"
 style="margin-top:12px">
+
 Welcome, Student!
+
 </p>
 
 </div>
@@ -356,25 +412,38 @@ Welcome, Student!
 
 <!-- DASHBOARD -->
 
-<section id="dashboardSection" style="margin-top:25px">
+<section id="dashboardSection">
 
-<h2>📊 Student Dashboard</h2>
+<br>
+
+<h2>
+📊 Student Dashboard
+</h2>
 
 <br>
 
 <div class="dashboard">
 
+
 <div
 class="card class-card"
 onclick="openClass('Senior 1')">
 
-<div style="font-size:45px">1️⃣</div>
+<div style="font-size:45px">
+1️⃣
+</div>
 
-<h3>Senior 1</h3>
+<h3>
+Senior 1
+</h3>
 
-<p>Mathematics & Science</p>
+<p>
+Mathematics & Science
+</p>
 
-<button>Open Class</button>
+<button>
+Open Class
+</button>
 
 </div>
 
@@ -383,13 +452,21 @@ onclick="openClass('Senior 1')">
 class="card class-card"
 onclick="openClass('Senior 2')">
 
-<div style="font-size:45px">2️⃣</div>
+<div style="font-size:45px">
+2️⃣
+</div>
 
-<h3>Senior 2</h3>
+<h3>
+Senior 2
+</h3>
 
-<p>Mathematics & Science</p>
+<p>
+Mathematics & Science
+</p>
 
-<button>Open Class</button>
+<button>
+Open Class
+</button>
 
 </div>
 
@@ -398,13 +475,21 @@ onclick="openClass('Senior 2')">
 class="card class-card"
 onclick="openClass('Senior 3')">
 
-<div style="font-size:45px">3️⃣</div>
+<div style="font-size:45px">
+3️⃣
+</div>
 
-<h3>Senior 3</h3>
+<h3>
+Senior 3
+</h3>
 
-<p>Mathematics & Science</p>
+<p>
+Mathematics & Science
+</p>
 
-<button>Open Class</button>
+<button>
+Open Class
+</button>
 
 </div>
 
@@ -413,10 +498,12 @@ onclick="openClass('Senior 3')">
 
 <div class="progress-box">
 
-<h3>📈 My Progress</h3>
+<h3>
+📈 Learning Progress
+</h3>
 
 <p>
-Completed Units:
+Completed:
 <strong id="completedCount">0</strong>
 </p>
 
@@ -430,8 +517,11 @@ class="progress-bar">
 </div>
 
 <p style="margin-top:10px">
-Progress:
-<strong id="progressText">0%</strong>
+
+<strong id="progressText">
+0%
+</strong>
+
 </p>
 
 </div>
@@ -442,7 +532,7 @@ Progress:
 <!-- SUBJECTS -->
 
 <section
-id="subjectsSection"
+id="subjects"
 class="subjects">
 
 <h2 id="selectedClass"></h2>
@@ -466,7 +556,9 @@ class="subjects">
 
 <!-- NOTE -->
 
-<section id="noteSection" class="note">
+<section
+id="note"
+class="note">
 
 <h2 id="noteTitle"></h2>
 
@@ -474,8 +566,8 @@ class="subjects">
 
 <br>
 
-<button onclick="backToTopics()">
-← Back to Units
+<button onclick="backTopics()">
+← Back
 </button>
 
 </section>
@@ -483,44 +575,189 @@ class="subjects">
 
 <!-- EXERCISES -->
 
-<section id="exerciseSection" class="section">
+<section
+id="exerciseSection"
+class="section">
 
-<h2>📝 Exercises</h2>
+<h2>
+📝 Exercises & Quiz
+</h2>
 
 <br>
 
 <div class="card">
 
-<h3>Free Practice</h3>
+<h3>
+Senior 1 Mathematics
+</h3>
 
 <p>
-Practice Mathematics and Science units.
+Unit: Sets of Numbers
 </p>
 
-<button onclick="openClass('Senior 1')">
-Start Learning
+<button
+onclick="startQuiz()">
+
+▶ Start Quiz
+
 </button>
 
 </div>
 
-<br>
+
+<div
+id="quiz"
+style="display:none;margin-top:20px">
+
+
+<div class="quiz-question">
+
+<h3>
+1. Which of the following is a set?
+</h3>
+
+<label class="option">
+<input
+type="radio"
+name="q1"
+value="a">
+A group of well-defined objects
+</label>
+
+<label class="option">
+<input
+type="radio"
+name="q1"
+value="b">
+A random collection
+</label>
+
+<label class="option">
+<input
+type="radio"
+name="q1"
+value="c">
+A single number
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+2. How many elements are in
+B = {2,4,6,8}?
+</h3>
+
+<label class="option">
+<input
+type="radio"
+name="q2"
+value="a">
+2
+</label>
+
+<label class="option">
+<input
+type="radio"
+name="q2"
+value="b">
+4
+</label>
+
+<label class="option">
+<input
+type="radio"
+name="q2"
+value="c">
+8
+</label>
+
+</div>
+
+
+<div class="quiz-question">
+
+<h3>
+3. Which number belongs to
+the natural numbers?
+</h3>
+
+<label class="option">
+<input
+type="radio"
+name="q3"
+value="a">
+3
+</label>
+
+<label class="option">
+<input
+type="radio"
+name="q3"
+value="b">
+-3
+</label>
+
+<label class="option">
+<input
+type="radio"
+name="q3"
+value="c">
+1/2
+</label>
+
+</div>
+
+
+<button onclick="submitQuiz()">
+✅ Submit Quiz
+</button>
+
+
+<div
+id="quizResult"
+class="quiz-result">
+
+<h2 id="scoreTitle"></h2>
+
+<p id="scoreMessage"></p>
+
+<button
+onclick="retryQuiz()"
+style="margin-top:15px">
+
+🔄 Try Again
+
+</button>
+
+</div>
+
+</div>
+
 
 <div class="premium-box">
 
-<span class="badge">⭐ PREMIUM</span>
+<span class="badge">
+⭐ PREMIUM
+</span>
 
 <h3 style="margin-top:10px">
-Advanced Revision Exercises
+Advanced Exercises
 </h3>
 
 <p>
-More practice questions and revision materials.
+Unlock more questions, revision tests
+and answer explanations.
 </p>
 
 <button
 class="premium-btn"
 onclick="unlockPremium()">
+
 🔐 Unlock Premium
+
 </button>
 
 </div>
@@ -530,38 +767,37 @@ onclick="unlockPremium()">
 
 <!-- PREMIUM -->
 
-<section id="premiumSection" class="section">
+<section
+id="premiumSection"
+class="section">
 
 <div class="premium-box">
 
-<span class="badge">⭐ PREMIUM</span>
+<span class="badge">
+⭐ PREMIUM
+</span>
 
 <h2 style="margin-top:10px">
 Premium Revision Package
 </h2>
 
 <p style="margin-top:10px">
-Get additional exercises, revision materials,
-answers and future premium learning resources.
+
+Advanced exercises,
+revision tests,
+answers and learning materials.
+
 </p>
 
 <br>
 
-<div class="locked">
-
-<h3>🔐 Premium Content</h3>
-
-<p>
-Premium access is not activated yet.
-</p>
-
 <button
 class="premium-btn"
 onclick="unlockPremium()">
-⭐ Unlock Premium
-</button>
 
-</div>
+⭐ Unlock Premium
+
+</button>
 
 </div>
 
@@ -570,16 +806,23 @@ onclick="unlockPremium()">
 
 <!-- AI -->
 
-<section id="aiSection" class="ai-box">
+<section
+id="aiSection"
+class="ai-box">
 
-<h2>🤖 AI Teacher</h2>
+<h2>
+🤖 AI Teacher
+</h2>
 
-<p>Ask a learning question.</p>
+<p>
+Ask a learning question.
+</p>
 
 <br>
 
 <input
 id="question"
+style="width:70%;padding:12px;border:1px solid #ddd;border-radius:8px"
 placeholder="Example: What is a set?"
 >
 
@@ -594,6 +837,7 @@ style="margin-top:15px">
 
 </section>
 
+
 </div>
 
 
@@ -601,30 +845,39 @@ style="margin-top:15px">
 class="whatsapp"
 href="https://wa.me/250738939769"
 target="_blank">
+
 💬 WhatsApp
+
 </a>
 
 
 <footer>
 
-<h3>Rwanda Education Hub 🇷🇼</h3>
+<h3>
+Rwanda Education Hub 🇷🇼
+</h3>
 
-<p>Education for every student.</p>
+<p>
+Education for every student 🇷🇼
+</p>
 
-<p>© 2026 Rwanda Education Hub</p>
+<p>
+© 2026 Rwanda Education Hub
+</p>
 
 </footer>
 
 
 <script>
 
-/* ==========================
-   DATA
-========================== */
 
-const units = {
+/* =========================
+DATA
+========================= */
 
-"Senior 1": {
+const units={
+
+"Senior 1":{
 
 "Mathematics":[
 "Sets of Numbers",
@@ -648,7 +901,7 @@ const units = {
 
 },
 
-"Senior 2": {
+"Senior 2":{
 
 "Mathematics":[
 "Numbers",
@@ -663,13 +916,12 @@ const units = {
 "Matter",
 "Energy",
 "Living Things",
-"Environment",
-"Scientific Investigation"
+"Environment"
 ]
 
 },
 
-"Senior 3": {
+"Senior 3":{
 
 "Mathematics":[
 "Algebra",
@@ -684,8 +936,7 @@ const units = {
 "Matter",
 "Energy",
 "Living Things",
-"Environment",
-"Scientific Investigation"
+"Environment"
 ]
 
 }
@@ -693,29 +944,26 @@ const units = {
 };
 
 
-/* ==========================
-   STATE
-========================== */
-
 let currentClass="";
 
-let completedUnits=
-Number(localStorage.getItem("completedUnits")||0);
 
-
-/* ==========================
-   PROFILE
-========================== */
+/* =========================
+PROFILE
+========================= */
 
 function saveProfile(){
 
 let name=
-document.getElementById("studentName")
-.value.trim();
+document.getElementById(
+"studentName"
+).value.trim();
 
 if(!name){
-alert("Please enter your name.");
+
+alert("Enter your name.");
+
 return;
+
 }
 
 localStorage.setItem(
@@ -723,26 +971,32 @@ localStorage.setItem(
 name
 );
 
-document.getElementById("welcome")
-.innerText=
+document.getElementById(
+"welcome"
+).innerText=
 "Welcome, "+name+"! 👋";
 
 alert("Profile saved!");
 
 }
 
+
 function loadProfile(){
 
 let name=
-localStorage.getItem("studentName");
+localStorage.getItem(
+"studentName"
+);
 
 if(name){
 
-document.getElementById("studentName")
-.value=name;
+document.getElementById(
+"studentName"
+).value=name;
 
-document.getElementById("welcome")
-.innerText=
+document.getElementById(
+"welcome"
+).innerText=
 "Welcome, "+name+"! 👋";
 
 }
@@ -750,23 +1004,29 @@ document.getElementById("welcome")
 }
 
 
-/* ==========================
-   PROGRESS
-========================== */
+/* =========================
+PROGRESS
+========================= */
 
 function updateProgress(){
 
-let total=10;
-
 let completed=
-Math.min(completedUnits,total);
+Number(
+localStorage.getItem(
+"completedUnits"
+)||0
+);
 
 let percent=
-Math.round((completed/total)*100);
+Math.min(
+completed*10,
+100
+);
 
 document.getElementById(
 "completedCount"
-).innerText=completed;
+).innerText=
+completed;
 
 document.getElementById(
 "progressText"
@@ -780,35 +1040,19 @@ percent+"%";
 
 }
 
-function markCompleted(){
 
-completedUnits++;
-
-if(completedUnits>10)
-completedUnits=10;
-
-localStorage.setItem(
-"completedUnits",
-completedUnits
-);
-
-updateProgress();
-
-}
-
-
-/* ==========================
-   NAVIGATION
-========================== */
+/* =========================
+NAVIGATION
+========================= */
 
 function hideSections(){
 
 document.getElementById(
-"subjectsSection"
+"subjects"
 ).style.display="none";
 
 document.getElementById(
-"noteSection"
+"note"
 ).style.display="none";
 
 document.getElementById(
@@ -830,9 +1074,8 @@ function home(){
 
 hideSections();
 
-document.getElementById(
-"homeSection"
-).scrollIntoView({
+window.scrollTo({
+top:0,
 behavior:"smooth"
 });
 
@@ -861,15 +1104,11 @@ function showNotes(){
 hideSections();
 
 document.getElementById(
-"dashboardSection"
+"subjects"
 ).style.display="block";
 
 document.getElementById(
-"subjectsSection"
-).style.display="block";
-
-document.getElementById(
-"subjectsSection"
+"subjects"
 ).scrollIntoView({
 behavior:"smooth"
 });
@@ -928,9 +1167,9 @@ behavior:"smooth"
 }
 
 
-/* ==========================
-   CLASS
-========================== */
+/* =========================
+CLASS
+========================= */
 
 function openClass(className){
 
@@ -939,11 +1178,7 @@ currentClass=className;
 hideSections();
 
 document.getElementById(
-"dashboardSection"
-).style.display="block";
-
-document.getElementById(
-"subjectsSection"
+"subjects"
 ).style.display="block";
 
 document.getElementById(
@@ -954,10 +1189,10 @@ document.getElementById(
 document.getElementById(
 "topics"
 ).innerHTML=
-"<p>Choose Mathematics or Science.</p>";
+"<p>Choose a subject.</p>";
 
 document.getElementById(
-"subjectsSection"
+"subjects"
 ).scrollIntoView({
 behavior:"smooth"
 });
@@ -965,15 +1200,18 @@ behavior:"smooth"
 }
 
 
-/* ==========================
-   SUBJECT
-========================== */
+/* =========================
+SUBJECT
+========================= */
 
 function showSubject(subject){
 
 if(!currentClass){
+
 alert("Choose a class first.");
+
 return;
+
 }
 
 let list=
@@ -986,7 +1224,8 @@ currentClass+
 subject+
 "</h3>";
 
-list.forEach(function(topic,index){
+list.forEach(
+function(topic,index){
 
 html+=`
 
@@ -997,12 +1236,14 @@ Unit ${index+1}: ${topic}
 </h3>
 
 <p>
-Learning unit
+Learning Unit
 </p>
 
 <button
 onclick="openNote('${subject}','${topic}')">
+
 📖 Open Unit
+
 </button>
 
 </div>
@@ -1018,18 +1259,18 @@ document.getElementById(
 }
 
 
-/* ==========================
-   NOTES
-========================== */
+/* =========================
+NOTE
+========================= */
 
 function openNote(subject,topic){
 
 document.getElementById(
-"subjectsSection"
+"subjects"
 ).style.display="none";
 
 document.getElementById(
-"noteSection"
+"note"
 ).style.display="block";
 
 document.getElementById(
@@ -1041,213 +1282,78 @@ subject+
 " - "+
 topic;
 
-
-let content="";
-
-
-if(
-currentClass==="Senior 1" &&
-subject==="Mathematics" &&
-topic==="Sets of Numbers"
-){
-
-content=`
-
-<h3>📖 Unit: Sets of Numbers</h3>
-
-<p>
-A set is a collection of well-defined objects.
-</p>
-
-<br>
-
-<h3>💡 Example</h3>
-
-<p>
-A = {1, 2, 3, 4, 5}
-</p>
-
-<p>
-The numbers are elements of set A.
-</p>
-
-<br>
-
-<h3>📝 Exercise</h3>
-
-<p>
-1. Write the natural numbers from 1 to 5.
-</p>
-
-<p>
-2. How many elements are in
-B = {2,4,6,8}?
-</p>
-
-<br>
-
-<button onclick="showAnswer('sets')">
-✅ Show Answers
-</button>
-
-<div id="setsAnswer" class="answer">
-
-<h3>Answers</h3>
-
-<p>
-1. {1,2,3,4,5}
-</p>
-
-<p>
-2. 4 elements.
-</p>
-
-</div>
-
-`;
-
-}
-
-else if(
-currentClass==="Senior 1" &&
-subject==="Mathematics" &&
-topic==="Linear Functions, Equations and Inequalities"
-){
-
-content=`
+let content=`
 
 <h3>
-📖 Linear Functions, Equations and Inequalities
+📖 ${topic}
 </h3>
 
 <p>
-A linear equation has a variable with
-highest power equal to 1.
+This is a learning section for
+${currentClass} ${subject}.
 </p>
 
 <br>
 
-<h3>💡 Example</h3>
-
-<p>
-Solve:
-<strong>x + 5 = 12</strong>
-</p>
-
-<p>
-x = 12 - 5
-</p>
-
-<p>
-<strong>x = 7</strong>
-</p>
-
-<br>
-
-<h3>📝 Exercise</h3>
-
-<p>
-1. Solve: x + 8 = 15
-</p>
-
-<p>
-2. Solve: x - 4 = 10
-</p>
-
-<br>
-
-<button onclick="showAnswer('linear')">
-✅ Show Answers
-</button>
-
-<div id="linearAnswer" class="answer">
-
-<h3>Answers</h3>
-
-<p>1. x = 7</p>
-<p>2. x = 14</p>
-
-</div>
-
-`;
-
-}
-
-else{
-
-content=`
-
-<h3>📖 ${topic}</h3>
-
-<p>
-This unit is ready for learning content.
-</p>
-
-<br>
-
-<h3>📚 Notes</h3>
-
-<p>
-Detailed notes, worked examples and
-activities will be added to this unit
-from the appropriate curriculum material.
-</p>
-
-<br>
-
-<h3>📝 Exercise</h3>
-
-<p>
-Practice questions will be added here.
-</p>
-
-`;
-
-}
-
-
-content+=`
-
-<div class="premium-box">
-
-<span class="badge">
-⭐ PREMIUM
-</span>
-
-<h3 style="margin-top:10px">
-Advanced Revision Exercise
+<h3>
+💡 Example
 </h3>
 
 <p>
-Additional revision questions and answers.
+Study the concept carefully and
+try the exercise below.
 </p>
 
-<div class="locked">
+<br>
 
-<h3>🔐 Premium Content Locked</h3>
+<h3>
+📝 Practice
+</h3>
 
 <p>
-Unlock premium revision materials.
+Complete the related exercises
+to test your understanding.
 </p>
-
-<button
-class="premium-btn"
-onclick="unlockPremium()">
-⭐ Unlock Premium
-</button>
-
-</div>
-
-</div>
 
 `;
 
 document.getElementById(
 "noteContent"
-).innerHTML=content;
+).innerHTML=
+content;
+
+}
+
+
+/* =========================
+BACK
+========================= */
+
+function backTopics(){
 
 document.getElementById(
-"noteSection"
+"note"
+).style.display="none";
+
+document.getElementById(
+"subjects"
+).style.display="block";
+
+}
+
+
+/* =========================
+QUIZ
+========================= */
+
+function startQuiz(){
+
+document.getElementById(
+"quiz"
+).style.display="block";
+
+document.getElementById(
+"quiz"
 ).scrollIntoView({
 behavior:"smooth"
 });
@@ -1255,66 +1361,157 @@ behavior:"smooth"
 }
 
 
-function backToTopics(){
+function submitQuiz(){
 
-document.getElementById(
-"noteSection"
-).style.display="none";
-
-document.getElementById(
-"subjectsSection"
-).style.display="block";
-
-}
+let score=0;
 
 
-/* ==========================
-   ANSWERS
-========================== */
+/* Correct answers */
 
-function showAnswer(type){
-
-let box=
-document.getElementById(
-type+"Answer"
+let q1=
+document.querySelector(
+'input[name="q1"]:checked'
 );
 
-if(!box)return;
+let q2=
+document.querySelector(
+'input[name="q2"]:checked'
+);
 
-if(box.style.display==="block"){
+let q3=
+document.querySelector(
+'input[name="q3"]:checked'
+);
 
-box.style.display="none";
 
-}else{
+if(!q1 || !q2 || !q3){
 
-box.style.display="block";
+alert(
+"Please answer all questions."
+);
 
-markCompleted();
+return;
 
 }
 
+
+if(q1.value==="a")
+score++;
+
+if(q2.value==="b")
+score++;
+
+if(q3.value==="a")
+score++;
+
+
+let percent=
+Math.round(
+(score/3)*100
+);
+
+
+localStorage.setItem(
+"lastQuizScore",
+percent
+);
+
+
+document.getElementById(
+"quizResult"
+).style.display="block";
+
+
+document.getElementById(
+"scoreTitle"
+).innerText=
+"🎯 Your Score: "+
+percent+"%";
+
+
+if(percent>=50){
+
+document.getElementById(
+"scoreMessage"
+).innerText=
+"🎉 Congratulations! You passed.";
+
+}
+
+else{
+
+document.getElementById(
+"scoreMessage"
+).innerText=
+"Keep practicing. You can try again! 💪";
+
 }
 
 
-/* ==========================
-   PREMIUM
-========================== */
+/* Update progress */
+
+let completed=
+Number(
+localStorage.getItem(
+"completedUnits"
+)||0
+);
+
+if(percent>=50){
+
+completed++;
+
+if(completed>10)
+completed=10;
+
+localStorage.setItem(
+"completedUnits",
+completed
+);
+
+}
+
+updateProgress();
+
+}
+
+
+function retryQuiz(){
+
+document.querySelectorAll(
+'input[type="radio"]'
+).forEach(
+function(input){
+input.checked=false;
+}
+);
+
+document.getElementById(
+"quizResult"
+).style.display="none";
+
+}
+
+
+/* =========================
+PREMIUM
+========================= */
 
 function unlockPremium(){
 
 alert(
-"⭐ Premium system coming next.\n\n"+
-"We will add a real Rwanda payment "+
-"verification system before asking students "+
-"to pay."
+"⭐ Premium is coming next.\n\n"+
+"We will add a real payment and "+
+"payment-verification system before "+
+"students are asked to pay."
 );
 
 }
 
 
-/* ==========================
-   AI TEACHER
-========================== */
+/* =========================
+AI
+========================= */
 
 function askAI(){
 
@@ -1325,7 +1522,9 @@ document.getElementById(
 
 if(!question){
 
-alert("Write your question first.");
+alert(
+"Write your question first."
+);
 
 return;
 
@@ -1334,16 +1533,15 @@ return;
 document.getElementById(
 "aiAnswer"
 ).innerText=
-"🤖 AI Teacher: Question received. "+
-"The real AI connection will be added "+
-"in the next development stage.";
+"🤖 AI Teacher: Your question has been received. "+
+"The real AI connection will be added in a later stage.";
 
 }
 
 
-/* ==========================
-   SEARCH
-========================== */
+/* =========================
+SEARCH
+========================= */
 
 function searchContent(){
 
@@ -1362,6 +1560,7 @@ document.getElementById(
 if(!query){
 
 results.innerHTML="";
+
 return;
 
 }
@@ -1405,8 +1604,12 @@ topic
 if(!found.length){
 
 results.innerHTML=`
-<div class="result">
-❌ No matching unit found.
+<div style="
+background:white;
+padding:12px;
+border-radius:8px;
+">
+❌ No unit found.
 </div>
 `;
 
@@ -1415,10 +1618,17 @@ return;
 }
 
 results.innerHTML=
-found.map(function(item){
+found.map(
+function(item){
 
 return `
-<div class="result">
+<div style="
+background:white;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+color:#172033;
+">
 📚 ${item}
 </div>
 `;
@@ -1428,14 +1638,15 @@ return `
 }
 
 
-/* ==========================
-   START
-========================== */
+/* =========================
+START
+========================= */
 
 loadProfile();
+
 updateProgress();
 
 </script>
 
 </body>
-  </html>
+</html>
