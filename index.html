@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rwanda Education Hub</title>
+<title>Rwanda Education Hub 🇷🇼</title>
 
 <style>
-
 *{
 box-sizing:border-box;
 margin:0;
@@ -24,7 +22,11 @@ header{
 background:#075e54;
 color:white;
 text-align:center;
-padding:22px 15px;
+padding:24px 15px;
+}
+
+header h1{
+margin-bottom:8px;
 }
 
 nav{
@@ -54,11 +56,11 @@ opacity:.9;
 background:linear-gradient(135deg,#075e54,#128c7e);
 color:white;
 text-align:center;
-padding:40px 15px;
+padding:45px 15px;
 }
 
 .hero h2{
-font-size:29px;
+font-size:30px;
 margin-bottom:10px;
 }
 
@@ -99,6 +101,7 @@ background:white;
 padding:22px;
 border-radius:15px;
 box-shadow:0 3px 12px #0001;
+margin-bottom:18px;
 }
 
 .card h3{
@@ -119,9 +122,11 @@ cursor:pointer;
 transform:translateY(-3px);
 }
 
-.subjects{
+.subjects,
+.note,
+.section,
+.ai-box{
 display:none;
-margin-top:35px;
 }
 
 .subject-buttons{
@@ -144,7 +149,6 @@ box-shadow:0 2px 8px #0001;
 }
 
 .note{
-display:none;
 background:white;
 padding:25px;
 margin-top:25px;
@@ -153,12 +157,20 @@ box-shadow:0 3px 12px #0001;
 line-height:1.7;
 }
 
-.answer{
-display:none;
-background:#e8f5e9;
-padding:15px;
-border-radius:10px;
-margin-top:15px;
+.profile-input,
+textarea,
+select{
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ddd;
+border-radius:8px;
+outline:none;
+}
+
+textarea{
+min-height:140px;
+resize:vertical;
 }
 
 .progress-box{
@@ -184,20 +196,6 @@ background:#075e54;
 transition:.4s;
 }
 
-.profile-input{
-width:100%;
-padding:12px;
-margin-top:8px;
-border:1px solid #ddd;
-border-radius:8px;
-outline:none;
-}
-
-.section{
-display:none;
-margin-top:30px;
-}
-
 .quiz-question{
 background:white;
 padding:20px;
@@ -217,10 +215,6 @@ cursor:pointer;
 
 .option:hover{
 background:#e8f5e9;
-}
-
-.option input{
-margin-right:8px;
 }
 
 .quiz-result{
@@ -250,12 +244,24 @@ font-size:12px;
 font-weight:bold;
 }
 
-.ai-box{
-display:none;
-background:#e8f5e9;
-padding:20px;
-border-radius:15px;
-margin-top:25px;
+.admin-card{
+border-left:5px solid #075e54;
+}
+
+.danger{
+background:#c62828;
+}
+
+.logout{
+background:#555;
+}
+
+.result{
+background:white;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+color:#172033;
 }
 
 .whatsapp{
@@ -268,6 +274,7 @@ padding:14px 18px;
 border-radius:40px;
 text-decoration:none;
 font-weight:bold;
+box-shadow:0 3px 10px #0003;
 }
 
 footer{
@@ -288,65 +295,52 @@ font-size:24px;
 width:100%;
 }
 
+nav button{
+font-size:12px;
+padding:9px 11px;
 }
 
+}
 </style>
 </head>
-
 
 <body>
 
 
 <header>
 
-<h1>
-📚 Rwanda Education Hub 🇷🇼
-</h1>
+<h1>📚 Rwanda Education Hub 🇷🇼</h1>
 
-<p>
-Learn • Practice • Revise • Succeed
-</p>
+<p>Learn • Practice • Revise • Succeed</p>
 
 </header>
 
 
 <nav>
 
-<button onclick="home()">
-🏠 Home
-</button>
+<button onclick="home()">🏠 Home</button>
 
-<button onclick="dashboard()">
-📊 Dashboard
-</button>
+<button onclick="dashboard()">📊 Dashboard</button>
 
-<button onclick="showNotes()">
-📖 Notes
-</button>
+<button onclick="showNotes()">📖 Notes</button>
 
-<button onclick="showExercises()">
-📝 Exercises
-</button>
+<button onclick="showExercises()">📝 Exercises</button>
 
-<button onclick="showAI()">
-🤖 AI Teacher
-</button>
+<button onclick="showAI()">🤖 AI Teacher</button>
 
-<button onclick="showPremium()">
-⭐ Premium
-</button>
+<button onclick="showPremium()">⭐ Premium</button>
+
+<button onclick="showAdmin()">🔐 Admin</button>
 
 </nav>
 
 
 <section class="hero">
 
-<h2>
-Learn Better, Succeed Faster 🎓
-</h2>
+<h2>Learn Better, Succeed Faster 🎓</h2>
 
 <p>
-Mathematics and Science learning resources
+Mathematics and Science resources
 for Senior 1, Senior 2 and Senior 3.
 </p>
 
@@ -377,9 +371,7 @@ placeholder="Search unit or topic..."
 
 <div class="card">
 
-<h2>
-👤 Student Profile
-</h2>
+<h2>👤 Student Profile</h2>
 
 <br>
 
@@ -397,12 +389,8 @@ onclick="saveProfile()">
 
 </button>
 
-<p
-id="welcome"
-style="margin-top:12px">
-
+<p id="welcome" style="margin-top:12px">
 Welcome, Student!
-
 </p>
 
 </div>
@@ -414,11 +402,7 @@ Welcome, Student!
 
 <section id="dashboardSection">
 
-<br>
-
-<h2>
-📊 Student Dashboard
-</h2>
+<h2>📊 Student Dashboard</h2>
 
 <br>
 
@@ -429,21 +413,13 @@ Welcome, Student!
 class="card class-card"
 onclick="openClass('Senior 1')">
 
-<div style="font-size:45px">
-1️⃣
-</div>
+<div style="font-size:45px">1️⃣</div>
 
-<h3>
-Senior 1
-</h3>
+<h3>Senior 1</h3>
 
-<p>
-Mathematics & Science
-</p>
+<p>Mathematics & Science</p>
 
-<button>
-Open Class
-</button>
+<button>Open Class</button>
 
 </div>
 
@@ -452,21 +428,13 @@ Open Class
 class="card class-card"
 onclick="openClass('Senior 2')">
 
-<div style="font-size:45px">
-2️⃣
-</div>
+<div style="font-size:45px">2️⃣</div>
 
-<h3>
-Senior 2
-</h3>
+<h3>Senior 2</h3>
 
-<p>
-Mathematics & Science
-</p>
+<p>Mathematics & Science</p>
 
-<button>
-Open Class
-</button>
+<button>Open Class</button>
 
 </div>
 
@@ -475,21 +443,13 @@ Open Class
 class="card class-card"
 onclick="openClass('Senior 3')">
 
-<div style="font-size:45px">
-3️⃣
-</div>
+<div style="font-size:45px">3️⃣</div>
 
-<h3>
-Senior 3
-</h3>
+<h3>Senior 3</h3>
 
-<p>
-Mathematics & Science
-</p>
+<p>Mathematics & Science</p>
 
-<button>
-Open Class
-</button>
+<button>Open Class</button>
 
 </div>
 
@@ -498,12 +458,10 @@ Open Class
 
 <div class="progress-box">
 
-<h3>
-📈 Learning Progress
-</h3>
+<h3>📈 My Progress</h3>
 
 <p>
-Completed:
+Completed Units:
 <strong id="completedCount">0</strong>
 </p>
 
@@ -517,11 +475,13 @@ class="progress-bar">
 </div>
 
 <p style="margin-top:10px">
+Progress:
+<strong id="progressText">0%</strong>
+</p>
 
-<strong id="progressText">
-0%
-</strong>
-
+<p style="margin-top:10px">
+Last Quiz:
+<strong id="lastScore">0%</strong>
 </p>
 
 </div>
@@ -531,9 +491,7 @@ class="progress-bar">
 
 <!-- SUBJECTS -->
 
-<section
-id="subjects"
-class="subjects">
+<section id="subjects" class="subjects">
 
 <h2 id="selectedClass"></h2>
 
@@ -556,9 +514,7 @@ class="subjects">
 
 <!-- NOTE -->
 
-<section
-id="note"
-class="note">
+<section id="note" class="note">
 
 <h2 id="noteTitle"></h2>
 
@@ -575,39 +531,26 @@ class="note">
 
 <!-- EXERCISES -->
 
-<section
-id="exerciseSection"
-class="section">
+<section id="exerciseSection" class="section">
 
-<h2>
-📝 Exercises & Quiz
-</h2>
+<h2>📝 Exercises & Quiz</h2>
 
 <br>
 
 <div class="card">
 
-<h3>
-Senior 1 Mathematics
-</h3>
+<h3>Senior 1 Mathematics</h3>
 
-<p>
-Unit: Sets of Numbers
-</p>
+<p>Unit: Sets of Numbers</p>
 
-<button
-onclick="startQuiz()">
-
+<button onclick="startQuiz()">
 ▶ Start Quiz
-
 </button>
 
 </div>
 
 
-<div
-id="quiz"
-style="display:none;margin-top:20px">
+<div id="quiz" style="display:none">
 
 
 <div class="quiz-question">
@@ -617,26 +560,17 @@ style="display:none;margin-top:20px">
 </h3>
 
 <label class="option">
-<input
-type="radio"
-name="q1"
-value="a">
+<input type="radio" name="q1" value="a">
 A group of well-defined objects
 </label>
 
 <label class="option">
-<input
-type="radio"
-name="q1"
-value="b">
+<input type="radio" name="q1" value="b">
 A random collection
 </label>
 
 <label class="option">
-<input
-type="radio"
-name="q1"
-value="c">
+<input type="radio" name="q1" value="c">
 A single number
 </label>
 
@@ -651,26 +585,17 @@ B = {2,4,6,8}?
 </h3>
 
 <label class="option">
-<input
-type="radio"
-name="q2"
-value="a">
+<input type="radio" name="q2" value="a">
 2
 </label>
 
 <label class="option">
-<input
-type="radio"
-name="q2"
-value="b">
+<input type="radio" name="q2" value="b">
 4
 </label>
 
 <label class="option">
-<input
-type="radio"
-name="q2"
-value="c">
+<input type="radio" name="q2" value="c">
 8
 </label>
 
@@ -680,31 +605,21 @@ value="c">
 <div class="quiz-question">
 
 <h3>
-3. Which number belongs to
-the natural numbers?
+3. Which number is a natural number?
 </h3>
 
 <label class="option">
-<input
-type="radio"
-name="q3"
-value="a">
+<input type="radio" name="q3" value="a">
 3
 </label>
 
 <label class="option">
-<input
-type="radio"
-name="q3"
-value="b">
+<input type="radio" name="q3" value="b">
 -3
 </label>
 
 <label class="option">
-<input
-type="radio"
-name="q3"
-value="c">
+<input type="radio" name="q3" value="c">
 1/2
 </label>
 
@@ -716,9 +631,7 @@ value="c">
 </button>
 
 
-<div
-id="quizResult"
-class="quiz-result">
+<div id="quizResult" class="quiz-result">
 
 <h2 id="scoreTitle"></h2>
 
@@ -739,25 +652,18 @@ style="margin-top:15px">
 
 <div class="premium-box">
 
-<span class="badge">
-⭐ PREMIUM
-</span>
+<span class="badge">⭐ PREMIUM</span>
 
 <h3 style="margin-top:10px">
 Advanced Exercises
 </h3>
 
 <p>
-Unlock more questions, revision tests
-and answer explanations.
+More questions and revision tests.
 </p>
 
-<button
-class="premium-btn"
-onclick="unlockPremium()">
-
+<button onclick="unlockPremium()">
 🔐 Unlock Premium
-
 </button>
 
 </div>
@@ -767,15 +673,11 @@ onclick="unlockPremium()">
 
 <!-- PREMIUM -->
 
-<section
-id="premiumSection"
-class="section">
+<section id="premiumSection" class="section">
 
 <div class="premium-box">
 
-<span class="badge">
-⭐ PREMIUM
-</span>
+<span class="badge">⭐ PREMIUM</span>
 
 <h2 style="margin-top:10px">
 Premium Revision Package
@@ -783,20 +685,15 @@ Premium Revision Package
 
 <p style="margin-top:10px">
 
-Advanced exercises,
-revision tests,
+Advanced exercises, revision tests,
 answers and learning materials.
 
 </p>
 
 <br>
 
-<button
-class="premium-btn"
-onclick="unlockPremium()">
-
+<button onclick="unlockPremium()">
 ⭐ Unlock Premium
-
 </button>
 
 </div>
@@ -806,34 +703,228 @@ onclick="unlockPremium()">
 
 <!-- AI -->
 
-<section
-id="aiSection"
-class="ai-box">
+<section id="aiSection" class="ai-box">
 
-<h2>
-🤖 AI Teacher
-</h2>
+<h2>🤖 AI Teacher</h2>
 
-<p>
-Ask a learning question.
-</p>
+<p>Ask a learning question.</p>
 
 <br>
 
 <input
 id="question"
-style="width:70%;padding:12px;border:1px solid #ddd;border-radius:8px"
+class="profile-input"
 placeholder="Example: What is a set?"
 >
 
-<button onclick="askAI()">
-Ask
+<button
+style="margin-top:10px"
+onclick="askAI()">
+
+Ask AI
+
 </button>
 
 <p
 id="aiAnswer"
 style="margin-top:15px">
 </p>
+
+</section>
+
+
+<!-- ADMIN -->
+
+<section id="adminSection" class="section">
+
+<h2>🔐 Admin Dashboard</h2>
+
+<br>
+
+
+<!-- LOGIN -->
+
+<div class="card" id="adminLogin">
+
+<h3>Admin Login</h3>
+
+<p>
+Enter administrator password.
+</p>
+
+<input
+id="adminPassword"
+class="profile-input"
+type="password"
+placeholder="Admin password"
+>
+
+<button
+style="margin-top:10px"
+onclick="adminLogin()">
+
+🔑 Login
+
+</button>
+
+</div>
+
+
+<!-- ADMIN PANEL -->
+
+<div id="adminPanel" style="display:none">
+
+
+<div class="dashboard">
+
+
+<div class="card admin-card">
+
+<h3>📚 Total Custom Units</h3>
+
+<p id="adminUnits">0</p>
+
+</div>
+
+
+<div class="card admin-card">
+
+<h3>📝 Exercises</h3>
+
+<p id="adminExercises">1</p>
+
+</div>
+
+
+<div class="card admin-card">
+
+<h3>👨‍🎓 Student Profile</h3>
+
+<p id="adminStudent">No student</p>
+
+</div>
+
+
+<div class="card admin-card">
+
+<h3>🎯 Last Score</h3>
+
+<p id="adminScore">0%</p>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<!-- ADD UNIT -->
+
+<div class="card">
+
+<h3>➕ Add Learning Unit</h3>
+
+<br>
+
+<label>Class</label>
+
+<select
+id="adminClass"
+class="profile-input">
+
+<option>Senior 1</option>
+<option>Senior 2</option>
+<option>Senior 3</option>
+
+</select>
+
+
+<label>Subject</label>
+
+<select
+id="adminSubject"
+class="profile-input">
+
+<option>Mathematics</option>
+<option>Science</option>
+
+</select>
+
+
+<label>Unit Name</label>
+
+<input
+id="adminUnit"
+class="profile-input"
+placeholder="Example: Algebra"
+>
+
+
+<label>Notes</label>
+
+<textarea
+id="adminNote"
+class="profile-input"
+placeholder="Write the learning notes here...">
+</textarea>
+
+
+<button
+style="margin-top:10px"
+onclick="addUnit()">
+
+➕ Add Unit
+
+</button>
+
+</div>
+
+
+<br>
+
+
+<!-- CUSTOM UNITS -->
+
+<div class="card">
+
+<h3>📚 My Added Units</h3>
+
+<br>
+
+<div id="customUnits"></div>
+
+</div>
+
+
+<br>
+
+
+<!-- ADMIN TOOLS -->
+
+<div class="card">
+
+<h3>⚙️ Admin Tools</h3>
+
+<br>
+
+<button onclick="refreshAdmin()">
+🔄 Refresh Dashboard
+</button>
+
+<button
+class="logout"
+onclick="adminLogout()"
+style="margin-left:5px">
+
+🚪 Logout
+
+</button>
+
+</div>
+
+
+</div>
 
 </section>
 
@@ -858,7 +949,7 @@ Rwanda Education Hub 🇷🇼
 </h3>
 
 <p>
-Education for every student 🇷🇼
+Education for every student.
 </p>
 
 <p>
@@ -871,9 +962,9 @@ Education for every student 🇷🇼
 <script>
 
 
-/* =========================
+/* ==========================
 DATA
-========================= */
+========================== */
 
 const units={
 
@@ -947,9 +1038,9 @@ const units={
 let currentClass="";
 
 
-/* =========================
+/* ==========================
 PROFILE
-========================= */
+========================== */
 
 function saveProfile(){
 
@@ -975,6 +1066,8 @@ document.getElementById(
 "welcome"
 ).innerText=
 "Welcome, "+name+"! 👋";
+
+updateAdmin();
 
 alert("Profile saved!");
 
@@ -1004,9 +1097,9 @@ document.getElementById(
 }
 
 
-/* =========================
+/* ==========================
 PROGRESS
-========================= */
+========================== */
 
 function updateProgress(){
 
@@ -1038,12 +1131,23 @@ document.getElementById(
 ).style.width=
 percent+"%";
 
+
+let score=
+localStorage.getItem(
+"lastQuizScore"
+)||0;
+
+document.getElementById(
+"lastScore"
+).innerText=
+score+"%";
+
 }
 
 
-/* =========================
+/* ==========================
 NAVIGATION
-========================= */
+========================== */
 
 function hideSections(){
 
@@ -1065,6 +1169,10 @@ document.getElementById(
 
 document.getElementById(
 "aiSection"
+).style.display="none";
+
+document.getElementById(
+"adminSection"
 ).style.display="none";
 
 }
@@ -1167,9 +1275,28 @@ behavior:"smooth"
 }
 
 
-/* =========================
+function showAdmin(){
+
+hideSections();
+
+document.getElementById(
+"adminSection"
+).style.display="block";
+
+document.getElementById(
+"adminSection"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+refreshAdmin();
+
+}
+
+
+/* ==========================
 CLASS
-========================= */
+========================== */
 
 function openClass(className){
 
@@ -1189,7 +1316,7 @@ document.getElementById(
 document.getElementById(
 "topics"
 ).innerHTML=
-"<p>Choose a subject.</p>";
+"<p>Choose Mathematics or Science.</p>";
 
 document.getElementById(
 "subjects"
@@ -1200,22 +1327,49 @@ behavior:"smooth"
 }
 
 
-/* =========================
+/* ==========================
 SUBJECT
-========================= */
+========================== */
 
 function showSubject(subject){
 
 if(!currentClass){
 
-alert("Choose a class first.");
+alert(
+"Choose a class first."
+);
 
 return;
 
 }
 
 let list=
-units[currentClass][subject];
+units[currentClass][subject] || [];
+
+
+/* Add custom units */
+
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+customUnits.forEach(
+function(item){
+
+if(
+item.className===currentClass &&
+item.subject===subject
+){
+
+list.push(item.unit);
+
+}
+
+});
+
 
 let html=
 "<h3>📖 "+
@@ -1223,6 +1377,7 @@ currentClass+
 " - "+
 subject+
 "</h3>";
+
 
 list.forEach(
 function(topic,index){
@@ -1240,7 +1395,7 @@ Learning Unit
 </p>
 
 <button
-onclick="openNote('${subject}','${topic}')">
+onclick="openNote('${subject}',${JSON.stringify(topic)})">
 
 📖 Open Unit
 
@@ -1252,6 +1407,7 @@ onclick="openNote('${subject}','${topic}')">
 
 });
 
+
 document.getElementById(
 "topics"
 ).innerHTML=html;
@@ -1259,9 +1415,9 @@ document.getElementById(
 }
 
 
-/* =========================
+/* ==========================
 NOTE
-========================= */
+========================== */
 
 function openNote(subject,topic){
 
@@ -1282,14 +1438,54 @@ subject+
 " - "+
 topic;
 
-let content=`
+
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+let custom=
+customUnits.find(
+function(item){
+
+return(
+item.className===currentClass &&
+item.subject===subject &&
+item.unit===topic
+);
+
+});
+
+
+let content="";
+
+
+if(custom){
+
+content=`
+
+<h3>
+📖 ${custom.unit}
+</h3>
+
+<p style="white-space:pre-line">
+${custom.note || "No notes added yet."}
+</p>
+
+`;
+
+}else{
+
+content=`
 
 <h3>
 📖 ${topic}
 </h3>
 
 <p>
-This is a learning section for
+This is the learning section for
 ${currentClass} ${subject}.
 </p>
 
@@ -1301,7 +1497,7 @@ ${currentClass} ${subject}.
 
 <p>
 Study the concept carefully and
-try the exercise below.
+complete the related exercises.
 </p>
 
 <br>
@@ -1311,23 +1507,29 @@ try the exercise below.
 </h3>
 
 <p>
-Complete the related exercises
-to test your understanding.
+Use the Exercises section to test
+your understanding.
 </p>
 
 `;
+
+}
+
 
 document.getElementById(
 "noteContent"
 ).innerHTML=
 content;
 
+
+document.getElementById(
+"note"
+).scrollIntoView({
+behavior:"smooth"
+});
+
 }
 
-
-/* =========================
-BACK
-========================= */
 
 function backTopics(){
 
@@ -1342,9 +1544,9 @@ document.getElementById(
 }
 
 
-/* =========================
+/* ==========================
 QUIZ
-========================= */
+========================== */
 
 function startQuiz(){
 
@@ -1362,11 +1564,6 @@ behavior:"smooth"
 
 
 function submitQuiz(){
-
-let score=0;
-
-
-/* Correct answers */
 
 let q1=
 document.querySelector(
@@ -1394,6 +1591,8 @@ return;
 
 }
 
+
+let score=0;
 
 if(q1.value==="a")
 score++;
@@ -1436,28 +1635,12 @@ document.getElementById(
 ).innerText=
 "🎉 Congratulations! You passed.";
 
-}
-
-else{
-
-document.getElementById(
-"scoreMessage"
-).innerText=
-"Keep practicing. You can try again! 💪";
-
-}
-
-
-/* Update progress */
-
 let completed=
 Number(
 localStorage.getItem(
 "completedUnits"
 )||0
 );
-
-if(percent>=50){
 
 completed++;
 
@@ -1469,9 +1652,19 @@ localStorage.setItem(
 completed
 );
 
+}else{
+
+document.getElementById(
+"scoreMessage"
+).innerText=
+"💪 Keep practicing. Try again!";
+
 }
 
+
 updateProgress();
+
+updateAdmin();
 
 }
 
@@ -1482,9 +1675,10 @@ document.querySelectorAll(
 'input[type="radio"]'
 ).forEach(
 function(input){
+
 input.checked=false;
-}
-);
+
+});
 
 document.getElementById(
 "quizResult"
@@ -1493,25 +1687,23 @@ document.getElementById(
 }
 
 
-/* =========================
+/* ==========================
 PREMIUM
-========================= */
+========================== */
 
 function unlockPremium(){
 
 alert(
-"⭐ Premium is coming next.\n\n"+
-"We will add a real payment and "+
-"payment-verification system before "+
-"students are asked to pay."
+"⭐ Premium payment will be connected "+
+"after we build the secure backend."
 );
 
 }
 
 
-/* =========================
+/* ==========================
 AI
-========================= */
+========================== */
 
 function askAI(){
 
@@ -1533,15 +1725,15 @@ return;
 document.getElementById(
 "aiAnswer"
 ).innerText=
-"🤖 AI Teacher: Your question has been received. "+
-"The real AI connection will be added in a later stage.";
+"🤖 AI Teacher received your question. "+
+"The real AI API will be connected in a later stage.";
 
 }
 
 
-/* =========================
+/* ==========================
 SEARCH
-========================= */
+========================== */
 
 function searchContent(){
 
@@ -1566,6 +1758,7 @@ return;
 }
 
 let found=[];
+
 
 Object.keys(units).forEach(
 function(className){
@@ -1601,36 +1794,60 @@ topic
 });
 
 
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+customUnits.forEach(
+function(item){
+
+if(
+item.unit
+.toLowerCase()
+.includes(query)
+){
+
+found.push(
+item.className+
+" • "+
+item.subject+
+" • "+
+item.unit
+);
+
+}
+
+});
+
+
 if(!found.length){
 
 results.innerHTML=`
-<div style="
-background:white;
-padding:12px;
-border-radius:8px;
-">
+
+<div class="result">
 ❌ No unit found.
 </div>
+
 `;
 
 return;
 
 }
 
+
 results.innerHTML=
 found.map(
 function(item){
 
-return `
-<div style="
-background:white;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-color:#172033;
-">
+return`
+
+<div class="result">
 📚 ${item}
 </div>
+
 `;
 
 }).join("");
@@ -1638,15 +1855,455 @@ color:#172033;
 }
 
 
-/* =========================
-START
-========================= */
+/* ==========================
+ADMIN LOGIN
+========================== */
+
+function adminLogin(){
+
+let password=
+document.getElementById(
+"adminPassword"
+).value;
+
+
+/*
+Temporary prototype password.
+
+DO NOT use this for production.
+*/
+
+if(password==="admin123"){
+
+sessionStorage.setItem(
+"adminLoggedIn",
+"true"
+);
+
+document.getElementById(
+"adminLogin"
+).style.display="none";
+
+document.getElementById(
+"adminPanel"
+).style.display="block";
+
+refreshAdmin();
+
+}else{
+
+alert(
+"❌ Wrong password."
+);
+
+}
+
+}
+
+
+/* ==========================
+ADMIN LOGOUT
+========================== */
+
+function adminLogout(){
+
+sessionStorage.removeItem(
+"adminLoggedIn"
+);
+
+document.getElementById(
+"adminLogin"
+).style.display="block";
+
+document.getElementById(
+"adminPanel"
+).style.display="none";
+
+document.getElementById(
+"adminPassword"
+).value="";
+
+}
+
+
+/* ==========================
+CHECK ADMIN
+========================== */
+
+function refreshAdmin(){
+
+let logged=
+sessionStorage.getItem(
+"adminLoggedIn"
+);
+
+
+if(logged==="true"){
+
+document.getElementById(
+"adminLogin"
+).style.display="none";
+
+document.getElementById(
+"adminPanel"
+).style.display="block";
+
+loadAdminUnits();
+
+updateAdmin();
+
+}else{
+
+document.getElementById(
+"adminLogin"
+).style.display="block";
+
+document.getElementById(
+"adminPanel"
+).style.display="none";
+
+}
+
+}
+
+
+/* ==========================
+ADD UNIT
+========================== */
+
+function addUnit(){
+
+let className=
+document.getElementById(
+"adminClass"
+).value;
+
+let subject=
+document.getElementById(
+"adminSubject"
+).value;
+
+let unit=
+document.getElementById(
+"adminUnit"
+).value.trim();
+
+let note=
+document.getElementById(
+"adminNote"
+).value.trim();
+
+
+if(!unit){
+
+alert(
+"Enter a unit name."
+);
+
+return;
+
+}
+
+
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+
+customUnits.push({
+
+id:Date.now(),
+
+className:className,
+
+subject:subject,
+
+unit:unit,
+
+note:note
+
+});
+
+
+localStorage.setItem(
+"customUnits",
+JSON.stringify(customUnits)
+);
+
+
+document.getElementById(
+"adminUnit"
+).value="";
+
+document.getElementById(
+"adminNote"
+).value="";
+
+
+loadAdminUnits();
+
+alert(
+"✅ Unit added successfully!"
+);
+
+}
+
+
+/* ==========================
+LOAD ADMIN UNITS
+========================== */
+
+function loadAdminUnits(){
+
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+
+let container=
+document.getElementById(
+"customUnits"
+);
+
+if(!customUnits.length){
+
+container.innerHTML=
+"<p>No custom units yet.</p>";
+
+}else{
+
+container.innerHTML="";
+
+
+customUnits.forEach(
+function(item){
+
+let div=
+document.createElement("div");
+
+div.className="topic";
+
+
+div.innerHTML=`
+
+<h3>
+${item.unit}
+</h3>
+
+<p>
+${item.className} •
+${item.subject}
+</p>
+
+<button
+onclick="editUnit(${item.id})">
+
+✏️ Edit
+
+</button>
+
+<button
+class="danger"
+onclick="deleteUnit(${item.id})"
+style="margin-left:5px">
+
+🗑️ Delete
+
+</button>
+
+`;
+
+
+container.appendChild(div);
+
+});
+
+}
+
+
+document.getElementById(
+"adminUnits"
+).innerText=
+customUnits.length;
+
+}
+
+
+/* ==========================
+EDIT UNIT
+========================== */
+
+function editUnit(id){
+
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+
+let item=
+customUnits.find(
+function(x){
+return x.id===id;
+});
+
+
+if(!item)
+return;
+
+
+let newName=
+prompt(
+"Unit name:",
+item.unit
+);
+
+if(newName===null)
+return;
+
+
+let newNote=
+prompt(
+"Notes:",
+item.note
+);
+
+
+item.unit=
+newName.trim() || item.unit;
+
+if(newNote!==null)
+item.note=newNote;
+
+
+localStorage.setItem(
+"customUnits",
+JSON.stringify(customUnits)
+);
+
+
+loadAdminUnits();
+
+alert(
+"✅ Unit updated."
+);
+
+}
+
+
+/* ==========================
+DELETE UNIT
+========================== */
+
+function deleteUnit(id){
+
+if(
+!confirm(
+"Delete this unit?"
+)
+)
+return;
+
+
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+
+customUnits=
+customUnits.filter(
+function(item){
+
+return item.id!==id;
+
+});
+
+
+localStorage.setItem(
+"customUnits",
+JSON.stringify(customUnits)
+);
+
+
+loadAdminUnits();
+
+alert(
+"🗑️ Unit deleted."
+);
+
+}
+
+
+/* ==========================
+ADMIN STATS
+========================== */
+
+function updateAdmin(){
+
+let customUnits=
+JSON.parse(
+localStorage.getItem(
+"customUnits"
+)||"[]"
+);
+
+document.getElementById(
+"adminUnits"
+).innerText=
+customUnits.length;
+
+
+let name=
+localStorage.getItem(
+"studentName"
+)||"No student";
+
+document.getElementById(
+"adminStudent"
+).innerText=
+name;
+
+
+let score=
+localStorage.getItem(
+"lastQuizScore"
+)||0;
+
+document.getElementById(
+"adminScore"
+).innerText=
+score+"%";
+
+}
+
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
 
 loadProfile();
 
 updateProgress();
 
+updateAdmin();
+
+refreshAdmin();
+
+});
+
+
 </script>
 
 </body>
-</html>
+  </html>
