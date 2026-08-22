@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rwanda Education Hub 🇷🇼</title>
+
+<title>Mr Dev Learning Hubs</title>
 
 <style>
 *{
-  box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,sans-serif;
+  box-sizing:border-box;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
@@ -19,45 +20,82 @@ body{
 }
 
 header{
-  background:#075e54;
+  background:linear-gradient(135deg,#101c3c,#1769e0);
   color:white;
-  text-align:center;
-  padding:25px 15px;
+  padding:18px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 12px #0002;
 }
 
-header h1{
-  margin-bottom:8px;
-}
-
-nav{
-  background:white;
-  padding:12px;
+.header{
+  max-width:1200px;
+  margin:auto;
   display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-icon{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:white;
+  color:#1769e0;
+  display:flex;
+  align-items:center;
   justify-content:center;
-  gap:8px;
-  flex-wrap:wrap;
-  box-shadow:0 2px 8px #0002;
+  font-size:22px;
+  font-weight:bold;
 }
 
-button{
+.logo h1{
+  font-size:20px;
+}
+
+.logo small{
+  opacity:.8;
+}
+
+.menu-btn{
   border:0;
-  padding:11px 16px;
-  border-radius:8px;
-  background:#075e54;
+  background:#ffffff22;
   color:white;
+  padding:10px 13px;
+  border-radius:10px;
   cursor:pointer;
-  margin:3px;
+  font-size:20px;
 }
 
-button:hover{
-  opacity:.9;
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
 }
 
 .hero{
-  background:linear-gradient(135deg,#075e54,#128c7e);
+  background:linear-gradient(135deg,#1769e0,#6c35df);
   color:white;
-  text-align:center;
-  padding:45px 15px;
+  border-radius:22px;
+  padding:30px;
+  margin-bottom:20px;
+  box-shadow:0 10px 30px #1769e033;
 }
 
 .hero h2{
@@ -65,180 +103,280 @@ button:hover{
   margin-bottom:10px;
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 15px;
+.hero p{
+  line-height:1.6;
+  opacity:.92;
 }
 
-.section{
-  display:none;
-  margin-top:20px;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
 }
 
 .card{
   background:white;
-  padding:22px;
-  border-radius:15px;
-  box-shadow:0 3px 12px #0001;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 5px 20px #0000000c;
+  border:1px solid #e7ebf3;
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px #00000015;
+}
+
+.card-icon{
+  font-size:35px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+.card p{
+  color:#687286;
+  line-height:1.5;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+.primary{
+  background:#1769e0;
+  color:white;
+  padding:11px 17px;
+  border-radius:10px;
+  margin-top:14px;
+  font-weight:bold;
+}
+
+.secondary{
+  background:#eef4ff;
+  color:#1769e0;
+  padding:10px 15px;
+  border-radius:10px;
+  margin-top:12px;
+}
+
+.back{
+  background:#172033;
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
   margin-bottom:18px;
 }
 
-.dashboard{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-  gap:18px;
+.subject{
+  position:relative;
 }
 
-.input,
-textarea,
-select{
-  width:100%;
-  padding:13px;
-  margin:7px 0;
-  border:1px solid #ddd;
-  border-radius:8px;
-  outline:none;
-}
-
-textarea{
-  min-height:150px;
-  resize:vertical;
-}
-
-.class-card{
-  text-align:center;
-}
-
-.class-card h2{
-  font-size:45px;
-}
-
-.topic{
-  background:white;
-  padding:18px;
-  margin:12px 0;
-  border-radius:12px;
-  box-shadow:0 2px 8px #0001;
-}
-
-.note{
-  background:white;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 3px 12px #0001;
-  line-height:1.7;
-}
-
-.progress{
-  height:15px;
-  background:#ddd;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.progress-bar{
-  height:100%;
-  width:0%;
-  background:#075e54;
-  transition:.5s;
-}
-
-.quiz-question{
-  background:white;
-  padding:20px;
-  margin:15px 0;
-  border-radius:12px;
-  box-shadow:0 2px 8px #0001;
-}
-
-.option{
-  display:block;
-  padding:12px;
-  margin:8px 0;
-  background:#f4f7fb;
-  border-radius:8px;
-}
-
-.success{
-  color:#075e54;
-  font-weight:bold;
-  margin-top:12px;
-}
-
-.error{
-  color:#c62828;
-  font-weight:bold;
-  margin-top:12px;
-}
-
-.ai-box{
-  background:#e8f5e9;
-  padding:25px;
-  border-radius:15px;
-}
-
-.premium{
-  background:#fff8df;
-  border:2px solid #ffca28;
-  padding:25px;
-  border-radius:15px;
-}
-
-.badge{
-  background:#ffca28;
-  color:#172033;
-  padding:5px 10px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
-}
-
-.whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  background:#25d366;
+.subject-plus{
+  position:absolute;
+  right:15px;
+  top:15px;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  background:#1769e0;
   color:white;
-  padding:14px 18px;
-  border-radius:40px;
-  text-decoration:none;
-  box-shadow:0 3px 10px #0003;
+  font-size:24px;
+  display:none;
+  align-items:center;
+  justify-content:center;
 }
 
-footer{
-  margin-top:40px;
-  background:#172033;
-  color:white;
-  text-align:center;
-  padding:30px;
-}
-
-.search{
-  max-width:650px;
-  margin:20px auto;
+.owner-mode .subject-plus{
   display:flex;
 }
 
-.search input{
-  flex:1;
-  padding:14px;
-  border:0;
-  border-radius:8px 0 0 8px;
+.subject-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:12px;
 }
 
-.search button{
-  border-radius:0 8px 8px 0;
+.subject-actions button{
+  padding:8px 10px;
+  border-radius:8px;
+  background:#f0f3f8;
+  color:#26344e;
+}
+
+.subject-actions button:hover{
+  background:#1769e0;
+  color:white;
+}
+
+.section-title{
+  margin:25px 0 14px;
+  font-size:24px;
+}
+
+.stat{
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  font-size:30px;
+  color:#1769e0;
+}
+
+.stat span{
+  color:#70798a;
+}
+
+.ai-box{
+  background:white;
+  border-radius:20px;
+  padding:20px;
+  box-shadow:0 5px 20px #00000010;
+}
+
+.chat{
+  height:360px;
+  overflow-y:auto;
+  padding:10px;
+  background:#f5f7fb;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.message{
+  padding:12px 15px;
+  border-radius:15px;
+  margin:8px 0;
+  max-width:85%;
+  line-height:1.5;
+}
+
+.bot{
+  background:white;
+  border:1px solid #e5e8ef;
+}
+
+.user{
+  background:#1769e0;
+  color:white;
+  margin-left:auto;
+}
+
+.ai-input{
+  display:flex;
+  gap:8px;
+}
+
+.ai-input input{
+  flex:1;
+  border:1px solid #d9deea;
+  border-radius:12px;
+  padding:13px;
+  outline:none;
+}
+
+.owner-panel{
+  background:#fff8df;
+  border:1px solid #f2d46a;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.owner-panel h3{
+  color:#765700;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  border:1px solid #d9deea;
+  border-radius:10px;
+  margin-top:8px;
+  outline:none;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0008;
+  z-index:300;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-content{
+  width:100%;
+  max-width:500px;
+  background:white;
+  padding:25px;
+  border-radius:20px;
+}
+
+.close{
+  float:right;
+  background:#eee;
+  padding:7px 10px;
+  border-radius:8px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#737b8d;
+  margin-top:30px;
+}
+
+nav{
+  display:none;
+  background:#101c3c;
+  padding:10px;
+}
+
+nav.show{
+  display:block;
+}
+
+nav button{
+  width:100%;
+  padding:12px;
+  background:transparent;
+  color:white;
+  text-align:left;
+  border-radius:8px;
+}
+
+nav button:hover{
+  background:#ffffff18;
 }
 
 @media(max-width:600px){
+  .container{
+    padding:14px;
+  }
+
+  .hero{
+    padding:22px;
+  }
+
   .hero h2{
     font-size:24px;
   }
 
-  nav button{
-    font-size:12px;
-    padding:9px 11px;
+  .grid{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -247,1612 +385,694 @@ footer{
 <body>
 
 <header>
+  <div class="header">
 
-<h1>📚 Rwanda Education Hub 🇷🇼</h1>
+    <div class="logo">
+      <div class="logo-icon">MD</div>
+      <div>
+        <h1>Mr Dev Learning Hubs</h1>
+        <small>Learn • Practice • Achieve</small>
+      </div>
+    </div>
 
-<p>Learn • Practice • Revise • Succeed</p>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
+  </div>
+
+  <nav id="nav">
+    <button onclick="showPage('home')">🏠 Dashboard</button>
+    <button onclick="showPage('senior1')">📘 Senior One</button>
+    <button onclick="showPage('senior2')">📗 Senior Two</button>
+    <button onclick="showPage('senior3')">📕 Senior Three</button>
+    <button onclick="showPage('ai')">🤖 AI Teacher</button>
+    <button onclick="openOwner()">🔐 Owner</button>
+  </nav>
 </header>
 
-
-<nav>
-
-<button onclick="showHome()">🏠 Home</button>
-
-<button onclick="showDashboard()">📊 Dashboard</button>
-
-<button onclick="showClasses()">📚 Classes</button>
-
-<button onclick="showExercises()">📝 Exercises</button>
-
-<button onclick="showAI()">🤖 AI Teacher</button>
-
-<button onclick="showAccount()">👤 Account</button>
-
-<button onclick="showPremium()">⭐ Premium</button>
-
-</nav>
-
-
-<section class="hero">
-
-<h2>Learn Better, Succeed Faster 🎓</h2>
-
-<p>
-Mathematics and Science for Senior 1, Senior 2 and Senior 3
-</p>
-
-<div class="search">
-
-<input
-id="searchInput"
-placeholder="Search a unit..."
->
-
-<button onclick="searchUnits()">
-🔎 Search
-</button>
-
-</div>
-
-<div id="searchResults"></div>
-
-</section>
-
-
-<div class="container">
-
-
-<!-- ACCOUNT -->
-
-<section id="account" class="section">
-
-<div id="loginBox" class="card">
-
-<h2>👤 Student Account</h2>
-
-<br>
-
-<input
-id="registerName"
-class="input"
-placeholder="Full name"
->
-
-<input
-id="registerEmail"
-class="input"
-type="email"
-placeholder="Email"
->
-
-<input
-id="registerPassword"
-class="input"
-type="password"
-placeholder="Password"
->
-
-<button onclick="register()">
-📝 Register
-</button>
-
-<hr style="margin:20px 0">
-
-<h3>Already have an account?</h3>
-
-<input
-id="loginEmail"
-class="input"
-type="email"
-placeholder="Email"
->
-
-<input
-id="loginPassword"
-class="input"
-type="password"
-placeholder="Password"
->
-
-<button onclick="login()">
-🔐 Login
-</button>
-
-<p id="authMessage"></p>
-
-</div>
-
-
-<div
-id="userBox"
-class="card"
-style="display:none">
-
-<h2>👋 Welcome</h2>
-
-<p id="userName"></p>
-
-<p id="userEmail"></p>
-
-<br>
-
-<button onclick="logout()">
-🚪 Logout
-</button>
-
-</div>
-
-</section>
-
+<main class="container">
 
 <!-- DASHBOARD -->
 
-<section id="dashboard" class="section">
+<section id="home" class="page active">
 
-<h2>📊 Student Dashboard</h2>
+  <div class="hero">
+    <h2>Welcome to Mr Dev Learning Hubs 👋</h2>
+    <p>
+      A free learning platform for Senior One, Senior Two and Senior Three.
+      Study notes, practice exercises and ask the AI Teacher.
+    </p>
 
-<br>
+    <button class="primary" onclick="showPage('ai')">
+      🤖 Ask AI Teacher
+    </button>
+  </div>
 
-<div class="dashboard">
+  <h2 class="section-title">Learning Dashboard</h2>
 
-<div class="card">
+  <div class="grid">
 
-<h3>👤 Student</h3>
+    <div class="card">
+      <div class="card-icon">📘</div>
+      <h3>Senior One</h3>
+      <p>Study Mathematics, Physics, Chemistry and Biology.</p>
+      <button class="primary" onclick="showPage('senior1')">
+        Open Senior One
+      </button>
+    </div>
 
-<p id="dashName">
-Not logged in
-</p>
+    <div class="card">
+      <div class="card-icon">📗</div>
+      <h3>Senior Two</h3>
+      <p>Continue your studies with notes and exercises.</p>
+      <button class="primary" onclick="showPage('senior2')">
+        Open Senior Two
+      </button>
+    </div>
 
-</div>
+    <div class="card">
+      <div class="card-icon">📕</div>
+      <h3>Senior Three</h3>
+      <p>Prepare for advanced topics and examinations.</p>
+      <button class="primary" onclick="showPage('senior3')">
+        Open Senior Three
+      </button>
+    </div>
 
+    <div class="card">
+      <div class="card-icon">🤖</div>
+      <h3>AI Teacher</h3>
+      <p>Ask questions and get help with your studies.</p>
+      <button class="primary" onclick="showPage('ai')">
+        Open AI Teacher
+      </button>
+    </div>
 
-<div class="card">
+  </div>
 
-<h3>🎯 Last Score</h3>
+  <h2 class="section-title">Platform Statistics</h2>
 
-<p id="dashScore">
-0%
-</p>
+  <div class="grid">
 
-</div>
+    <div class="card stat">
+      <strong>3</strong>
+      <span>Classes</span>
+    </div>
 
+    <div class="card stat">
+      <strong>4</strong>
+      <span>Main Subjects</span>
+    </div>
 
-<div class="card">
+    <div class="card stat">
+      <strong>∞</strong>
+      <span>Learning</span>
+    </div>
 
-<h3>📝 Tests Taken</h3>
+    <div class="card stat">
+      <strong>FREE</strong>
+      <span>Platform Access</span>
+    </div>
 
-<p id="dashTests">
-0
-</p>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>📈 Learning Progress</h3>
-
-<br>
-
-<div class="progress">
-
-<div
-id="progressBar"
-class="progress-bar">
-</div>
-
-</div>
-
-<p
-id="progressText"
-style="margin-top:10px">
-
-0%
-
-</p>
-
-</div>
-
-</section>
-
-
-<!-- CLASSES -->
-
-<section id="classes" class="section">
-
-<h2>📚 Choose Your Class</h2>
-
-<br>
-
-<div class="dashboard">
-
-
-<div class="card class-card">
-
-<h2>1️⃣</h2>
-
-<h3>Senior 1</h3>
-
-<p>Mathematics & Science</p>
-
-<button onclick="openClass('Senior 1')">
-Open
-</button>
-
-</div>
-
-
-<div class="card class-card">
-
-<h2>2️⃣</h2>
-
-<h3>Senior 2</h3>
-
-<p>Mathematics & Science</p>
-
-<button onclick="openClass('Senior 2')">
-Open
-</button>
-
-</div>
-
-
-<div class="card class-card">
-
-<h2>3️⃣</h2>
-
-<h3>Senior 3</h3>
-
-<p>Mathematics & Science</p>
-
-<button onclick="openClass('Senior 3')">
-Open
-</button>
-
-</div>
-
-</div>
-
-
-<div id="subjectArea"></div>
+  </div>
 
 </section>
 
 
-<!-- EXERCISES -->
+<!-- SENIOR ONE -->
 
-<section id="exercises" class="section">
+<section id="senior1" class="page">
 
-<h2>📝 Exercises & Quiz</h2>
+<button class="back" onclick="showPage('home')">← Dashboard</button>
 
-<br>
-
-<div class="quiz-question">
-
-<h3>
-1. Which of the following is a set?
-</h3>
-
-<label class="option">
-<input type="radio" name="q1" value="a">
-A group of well-defined objects
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="b">
-A random collection
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="c">
-A single number
-</label>
-
+<div class="hero">
+<h2>📘 Senior One</h2>
+<p>Choose a subject to start learning.</p>
 </div>
 
+<div class="grid">
 
-<div class="quiz-question">
-
-<h3>
-2. How many elements are in
-B = {2,4,6,8}?
-</h3>
-
-<label class="option">
-<input type="radio" name="q2" value="a">
-2
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="b">
-4
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="c">
-8
-</label>
-
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior One','Mathematics')">+</button>
+<div class="card-icon">➗</div>
+<h3>Mathematics</h3>
+<p>Notes, examples and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior One','Mathematics','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior One','Mathematics','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior One','Mathematics','Books')">📖 Books</button>
+</div>
 </div>
 
-
-<div class="quiz-question">
-
-<h3>
-3. Which is a natural number?
-</h3>
-
-<label class="option">
-<input type="radio" name="q3" value="a">
-3
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="b">
--3
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="c">
-1/2
-</label>
-
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior One','Physics')">+</button>
+<div class="card-icon">⚛️</div>
+<h3>Physics</h3>
+<p>Physics notes and practice.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior One','Physics','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior One','Physics','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior One','Physics','Books')">📖 Books</button>
+</div>
 </div>
 
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior One','Chemistry')">+</button>
+<div class="card-icon">🧪</div>
+<h3>Chemistry</h3>
+<p>Chemistry notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior One','Chemistry','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior One','Chemistry','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior One','Chemistry','Books')">📖 Books</button>
+</div>
+</div>
 
-<button onclick="submitQuiz()">
-✅ Submit Quiz
-</button>
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior One','Biology')">+</button>
+<div class="card-icon">🧬</div>
+<h3>Biology</h3>
+<p>Biology notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior One','Biology','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior One','Biology','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior One','Biology','Books')">📖 Books</button>
+</div>
+</div>
 
-<p id="quizResult"></p>
-
+</div>
 </section>
 
 
-<!-- AI -->
+<!-- SENIOR TWO -->
 
-<section id="ai" class="section">
+<section id="senior2" class="page">
+
+<button class="back" onclick="showPage('home')">← Dashboard</button>
+
+<div class="hero">
+<h2>📗 Senior Two</h2>
+<p>Choose a subject to start learning.</p>
+</div>
+
+<div class="grid">
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Two','Mathematics')">+</button>
+<div class="card-icon">➗</div>
+<h3>Mathematics</h3>
+<p>Notes, formulas and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Two','Mathematics','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Two','Mathematics','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Two','Mathematics','Books')">📖 Books</button>
+</div>
+</div>
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Two','Physics')">+</button>
+<div class="card-icon">⚛️</div>
+<h3>Physics</h3>
+<p>Physics notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Two','Physics','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Two','Physics','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Two','Physics','Books')">📖 Books</button>
+</div>
+</div>
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Two','Chemistry')">+</button>
+<div class="card-icon">🧪</div>
+<h3>Chemistry</h3>
+<p>Chemistry notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Two','Chemistry','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Two','Chemistry','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Two','Chemistry','Books')">📖 Books</button>
+</div>
+</div>
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Two','Biology')">+</button>
+<div class="card-icon">🧬</div>
+<h3>Biology</h3>
+<p>Biology notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Two','Biology','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Two','Biology','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Two','Biology','Books')">📖 Books</button>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- SENIOR THREE -->
+
+<section id="senior3" class="page">
+
+<button class="back" onclick="showPage('home')">← Dashboard</button>
+
+<div class="hero">
+<h2>📕 Senior Three</h2>
+<p>Choose a subject to start learning.</p>
+</div>
+
+<div class="grid">
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Three','Mathematics')">+</button>
+<div class="card-icon">➗</div>
+<h3>Mathematics</h3>
+<p>Advanced mathematics notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Three','Mathematics','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Three','Mathematics','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Three','Mathematics','Books')">📖 Books</button>
+</div>
+</div>
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Three','Physics')">+</button>
+<div class="card-icon">⚛️</div>
+<h3>Physics</h3>
+<p>Advanced physics notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Three','Physics','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Three','Physics','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Three','Physics','Books')">📖 Books</button>
+</div>
+</div>
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Three','Chemistry')">+</button>
+<div class="card-icon">🧪</div>
+<h3>Chemistry</h3>
+<p>Advanced chemistry notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Three','Chemistry','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Three','Chemistry','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Three','Chemistry','Books')">📖 Books</button>
+</div>
+</div>
+
+<div class="card subject">
+<button class="subject-plus" onclick="ownerUpload('Senior Three','Biology')">+</button>
+<div class="card-icon">🧬</div>
+<h3>Biology</h3>
+<p>Advanced biology notes and exercises.</p>
+<div class="subject-actions">
+<button onclick="openResource('Senior Three','Biology','Notes')">📚 Notes</button>
+<button onclick="openResource('Senior Three','Biology','Exercises')">📝 Exercises</button>
+<button onclick="openResource('Senior Three','Biology','Books')">📖 Books</button>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- AI TEACHER -->
+
+<section id="ai" class="page">
+
+<button class="back" onclick="showPage('home')">← Dashboard</button>
+
+<div class="hero">
+<h2>🤖 Mr Dev AI Teacher</h2>
+<p>
+Ask your question about Mathematics, Physics, Chemistry or Biology.
+</p>
+</div>
 
 <div class="ai-box">
 
-<h2>🤖 AI Teacher</h2>
+<div class="chat" id="chat">
 
-<p>
-Ask a Mathematics or Science question.
-</p>
+<div class="message bot">
+👋 Hello! I am Mr Dev AI Teacher.<br><br>
+Tell me your class, subject and question.
+<br><br>
+Example: <b>Senior 2 Mathematics: Explain Pythagoras theorem.</b>
+</div>
 
-<br>
+</div>
+
+<div class="ai-input">
 
 <input
-id="aiQuestion"
-class="input"
-placeholder="Example: What is a set?"
+id="question"
+type="text"
+placeholder="Ask your teacher..."
+onkeydown="if(event.key==='Enter')askAI()"
 >
 
-<button onclick="askAI()">
-🤖 Ask Teacher
-</button>
+<button class="primary" onclick="askAI()">Send</button>
 
-<p
-id="aiAnswer"
-style="margin-top:15px">
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- OWNER LOGIN -->
+
+<div class="modal" id="ownerModal">
+
+<div class="modal-content">
+
+<button class="close" onclick="closeOwner()">✕</button>
+
+<h2>🔐 Owner Access</h2>
+
+<p style="margin-top:10px;color:#687286">
+Owner access is required to show the plus buttons.
 </p>
 
-</div>
+<input
+id="ownerPassword"
+type="password"
+placeholder="Enter owner password"
+>
 
-</section>
-
-
-<!-- PREMIUM -->
-
-<section id="premium" class="section">
-
-<div class="premium">
-
-<span class="badge">
-⭐ PREMIUM
-</span>
-
-<h2 style="margin-top:12px">
-Premium Learning
-</h2>
-
-<br>
-
-<p>
-Get advanced exercises, revision tests,
-answers and extra learning materials.
-</p>
-
-<br>
-
-<button onclick="premiumMessage()">
-⭐ Unlock Premium
+<button class="primary" onclick="loginOwner()">
+Unlock Owner Mode
 </button>
 
+<p id="loginMessage" style="margin-top:12px;"></p>
+
+</div>
 </div>
 
-</section>
 
+<!-- UPLOAD MODAL -->
 
-<!-- NOTE -->
+<div class="modal" id="uploadModal">
 
-<section id="noteSection" class="section">
+<div class="modal-content">
 
-<div class="note">
+<button class="close" onclick="closeUpload()">✕</button>
 
-<h2 id="noteTitle"></h2>
+<h2>➕ Add Learning Material</h2>
 
-<br>
+<p id="uploadInfo" style="margin:10px 0;"></p>
 
-<div id="noteContent"></div>
+<label>Material title</label>
+<input id="materialTitle" placeholder="Example: Unit 1 Notes">
 
-<br>
+<label>Choose file</label>
+<input id="materialFile" type="file">
 
-<button onclick="showClasses()">
-← Back to Classes
+<button class="primary" onclick="saveMaterial()">
+Save Material
 </button>
 
-</div>
-
-</section>
-
+<p id="uploadMessage" style="margin-top:12px;"></p>
 
 </div>
-
-
-<a
-class="whatsapp"
-href="https://wa.me/250738939769"
-target="_blank">
-
-💬 WhatsApp
-
-</a>
+</div>
 
 
 <footer>
-
-<h3>
-Rwanda Education Hub 🇷🇼
-</h3>
-
-<p>
-Education for every student.
-</p>
-
+<strong>Mr Dev Learning Hubs</strong>
 <br>
-
-<p>
-© 2026 Rwanda Education Hub
-</p>
-
+Free Education Platform • Senior One • Senior Two • Senior Three
+<br><br>
+© 2026 Mr Dev Learning Hubs
 </footer>
 
 
 <script>
 
-/* ==========================================
-   WEBSITE DATA
-========================================== */
+/* =========================
+   NAVIGATION
+========================= */
 
-const units = {
+function toggleMenu(){
 
-"Senior 1": {
-
-"Mathematics":[
-"Sets of Numbers",
-"Linear Functions, Equations and Inequalities",
-"Percentage, Discount, Profit and Loss",
-"Ratio and Proportion",
-"Points, Lines and Angles",
-"Solids",
-"Statistics",
-"Probability"
-],
-
-"Science":[
-"Scientific Investigation",
-"Measurement",
-"Matter",
-"Energy",
-"Living Things",
-"Environment"
-]
-
-},
-
-
-"Senior 2": {
-
-"Mathematics":[
-"Numbers",
-"Algebra",
-"Functions",
-"Geometry",
-"Statistics",
-"Probability"
-],
-
-"Science":[
-"Matter",
-"Energy",
-"Living Things",
-"Environment"
-]
-
-},
-
-
-"Senior 3": {
-
-"Mathematics":[
-"Algebra",
-"Functions",
-"Geometry",
-"Enlargement and Similarity",
-"Statistics",
-"Probability"
-],
-
-"Science":[
-"Matter",
-"Energy",
-"Living Things",
-"Environment"
-]
+  document.getElementById("nav").classList.toggle("show");
 
 }
 
-};
+function showPage(page){
 
+  document.querySelectorAll(".page").forEach(function(p){
+    p.classList.remove("active");
+  });
 
-/* ==========================================
-   HIDE ALL SECTIONS
-========================================== */
+  document.getElementById(page).classList.add("active");
 
-function hideAll(){
+  document.getElementById("nav").classList.remove("show");
 
-document.querySelectorAll(
-".section"
-).forEach(
-function(section){
-
-section.style.display="none";
-
-});
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
 
-/* ==========================================
-   HOME
-========================================== */
+/* =========================
+   OWNER MODE
+========================= */
 
-function showHome(){
+let ownerMode=false;
 
-hideAll();
+/*
+IMPORTANT:
+This password is only a front-end demo.
+For real owner security, use Cloudflare Worker,
+Supabase, Firebase Authentication or another backend.
+*/
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+const OWNER_PASSWORD="MRDEV-OWNER-2026";
+
+function openOwner(){
+
+  document.getElementById("ownerModal").classList.add("show");
+
+}
+
+function closeOwner(){
+
+  document.getElementById("ownerModal").classList.remove("show");
+
+}
+
+function loginOwner(){
+
+  const password=
+    document.getElementById("ownerPassword").value;
+
+  if(password===OWNER_PASSWORD){
+
+    ownerMode=true;
+
+    document.body.classList.add("owner-mode");
+
+    localStorage.setItem("mrdev_owner","true");
+
+    document.getElementById("loginMessage").innerHTML=
+      "✅ Owner Mode unlocked.";
+
+    setTimeout(closeOwner,800);
+
+  }else{
+
+    document.getElementById("loginMessage").innerHTML=
+      "❌ Incorrect password.";
+
+  }
 
 }
 
 
-/* ==========================================
-   DASHBOARD
-========================================== */
+/* Remember owner mode on this browser */
 
-function showDashboard(){
+if(localStorage.getItem("mrdev_owner")==="true"){
 
-hideAll();
+  ownerMode=true;
 
-document.getElementById(
-"dashboard"
-).style.display="block";
-
-loadDashboard();
+  document.body.classList.add("owner-mode");
 
 }
 
 
-/* ==========================================
-   CLASSES
-========================================== */
+/* =========================
+   RESOURCE BUTTONS
+========================= */
 
-function showClasses(){
+function openResource(className,subject,type){
 
-hideAll();
-
-document.getElementById(
-"classes"
-).style.display="block";
-
-}
-
-
-/* ==========================================
-   EXERCISES
-========================================== */
-
-function showExercises(){
-
-hideAll();
-
-document.getElementById(
-"exercises"
-).style.display="block";
+  alert(
+    className+" • "+subject+" • "+type+
+    "\n\nMaterials will appear here when the owner uploads them."
+  );
 
 }
 
 
-/* ==========================================
-   AI
-========================================== */
+/* =========================
+   OWNER UPLOAD
+========================= */
 
-function showAI(){
+let selectedClass="";
+let selectedSubject="";
 
-hideAll();
+function ownerUpload(className,subject){
 
-document.getElementById(
-"ai"
-).style.display="block";
+  if(!ownerMode){
+
+    alert("🔒 Owner access only.");
+
+    return;
+  }
+
+  selectedClass=className;
+  selectedSubject=subject;
+
+  document.getElementById("uploadInfo").innerHTML=
+    "<b>"+className+"</b> → <b>"+subject+"</b>";
+
+  document.getElementById("uploadModal").classList.add("show");
+
+}
+
+function closeUpload(){
+
+  document.getElementById("uploadModal").classList.remove("show");
+
+}
+
+function saveMaterial(){
+
+  const title=
+    document.getElementById("materialTitle").value.trim();
+
+  const file=
+    document.getElementById("materialFile").files[0];
+
+  if(!title || !file){
+
+    document.getElementById("uploadMessage").innerHTML=
+      "⚠️ Enter a title and choose a file.";
+
+    return;
+  }
+
+  /*
+  Browser storage demo.
+  A real GitHub website cannot permanently upload
+  files to GitHub using only HTML.
+  */
+
+  const materials=
+    JSON.parse(localStorage.getItem("mrdev_materials") || "[]");
+
+  materials.push({
+
+    className:selectedClass,
+
+    subject:selectedSubject,
+
+    title:title,
+
+    fileName:file.name,
+
+    date:new Date().toLocaleString()
+
+  });
+
+  localStorage.setItem(
+    "mrdev_materials",
+    JSON.stringify(materials)
+  );
+
+  document.getElementById("uploadMessage").innerHTML=
+    "✅ Material saved on this browser.";
+
+  document.getElementById("materialTitle").value="";
+  document.getElementById("materialFile").value="";
 
 }
 
 
-/* ==========================================
-   ACCOUNT
-========================================== */
-
-function showAccount(){
-
-hideAll();
-
-document.getElementById(
-"account"
-).style.display="block";
-
-checkLogin();
-
-}
-
-
-/* ==========================================
-   PREMIUM
-========================================== */
-
-function showPremium(){
-
-hideAll();
-
-document.getElementById(
-"premium"
-).style.display="block";
-
-}
-
-
-/* ==========================================
-   REGISTER
-========================================== */
-
-function register(){
-
-let name =
-document.getElementById(
-"registerName"
-).value.trim();
-
-let email =
-document.getElementById(
-"registerEmail"
-).value.trim();
-
-let password =
-document.getElementById(
-"registerPassword"
-).value;
-
-
-if(!name || !email || !password){
-
-showAuthMessage(
-"Please fill all fields.",
-"error"
-);
-
-return;
-
-}
-
-
-if(password.length < 6){
-
-showAuthMessage(
-"Password must have at least 6 characters.",
-"error"
-);
-
-return;
-
-}
-
-
-let users =
-JSON.parse(
-localStorage.getItem(
-"reh_users"
-)||"[]"
-);
-
-
-let exists =
-users.find(
-function(user){
-
-return user.email===email;
-
-});
-
-
-if(exists){
-
-showAuthMessage(
-"An account with this email already exists.",
-"error"
-);
-
-return;
-
-}
-
-
-let user={
-
-id:Date.now(),
-
-name:name,
-
-email:email,
-
-password:password,
-
-createdAt:new Date().toISOString()
-
-};
-
-
-users.push(user);
-
-
-localStorage.setItem(
-"reh_users",
-JSON.stringify(users)
-);
-
-
-localStorage.setItem(
-"reh_current_user",
-JSON.stringify(user)
-);
-
-
-showAuthMessage(
-"✅ Account created successfully!",
-"success"
-);
-
-
-checkLogin();
-
-loadDashboard();
-
-}
-
-
-/* ==========================================
-   LOGIN
-========================================== */
-
-function login(){
-
-let email =
-document.getElementById(
-"loginEmail"
-).value.trim();
-
-let password =
-document.getElementById(
-"loginPassword"
-).value;
-
-
-let users =
-JSON.parse(
-localStorage.getItem(
-"reh_users"
-)||"[]"
-);
-
-
-let user =
-users.find(
-function(item){
-
-return(
-item.email===email &&
-item.password===password
-);
-
-});
-
-
-if(!user){
-
-showAuthMessage(
-"❌ Wrong email or password.",
-"error"
-);
-
-return;
-
-}
-
-
-localStorage.setItem(
-"reh_current_user",
-JSON.stringify(user)
-);
-
-
-showAuthMessage(
-"✅ Login successful!",
-"success"
-);
-
-
-checkLogin();
-
-loadDashboard();
-
-}
-
-
-/* ==========================================
-   AUTH MESSAGE
-========================================== */
-
-function showAuthMessage(
-message,
-type
-){
-
-let box =
-document.getElementById(
-"authMessage"
-);
-
-box.innerText=message;
-
-box.className=type;
-
-}
-
-
-/* ==========================================
-   CHECK LOGIN
-========================================== */
-
-function checkLogin(){
-
-let user =
-JSON.parse(
-localStorage.getItem(
-"reh_current_user"
-)||"null"
-);
-
-
-if(user){
-
-document.getElementById(
-"loginBox"
-).style.display="none";
-
-document.getElementById(
-"userBox"
-).style.display="block";
-
-
-document.getElementById(
-"userName"
-).innerText=
-"Name: "+user.name;
-
-
-document.getElementById(
-"userEmail"
-).innerText=
-"Email: "+user.email;
-
-
-}else{
-
-document.getElementById(
-"loginBox"
-).style.display="block";
-
-document.getElementById(
-"userBox"
-).style.display="none";
-
-}
-
-}
-
-
-/* ==========================================
-   LOGOUT
-========================================== */
-
-function logout(){
-
-localStorage.removeItem(
-"reh_current_user"
-);
-
-checkLogin();
-
-showHome();
-
-alert(
-"You have logged out."
-);
-
-}
-
-
-/* ==========================================
-   OPEN CLASS
-========================================== */
-
-function openClass(className){
-
-let area =
-document.getElementById(
-"subjectArea"
-);
-
-
-area.innerHTML=`
-
-<div class="card">
-
-<h2>📚 ${className}</h2>
-
-<p>
-Choose your subject.
-</p>
-
-<button onclick="showSubject('${className}','Mathematics')">
-📐 Mathematics
-</button>
-
-<button onclick="showSubject('${className}','Science')">
-🔬 Science
-</button>
-
-</div>
-
-<div id="topics"></div>
-
-`;
-
-}
-
-
-/* ==========================================
-   SHOW SUBJECT
-========================================== */
-
-function showSubject(
-className,
-subject
-){
-
-let topics =
-units[className][subject];
-
-
-let box =
-document.getElementById(
-"topics"
-);
-
-
-box.innerHTML=
-`<div class="card">
-<h2>
-${className} - ${subject}
-</h2>
-</div>`;
-
-
-topics.forEach(
-function(topic,index){
-
-let div =
-document.createElement(
-"div"
-);
-
-div.className="topic";
-
-
-div.innerHTML=`
-
-<h3>
-Unit ${index+1}: ${topic}
-</h3>
-
-<p>
-${subject} • ${className}
-</p>
-
-<button>
-📖 Open Unit
-</button>
-
-`;
-
-
-div.querySelector(
-"button"
-).onclick=
-function(){
-
-openNote(
-className,
-subject,
-topic
-);
-
-};
-
-
-box.appendChild(div);
-
-});
-
-}
-
-
-/* ==========================================
-   OPEN NOTE
-========================================== */
-
-function openNote(
-className,
-subject,
-topic
-){
-
-hideAll();
-
-
-document.getElementById(
-"noteSection"
-).style.display="block";
-
-
-document.getElementById(
-"noteTitle"
-).innerText=
-"📖 "+topic;
-
-
-document.getElementById(
-"noteContent"
-).innerHTML=`
-
-<h3>
-${className} • ${subject}
-</h3>
-
-<br>
-
-<p>
-Welcome to the learning unit:
-<strong>${topic}</strong>.
-</p>
-
-<br>
-
-<h3>📚 Study</h3>
-
-<p>
-Read this unit carefully, understand
-the main concepts and make your own
-short notes.
-</p>
-
-<br>
-
-<h3>📝 Practice</h3>
-
-<p>
-After studying the unit, go to the
-Exercises section and test your
-understanding.
-</p>
-
-<br>
-
-<h3>🎯 Goal</h3>
-
-<p>
-Understand the topic and be able to
-answer questions without help.
-</p>
-
-`;
-
-}
-
-
-/* ==========================================
-   QUIZ
-========================================== */
-
-function submitQuiz(){
-
-let q1 =
-document.querySelector(
-'input[name="q1"]:checked'
-);
-
-let q2 =
-document.querySelector(
-'input[name="q2"]:checked'
-);
-
-let q3 =
-document.querySelector(
-'input[name="q3"]:checked'
-);
-
-
-if(!q1 || !q2 || !q3){
-
-document.getElementById(
-"quizResult"
-).innerText=
-"❌ Please answer all questions.";
-
-document.getElementById(
-"quizResult"
-).className="error";
-
-return;
-
-}
-
-
-let score=0;
-
-
-if(q1.value==="a")
-score++;
-
-
-if(q2.value==="b")
-score++;
-
-
-if(q3.value==="a")
-score++;
-
-
-let percent =
-Math.round(
-(score/3)*100
-);
-
-
-let user =
-JSON.parse(
-localStorage.getItem(
-"reh_current_user"
-)||"null"
-);
-
-
-if(!user){
-
-alert(
-"Please login first to save your score."
-);
-
-return;
-
-}
-
-
-/* Save score */
-
-let scores =
-JSON.parse(
-localStorage.getItem(
-"reh_scores"
-)||"[]"
-);
-
-
-scores.push({
-
-userId:user.id,
-
-score:percent,
-
-date:new Date().toISOString()
-
-});
-
-
-localStorage.setItem(
-"reh_scores",
-JSON.stringify(scores)
-);
-
-
-document.getElementById(
-"quizResult"
-).innerText=
-"🎯 Your Score: "+
-percent+"% — saved successfully!";
-
-
-document.getElementById(
-"quizResult"
-).className="success";
-
-
-loadDashboard();
-
-}
-
-
-/* ==========================================
-   DASHBOARD
-========================================== */
-
-function loadDashboard(){
-
-let user =
-JSON.parse(
-localStorage.getItem(
-"reh_current_user"
-)||"null"
-);
-
-
-if(!user){
-
-document.getElementById(
-"dashName"
-).innerText=
-"Not logged in";
-
-document.getElementById(
-"dashScore"
-).innerText="0%";
-
-document.getElementById(
-"dashTests"
-).innerText="0";
-
-document.getElementById(
-"progressBar"
-).style.width="0%";
-
-document.getElementById(
-"progressText"
-).innerText="0%";
-
-return;
-
-}
-
-
-document.getElementById(
-"dashName"
-).innerText=
-user.name;
-
-
-let scores =
-JSON.parse(
-localStorage.getItem(
-"reh_scores"
-)||"[]"
-);
-
-
-let myScores =
-scores.filter(
-function(item){
-
-return item.userId===user.id;
-
-});
-
-
-if(!myScores.length){
-
-document.getElementById(
-"dashScore"
-).innerText="0%";
-
-document.getElementById(
-"dashTests"
-).innerText="0";
-
-return;
-
-}
-
-
-let total=0;
-
-myScores.forEach(
-function(item){
-
-total += Number(item.score);
-
-});
-
-
-let average =
-Math.round(
-total/myScores.length
-);
-
-
-document.getElementById(
-"dashScore"
-).innerText=
-average+"%";
-
-
-document.getElementById(
-"dashTests"
-).innerText=
-myScores.length;
-
-
-document.getElementById(
-"progressBar"
-).style.width=
-average+"%";
-
-
-document.getElementById(
-"progressText"
-).innerText=
-average+"%";
-
-}
-
-
-/* ==========================================
-   AI TEACHER
-========================================== */
+/* =========================
+   AI TEACHER DEMO
+========================= */
 
 function askAI(){
 
-let question =
-document.getElementById(
-"aiQuestion"
-).value.trim();
+  const input=
+    document.getElementById("question");
 
+  const question=input.value.trim();
 
-let answer =
-document.getElementById(
-"aiAnswer"
-);
+  if(!question){
 
+    return;
+  }
 
-if(!question){
+  const chat=
+    document.getElementById("chat");
 
-answer.innerText=
-"Please write a question.";
+  const userMessage=
+    document.createElement("div");
 
-return;
+  userMessage.className="message user";
 
-}
+  userMessage.textContent=question;
 
+  chat.appendChild(userMessage);
 
-let q =
-question.toLowerCase();
+  input.value="";
 
+  const botMessage=
+    document.createElement("div");
 
-if(
-q.includes("set") &&
-q.includes("math")
-){
+  botMessage.className="message bot";
 
-answer.innerText=
-"🤖 A set is a well-defined collection "+
-"of distinct objects. Example: A = {1,2,3}.";
+  botMessage.innerHTML=
+    "<b>Mr Dev AI Teacher:</b><br><br>"+
+    "I received your question. This GitHub version "+
+    "contains the AI Teacher interface. To make it "+
+    "answer questions using a real AI model, connect "+
+    "this interface to a secure AI backend/API.";
 
-return;
+  setTimeout(function(){
 
-}
+    chat.appendChild(botMessage);
 
+    chat.scrollTop=chat.scrollHeight;
 
-if(
-q.includes("percentage")
-){
-
-answer.innerText=
-"🤖 Percentage means a number expressed "+
-"out of 100. For example, 25% means 25 out of 100.";
-
-return;
+  },500);
 
 }
 
 
-if(
-q.includes("science") ||
-q.includes("matter")
-){
+/* =========================
+   CLOSE MODALS BY BACKGROUND
+========================= */
 
-answer.innerText=
-"🤖 Matter is anything that has mass "+
-"and occupies space. The common states "+
-"are solid, liquid and gas.";
+document.getElementById("ownerModal")
+.addEventListener("click",function(e){
 
-return;
-
-}
-
-
-answer.innerText=
-"🤖 I received your question. "+
-"The full AI Teacher will be connected "+
-"to an AI API in the next development stage.";
-
-}
-
-
-/* ==========================================
-   PREMIUM
-========================================== */
-
-function premiumMessage(){
-
-alert(
-"⭐ Premium payment will be connected "+
-"after the secure payment system is added."
-);
-
-}
-
-
-/* ==========================================
-   SEARCH
-========================================== */
-
-function searchUnits(){
-
-let query =
-document.getElementById(
-"searchInput"
-).value
-.toLowerCase()
-.trim();
-
-
-let result =
-document.getElementById(
-"searchResults"
-);
-
-
-if(!query){
-
-result.innerHTML="";
-
-return;
-
-}
-
-
-let found=[];
-
-
-Object.keys(units).forEach(
-function(className){
-
-Object.keys(
-units[className]
-).forEach(
-function(subject){
-
-units[className][subject]
-.forEach(
-function(topic){
-
-if(
-topic.toLowerCase()
-.includes(query)
-){
-
-found.push(
-className+
-" • "+
-subject+
-" • "+
-topic
-);
-
-}
+  if(e.target===this){
+    closeOwner();
+  }
 
 });
 
-});
+document.getElementById("uploadModal")
+.addEventListener("click",function(e){
 
-});
-
-
-if(!found.length){
-
-result.innerHTML=
-"<p>❌ Unit not found.</p>";
-
-return;
-
-}
-
-
-result.innerHTML=
-found.map(
-function(item){
-
-return`
-<div style="
-background:white;
-color:#172033;
-padding:10px;
-margin:5px;
-border-radius:8px">
-📚 ${item}
-</div>
-`;
-
-}).join("");
-
-}
-
-
-/* ==========================================
-   START
-========================================== */
-
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-checkLogin();
-
-loadDashboard();
+  if(e.target===this){
+    closeUpload();
+  }
 
 });
 
