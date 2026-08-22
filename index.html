@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Mr Dev Learning Hubs</title>
 
 <style>
@@ -11,7 +10,7 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial,sans-serif;
 }
 
 body{
@@ -22,28 +21,24 @@ body{
 header{
   background:linear-gradient(135deg,#101c3c,#1769e0);
   color:white;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 4px 15px #0003;
+  padding:18px;
 }
 
 .header{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
-  padding:15px 20px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 }
 
-.brand{
+.logo{
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-.logo{
+.logo-circle{
   width:45px;
   height:45px;
   border-radius:50%;
@@ -54,28 +49,19 @@ header{
   font-weight:bold;
 }
 
-.brand h1{
-  font-size:20px;
-}
-
-.brand small{
-  opacity:.8;
-}
-
 .menu{
-  border:0;
   background:#ffffff22;
   color:white;
-  padding:10px 13px;
-  border-radius:10px;
+  border:0;
+  padding:10px;
+  border-radius:8px;
   font-size:20px;
-  cursor:pointer;
 }
 
 nav{
   display:none;
-  background:#101c3c;
-  padding:8px;
+  max-width:1100px;
+  margin:auto;
 }
 
 nav.show{
@@ -84,22 +70,15 @@ nav.show{
 
 nav button{
   width:100%;
-  display:block;
-  border:0;
-  background:transparent;
-  color:white;
   padding:12px;
+  background:none;
+  border:0;
+  color:white;
   text-align:left;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-nav button:hover{
-  background:#ffffff18;
 }
 
 main{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
   padding:20px;
 }
@@ -113,53 +92,37 @@ main{
 }
 
 .hero{
-  background:linear-gradient(135deg,#1769e0,#7138df);
+  background:linear-gradient(135deg,#1769e0,#7438df);
   color:white;
   padding:30px;
-  border-radius:22px;
+  border-radius:20px;
   margin-bottom:20px;
-}
-
-.hero h2{
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.hero p{
-  line-height:1.6;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
+  gap:18px;
 }
 
 .card{
   background:white;
-  border:1px solid #e4e8f0;
   border-radius:18px;
   padding:20px;
-  box-shadow:0 5px 20px #0000000c;
   position:relative;
-}
-
-.card:hover{
-  transform:translateY(-2px);
+  box-shadow:0 5px 20px #0001;
 }
 
 .icon{
-  font-size:38px;
-  margin-bottom:8px;
+  font-size:40px;
 }
 
 .card h3{
-  margin-bottom:8px;
+  margin:10px 0;
 }
 
 .card p{
-  color:#687286;
-  line-height:1.5;
+  color:#697386;
 }
 
 .btn{
@@ -167,7 +130,6 @@ main{
   padding:11px 15px;
   border-radius:10px;
   cursor:pointer;
-  font-weight:bold;
   margin-top:12px;
 }
 
@@ -179,12 +141,10 @@ main{
 .back{
   background:#172033;
   color:white;
-  margin-bottom:18px;
 }
 
-/* PLUS */
+/* PLUS FOR EVERY SUBJECT */
 .plus{
-  display:none;
   position:absolute;
   right:15px;
   top:15px;
@@ -194,27 +154,28 @@ main{
   border-radius:50%;
   background:#1769e0;
   color:white;
-  font-size:27px;
+  font-size:28px;
   cursor:pointer;
+  display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 4px 10px #1769e055;
 }
 
-.owner-mode .plus{
-  display:flex;
+.plus:hover{
+  background:#0d4fae;
+  transform:scale(1.08);
 }
 
 .actions{
   display:flex;
-  flex-wrap:wrap;
   gap:7px;
+  flex-wrap:wrap;
   margin-top:12px;
 }
 
 .actions button{
   border:0;
-  padding:9px 11px;
+  padding:9px;
   border-radius:8px;
   background:#edf2f8;
   cursor:pointer;
@@ -225,142 +186,10 @@ main{
   color:white;
 }
 
-.stat{
-  text-align:center;
-}
-
-.stat strong{
-  display:block;
-  font-size:30px;
-  color:#1769e0;
-  margin-bottom:5px;
-}
-
-.ai-box{
-  background:white;
-  padding:20px;
-  border-radius:20px;
-  box-shadow:0 5px 20px #00000010;
-}
-
-.chat{
-  height:350px;
-  overflow:auto;
-  background:#f5f7fb;
-  border-radius:15px;
-  padding:12px;
-  margin-bottom:12px;
-}
-
-.message{
-  max-width:85%;
-  padding:12px 15px;
-  border-radius:15px;
-  margin:8px 0;
-  line-height:1.5;
-}
-
-.bot{
-  background:white;
-}
-
-.user{
-  background:#1769e0;
-  color:white;
-  margin-left:auto;
-}
-
-.ai-row{
-  display:flex;
-  gap:8px;
-}
-
-.ai-row input{
-  flex:1;
-}
-
-input,select{
-  width:100%;
-  padding:12px;
-  border:1px solid #d9deea;
-  border-radius:10px;
-  margin-top:8px;
-  outline:none;
-}
-
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#0008;
-  z-index:500;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  background:white;
-  width:100%;
-  max-width:500px;
-  padding:25px;
-  border-radius:20px;
-}
-
-.close{
-  float:right;
-  border:0;
-  background:#eee;
-  padding:7px 10px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.owner-banner{
-  display:none;
-  background:#fff5cf;
-  border:1px solid #efd267;
-  padding:12px;
-  border-radius:12px;
-  margin-bottom:15px;
-}
-
-.owner-mode .owner-banner{
-  display:block;
-}
-
 footer{
   text-align:center;
-  color:#737b8d;
-  padding:35px 15px;
-}
-
-@media(max-width:600px){
-
-  main{
-    padding:14px;
-  }
-
-  .hero{
-    padding:22px;
-  }
-
-  .hero h2{
-    font-size:24px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .ai-row{
-    flex-direction:column;
-  }
-
+  padding:30px;
+  color:#697386;
 }
 </style>
 </head>
@@ -371,14 +200,15 @@ footer{
 
 <div class="header">
 
-<div class="brand">
-
 <div class="logo">
+
+<div class="logo-circle">
 MD
 </div>
 
 <div>
-<h1>Mr Dev Learning Hubs</h1>
+<b>Mr Dev Learning Hubs</b>
+<br>
 <small>Learn • Practice • Achieve</small>
 </div>
 
@@ -388,30 +218,23 @@ MD
 
 </div>
 
+
 <nav id="nav">
 
 <button onclick="showPage('home')">
 🏠 Dashboard
 </button>
 
-<button onclick="showPage('senior1')">
+<button onclick="showPage('s1')">
 📘 Senior One
 </button>
 
-<button onclick="showPage('senior2')">
+<button onclick="showPage('s2')">
 📗 Senior Two
 </button>
 
-<button onclick="showPage('senior3')">
+<button onclick="showPage('s3')">
 📕 Senior Three
-</button>
-
-<button onclick="showPage('ai')">
-🤖 AI Teacher
-</button>
-
-<button onclick="openOwner()">
-🔐 Owner
 </button>
 
 </nav>
@@ -421,60 +244,39 @@ MD
 
 <main>
 
-<div class="owner-banner">
-🔐 <b>Owner Mode Active</b> — You can see the ➕ buttons.
-</div>
-
-
 <!-- DASHBOARD -->
 
 <section id="home" class="page active">
 
 <div class="hero">
 
-<h2>
-Welcome to Mr Dev Learning Hubs 👋
-</h2>
+<h1>
+Welcome to Mr Dev Learning Hubs
+</h1>
 
-<p>
-Free education platform for Senior One,
+<p style="margin-top:10px">
+Free learning platform for Senior One,
 Senior Two and Senior Three.
 </p>
 
-<button class="btn primary"
-onclick="showPage('ai')">
-
-🤖 Open AI Teacher
-
-</button>
-
 </div>
-
-
-<h2 style="margin:25px 0 15px">
-Learning Dashboard
-</h2>
 
 
 <div class="grid">
 
-
 <div class="card">
 
-<div class="icon">
-📘
-</div>
+<div class="icon">📘</div>
 
-<h3>
-Senior One
-</h3>
+<h3>Senior One</h3>
 
 <p>
 Mathematics, Physics, Chemistry and Biology.
 </p>
 
-<button class="btn primary"
-onclick="showPage('senior1')">
+<button
+class="btn primary"
+onclick="showPage('s1')">
 
 Open Senior One
 
@@ -485,20 +287,17 @@ Open Senior One
 
 <div class="card">
 
-<div class="icon">
-📗
-</div>
+<div class="icon">📗</div>
 
-<h3>
-Senior Two
-</h3>
+<h3>Senior Two</h3>
 
 <p>
-Study your Senior Two subjects.
+Mathematics, Physics, Chemistry and Biology.
 </p>
 
-<button class="btn primary"
-onclick="showPage('senior2')">
+<button
+class="btn primary"
+onclick="showPage('s2')">
 
 Open Senior Two
 
@@ -509,94 +308,23 @@ Open Senior Two
 
 <div class="card">
 
-<div class="icon">
-📕
-</div>
+<div class="icon">📕</div>
 
-<h3>
-Senior Three
-</h3>
+<h3>Senior Three</h3>
 
 <p>
-Prepare for Senior Three examinations.
+Mathematics, Physics, Chemistry and Biology.
 </p>
 
-<button class="btn primary"
-onclick="showPage('senior3')">
+<button
+class="btn primary"
+onclick="showPage('s3')">
 
 Open Senior Three
 
 </button>
 
 </div>
-
-
-<div class="card">
-
-<div class="icon">
-🤖
-</div>
-
-<h3>
-AI Teacher
-</h3>
-
-<p>
-Ask questions about your lessons.
-</p>
-
-<button class="btn primary"
-onclick="showPage('ai')">
-
-Ask AI Teacher
-
-</button>
-
-</div>
-
-
-</div>
-
-
-<h2 style="margin:25px 0 15px">
-Platform
-</h2>
-
-
-<div class="grid">
-
-<div class="card stat">
-
-<strong>
-3
-</strong>
-
-Classes
-
-</div>
-
-
-<div class="card stat">
-
-<strong>
-4
-</strong>
-
-Subjects
-
-</div>
-
-
-<div class="card stat">
-
-<strong>
-FREE
-</strong>
-
-Education
-
-</div>
-
 
 </div>
 
@@ -605,31 +333,175 @@ Education
 
 <!-- SENIOR ONE -->
 
-<section id="senior1" class="page">
+<section id="s1" class="page">
 
-<button class="btn back"
+<button
+class="btn back"
 onclick="showPage('home')">
 
 ← Dashboard
 
 </button>
 
-
 <div class="hero">
 
-<h2>
-📘 Senior One
-</h2>
+<h2>📘 Senior One</h2>
 
-<p>
-Choose your subject.
-</p>
+<p>Choose a subject.</p>
 
 </div>
 
 
-<div id="senior1Grid"
-class="grid">
+<div class="grid">
+
+
+<!-- MATHEMATICS -->
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior One','Mathematics')">
+
++
+
+</button>
+
+<div class="icon">➗</div>
+
+<h3>Mathematics</h3>
+
+<p>Senior One Mathematics.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior One','Mathematics','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior One','Mathematics','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior One','Mathematics','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PHYSICS -->
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior One','Physics')">
+
++
+
+</button>
+
+<div class="icon">⚛️</div>
+
+<h3>Physics</h3>
+
+<p>Senior One Physics.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior One','Physics','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior One','Physics','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior One','Physics','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CHEMISTRY -->
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior One','Chemistry')">
+
++
+
+</button>
+
+<div class="icon">🧪</div>
+
+<h3>Chemistry</h3>
+
+<p>Senior One Chemistry.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior One','Chemistry','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior One','Chemistry','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior One','Chemistry','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<!-- BIOLOGY -->
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior One','Biology')">
+
++
+
+</button>
+
+<div class="icon">🧬</div>
+
+<h3>Biology</h3>
+
+<p>Senior One Biology.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior One','Biology','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior One','Biology','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior One','Biology','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
@@ -637,31 +509,167 @@ class="grid">
 
 <!-- SENIOR TWO -->
 
-<section id="senior2" class="page">
+<section id="s2" class="page">
 
-<button class="btn back"
+<button
+class="btn back"
 onclick="showPage('home')">
 
 ← Dashboard
 
 </button>
 
-
 <div class="hero">
 
-<h2>
-📗 Senior Two
-</h2>
+<h2>📗 Senior Two</h2>
 
-<p>
-Choose your subject.
-</p>
+<p>Choose a subject.</p>
 
 </div>
 
 
-<div id="senior2Grid"
-class="grid">
+<div class="grid">
+
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior Two','Mathematics')">
+
++
+
+</button>
+
+<div class="icon">➗</div>
+
+<h3>Mathematics</h3>
+
+<p>Senior Two Mathematics.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior Two','Mathematics','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior Two','Mathematics','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior Two','Mathematics','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior Two','Physics')">
+
++
+
+</button>
+
+<div class="icon">⚛️</div>
+
+<h3>Physics</h3>
+
+<p>Senior Two Physics.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior Two','Physics','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior Two','Physics','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior Two','Physics','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior Two','Chemistry')">
+
++
+
+</button>
+
+<div class="icon">🧪</div>
+
+<h3>Chemistry</h3>
+
+<p>Senior Two Chemistry.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior Two','Chemistry','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior Two','Chemistry','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior Two','Chemistry','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior Two','Biology')">
+
++
+
+</button>
+
+<div class="icon">🧬</div>
+
+<h3>Biology</h3>
+
+<p>Senior Two Biology.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior Two','Biology','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior Two','Biology','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior Two','Biology','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
 </div>
 
 </section>
@@ -669,109 +677,164 @@ class="grid">
 
 <!-- SENIOR THREE -->
 
-<section id="senior3" class="page">
+<section id="s3" class="page">
 
-<button class="btn back"
+<button
+class="btn back"
 onclick="showPage('home')">
 
 ← Dashboard
 
 </button>
 
-
 <div class="hero">
 
-<h2>
-📕 Senior Three
-</h2>
+<h2>📕 Senior Three</h2>
 
-<p>
-Choose your subject.
-</p>
+<p>Choose a subject.</p>
 
 </div>
 
 
-<div id="senior3Grid"
-class="grid">
-</div>
-
-</section>
+<div class="grid">
 
 
-<!-- AI TEACHER -->
+<div class="card">
 
-<section id="ai" class="page">
+<button
+class="plus"
+onclick="addMaterial('Senior Three','Mathematics')">
 
-<button class="btn back"
-onclick="showPage('home')">
-
-← Dashboard
++
 
 </button>
 
+<div class="icon">➗</div>
 
-<div class="hero">
+<h3>Mathematics</h3>
 
-<h2>
-🤖 Mr Dev AI Teacher
-</h2>
+<p>Senior Three Mathematics.</p>
 
-<p>
-Ask your learning question.
-</p>
+<div class="actions">
 
-</div>
+<button onclick="openSubject('Senior Three','Mathematics','Notes')">
+📚 Notes
+</button>
 
+<button onclick="openSubject('Senior Three','Mathematics','Exercises')">
+📝 Exercises
+</button>
 
-<div class="ai-box">
-
-<div id="chat" class="chat">
-
-<div class="message bot">
-
-<b>
-Mr Dev AI Teacher:
-</b>
-
-<br><br>
-
-Hello 👋
-
-<br><br>
-
-Tell me your class, subject and question.
-
-<br><br>
-
-Example:
-
-<br>
-
-<b>
-Senior Two Mathematics:
-Explain Pythagoras theorem.
-</b>
+<button onclick="openSubject('Senior Three','Mathematics','Books')">
+📖 Books
+</button>
 
 </div>
 
 </div>
 
 
-<div class="ai-row">
+<div class="card">
 
-<input
-id="question"
-placeholder="Ask your teacher..."
-onkeydown="if(event.key==='Enter')askAI()"
->
+<button
+class="plus"
+onclick="addMaterial('Senior Three','Physics')">
 
-<button class="btn primary"
-onclick="askAI()">
-
-Send
++
 
 </button>
+
+<div class="icon">⚛️</div>
+
+<h3>Physics</h3>
+
+<p>Senior Three Physics.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior Three','Physics','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior Three','Physics','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior Three','Physics','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior Three','Chemistry')">
+
++
+
+</button>
+
+<div class="icon">🧪</div>
+
+<h3>Chemistry</h3>
+
+<p>Senior Three Chemistry.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior Three','Chemistry','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior Three','Chemistry','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior Three','Chemistry','Books')">
+📖 Books
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<button
+class="plus"
+onclick="addMaterial('Senior Three','Biology')">
+
++
+
+</button>
+
+<div class="icon">🧬</div>
+
+<h3>Biology</h3>
+
+<p>Senior Three Biology.</p>
+
+<div class="actions">
+
+<button onclick="openSubject('Senior Three','Biology','Notes')">
+📚 Notes
+</button>
+
+<button onclick="openSubject('Senior Three','Biology','Exercises')">
+📝 Exercises
+</button>
+
+<button onclick="openSubject('Senior Three','Biology','Books')">
+📖 Books
+</button>
+
+</div>
 
 </div>
 
@@ -784,9 +847,7 @@ Send
 
 <footer>
 
-<b>
-Mr Dev Learning Hubs
-</b>
+<b>Mr Dev Learning Hubs</b>
 
 <br>
 
@@ -796,180 +857,15 @@ Free Education Platform
 
 Senior One • Senior Two • Senior Three
 
-<br>
-
-© 2026
-
 </footer>
-
-
-<!-- OWNER LOGIN -->
-
-<div id="ownerModal"
-class="modal">
-
-<div class="modal-box">
-
-<button class="close"
-onclick="closeOwner()">
-
-✕
-
-</button>
-
-
-<h2>
-🔐 Owner Access
-</h2>
-
-<p style="margin-top:10px">
-
-Only the website owner can activate
-the Plus buttons.
-
-</p>
-
-
-<input
-id="ownerPassword"
-type="password"
-placeholder="Owner password"
->
-
-
-<button class="btn primary"
-onclick="unlockOwner()">
-
-Unlock Owner Mode
-
-</button>
-
-
-<p id="ownerMessage"
-style="margin-top:12px">
-</p>
-
-</div>
-
-</div>
-
-
-<!-- ADD MATERIAL -->
-
-<div id="addModal"
-class="modal">
-
-<div class="modal-box">
-
-<button class="close"
-onclick="closeAdd()">
-
-✕
-
-</button>
-
-
-<h2>
-➕ Add Material
-</h2>
-
-
-<p id="location"
-style="margin-top:10px">
-</p>
-
-
-<input
-id="materialTitle"
-placeholder="Material title"
->
-
-
-<select id="materialType">
-
-<option>
-Notes
-</option>
-
-<option>
-Exercises
-</option>
-
-<option>
-Books
-</option>
-
-</select>
-
-
-<input
-id="materialFile"
-type="file"
->
-
-
-<button class="btn primary"
-onclick="saveMaterial()">
-
-Save Material
-
-</button>
-
-
-<p id="saveMessage"
-style="margin-top:12px">
-</p>
-
-</div>
-
-</div>
 
 
 <script>
 
-/* ==========================
-   SUBJECT DATA
-========================== */
-
-const subjects=[
-
-{
-name:"Mathematics",
-icon:"➗"
-},
-
-{
-name:"Physics",
-icon:"⚛️"
-},
-
-{
-name:"Chemistry",
-icon:"🧪"
-},
-
-{
-name:"Biology",
-icon:"🧬"
-}
-
-];
-
-
-let selectedClass="";
-let selectedSubject="";
-
-let ownerMode=false;
-
-
-/* ==========================
-   NAVIGATION
-========================== */
-
 function toggleMenu(){
 
 document
-.getElementById("nav")
+.querySelector("nav")
 .classList.toggle("show");
 
 }
@@ -979,545 +875,47 @@ function showPage(id){
 
 document
 .querySelectorAll(".page")
-.forEach(function(page){
+.forEach(function(p){
 
-page.classList.remove("active");
+p.classList.remove("active");
 
 });
-
 
 document
 .getElementById(id)
 .classList.add("active");
 
-
-document
-.getElementById("nav")
-.classList.remove("show");
-
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+window.scrollTo(0,0);
 
 }
 
 
-/* ==========================
-   CREATE SUBJECT CARDS
-========================== */
-
-function createSubjects(){
-
-createClass(
-"senior1Grid",
-"Senior One"
-);
-
-createClass(
-"senior2Grid",
-"Senior Two"
-);
-
-createClass(
-"senior3Grid",
-"Senior Three"
-);
-
-}
-
-
-function createClass(containerId,className){
-
-const container=
-document.getElementById(containerId);
-
-
-subjects.forEach(function(subject){
-
-const card=
-document.createElement("div");
-
-card.className="card subject";
-
-
-card.innerHTML=`
-
-<button
-class="plus"
-onclick="openAdd('${className}','${subject.name}')"
->
-+
-</button>
-
-
-<div class="icon">
-${subject.icon}
-</div>
-
-
-<h3>
-${subject.name}
-</h3>
-
-
-<p>
-${className} ${subject.name}
-</p>
-
-
-<div class="actions">
-
-<button
-onclick="openMaterial('${className}','${subject.name}','Notes')"
->
-📚 Notes
-</button>
-
-
-<button
-onclick="openMaterial('${className}','${subject.name}','Exercises')"
->
-📝 Exercises
-</button>
-
-
-<button
-onclick="openMaterial('${className}','${subject.name}','Books')"
->
-📖 Books
-</button>
-
-</div>
-
-`;
-
-
-container.appendChild(card);
-
-});
-
-}
-
-
-/* ==========================
-   OWNER LOGIN
-========================== */
-
-/*
-DEMO PASSWORD:
-
-MRDEV-OWNER-2026
-
-Important:
-A password inside frontend HTML is NOT real security.
-For real owner-only protection use authentication/backend.
-*/
-
-const OWNER_PASSWORD=
-"MRDEV-OWNER-2026";
-
-
-function openOwner(){
-
-document
-.getElementById("ownerModal")
-.classList.add("show");
-
-}
-
-
-function closeOwner(){
-
-document
-.getElementById("ownerModal")
-.classList.remove("show");
-
-}
-
-
-function unlockOwner(){
-
-const password=
-document
-.getElementById("ownerPassword")
-.value;
-
-
-if(password===OWNER_PASSWORD){
-
-ownerMode=true;
-
-
-document
-.body
-.classList.add("owner-mode");
-
-
-localStorage.setItem(
-"mrdev_owner",
-"true"
-);
-
-
-document
-.getElementById("ownerMessage")
-innerHTML=
-"✅ Owner Mode activated.";
-
-
-setTimeout(function(){
-
-closeOwner();
-
-},800);
-
-
-}else{
-
-document
-.getElementById("ownerMessage")
-innerHTML=
-"❌ Incorrect password.";
-
-}
-
-}
-
-
-/* Remember owner mode */
-
-if(
-localStorage.getItem("mrdev_owner")
-==="true"
-){
-
-ownerMode=true;
-
-document
-.body
-.classList.add("owner-mode");
-
-}
-
-
-/* ==========================
-   PLUS BUTTON
-========================== */
-
-function openAdd(className,subject){
-
-if(!ownerMode){
+function addMaterial(className,subject){
 
 alert(
-"🔒 Owner only."
+"➕ Add material\n\n"+
+"Class: "+className+
+"\nSubject: "+subject+
+"\n\nOwner upload area."
 );
 
-return;
-
 }
 
 
-selectedClass=className;
-
-selectedSubject=subject;
-
-
-document
-.getElementById("location")
-.innerHTML=
-
-"<b>"+
-className+
-"</b> → <b>"+
-subject+
-"</b>";
-
-
-document
-.getElementById("addModal")
-.classList.add("show");
-
-}
-
-
-function closeAdd(){
-
-document
-.getElementById("addModal")
-.classList.remove("show");
-
-}
-
-
-/* ==========================
-   SAVE MATERIAL
-========================== */
-
-function saveMaterial(){
-
-if(!ownerMode){
+function openSubject(className,subject,type){
 
 alert(
-"🔒 Owner only."
-);
-
-return;
-
-}
-
-
-const title=
-document
-.getElementById("materialTitle")
-.value
-.trim();
-
-
-const type=
-document
-.getElementById("materialType")
-.value;
-
-
-const file=
-document
-.getElementById("materialFile")
-.files[0];
-
-
-if(!title || !file){
-
-document
-.getElementById("saveMessage")
-.innerHTML=
-"⚠️ Enter a title and choose a file.";
-
-return;
-
-}
-
-
-let materials=
-JSON.parse(
-localStorage.getItem("mrdevMaterials")
-||
-"[]"
-);
-
-
-materials.push({
-
-className:selectedClass,
-
-subject:selectedSubject,
-
-type:type,
-
-title:title,
-
-fileName:file.name,
-
-date:
-new Date().toLocaleString()
-
-});
-
-
-localStorage.setItem(
-"mrdevMaterials",
-JSON.stringify(materials)
-);
-
-
-document
-.getElementById("saveMessage")
-.innerHTML=
-"✅ Material saved on this browser.";
-
-
-document
-.getElementById("materialTitle")
-.value="";
-
-
-document
-.getElementById("materialFile")
-.value="";
-
-}
-
-
-/* ==========================
-   SHOW MATERIAL
-========================== */
-
-function openMaterial(
-className,
-subject,
-type
-){
-
-let materials=
-JSON.parse(
-localStorage.getItem("mrdevMaterials")
-||
-"[]"
-);
-
-
-let found=
-materials.filter(function(item){
-
-return(
-item.className===className &&
-item.subject===subject &&
-item.type===type
-);
-
-});
-
-
-if(found.length===0){
-
-alert(
-
 className+
 "\n"+
 subject+
 "\n"+
 type+
-"\n\n"+
-"No materials uploaded yet."
-
+"\n\nMaterials will appear here."
 );
 
-return;
-
 }
-
-
-let message=
-found.map(function(item){
-
-return(
-"📄 "+
-item.title+
-"\n"+
-"File: "+
-item.fileName+
-"\n"+
-"Added: "+
-item.date
-);
-
-}).join("\n\n");
-
-
-alert(message);
-
-}
-
-
-/* ==========================
-   AI TEACHER
-========================== */
-
-function escapeText(text){
-
-return text
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
-}
-
-
-function askAI(){
-
-const input=
-document
-.getElementById("question");
-
-
-const question=
-input.value.trim();
-
-
-if(!question){
-
-return;
-
-}
-
-
-const chat=
-document
-.getElementById("chat");
-
-
-chat.innerHTML+=`
-
-<div class="message user">
-
-${escapeText(question)}
-
-</div>
-
-`;
-
-
-input.value="";
-
-
-setTimeout(function(){
-
-chat.innerHTML+=`
-
-<div class="message bot">
-
-<b>
-Mr Dev AI Teacher:
-</b>
-
-<br><br>
-
-I received your question.
-
-<br><br>
-
-The AI Teacher interface is ready,
-but a real AI model needs to be connected
-through a secure backend/API.
-
-<br><br>
-
-Do not put an AI API key directly
-inside this GitHub file.
-
-</div>
-
-`;
-
-
-chat.scrollTop=
-chat.scrollHeight;
-
-},500);
-
-}
-
-
-/* ==========================
-   START WEBSITE
-========================== */
-
-createSubjects();
 
 </script>
 
 </body>
-</html>
+  </html>
