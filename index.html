@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#1769e0">
 
 <title>Mr Dev Learning Hubs</title>
 
@@ -12,7 +11,7 @@
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,Helvetica,sans-serif
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
@@ -34,8 +33,8 @@ header{
   margin:auto;
   padding:15px 20px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .brand{
@@ -53,7 +52,6 @@ header{
   display:grid;
   place-items:center;
   font-weight:bold;
-  font-size:16px;
 }
 
 .brand h1{
@@ -85,12 +83,12 @@ nav.show{
 }
 
 nav button{
-  display:block;
   width:100%;
-  padding:12px;
+  display:block;
   border:0;
   background:transparent;
   color:white;
+  padding:12px;
   text-align:left;
   border-radius:8px;
   cursor:pointer;
@@ -120,12 +118,11 @@ main{
   padding:30px;
   border-radius:22px;
   margin-bottom:20px;
-  box-shadow:0 10px 30px #1769e033;
 }
 
 .hero h2{
   font-size:30px;
-  margin-bottom:9px;
+  margin-bottom:10px;
 }
 
 .hero p{
@@ -144,16 +141,15 @@ main{
   border-radius:18px;
   padding:20px;
   box-shadow:0 5px 20px #0000000c;
-  transition:.2s;
+  position:relative;
 }
 
 .card:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 25px #00000015;
+  transform:translateY(-2px);
 }
 
 .icon{
-  font-size:35px;
+  font-size:38px;
   margin-bottom:8px;
 }
 
@@ -164,10 +160,6 @@ main{
 .card p{
   color:#687286;
   line-height:1.5;
-}
-
-.title{
-  margin:25px 0 14px;
 }
 
 .btn{
@@ -184,39 +176,33 @@ main{
   color:white;
 }
 
-.secondary{
-  background:#edf3ff;
-  color:#1769e0;
-}
-
 .back{
   background:#172033;
   color:white;
   margin-bottom:18px;
 }
 
-.subject{
-  position:relative;
-}
-
+/* PLUS */
 .plus{
   display:none;
   position:absolute;
-  right:14px;
-  top:14px;
-  width:40px;
-  height:40px;
+  right:15px;
+  top:15px;
+  width:42px;
+  height:42px;
   border:0;
   border-radius:50%;
   background:#1769e0;
   color:white;
-  font-size:25px;
+  font-size:27px;
   cursor:pointer;
-  place-items:center;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 10px #1769e055;
 }
 
 .owner-mode .plus{
-  display:grid;
+  display:flex;
 }
 
 .actions{
@@ -228,39 +214,15 @@ main{
 
 .actions button{
   border:0;
-  padding:9px 10px;
+  padding:9px 11px;
   border-radius:8px;
-  background:#f0f3f8;
+  background:#edf2f8;
   cursor:pointer;
-  color:#26344e;
 }
 
 .actions button:hover{
   background:#1769e0;
   color:white;
-}
-
-.search{
-  display:flex;
-  gap:8px;
-  margin-bottom:20px;
-}
-
-.search input{
-  flex:1;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  border:1px solid #d9deea;
-  border-radius:10px;
-  outline:none;
-  margin-top:8px;
-}
-
-.search input{
-  margin-top:0;
 }
 
 .stat{
@@ -282,8 +244,8 @@ input,select,textarea{
 }
 
 .chat{
-  height:360px;
-  overflow-y:auto;
+  height:350px;
+  overflow:auto;
   background:#f5f7fb;
   border-radius:15px;
   padding:12px;
@@ -300,7 +262,6 @@ input,select,textarea{
 
 .bot{
   background:white;
-  border:1px solid #e6e9ef;
 }
 
 .user{
@@ -315,30 +276,16 @@ input,select,textarea{
 }
 
 .ai-row input{
-  margin:0;
   flex:1;
 }
 
-.material{
-  border:1px solid #e1e6ef;
-  padding:14px;
-  border-radius:12px;
-  margin-top:10px;
-  background:#fafcff;
-}
-
-.owner-banner{
-  display:none;
-  background:#fff5cf;
-  color:#765800;
-  border:1px solid #efd267;
+input,select{
+  width:100%;
   padding:12px;
-  border-radius:12px;
-  margin-bottom:18px;
-}
-
-.owner-mode .owner-banner{
-  display:block;
+  border:1px solid #d9deea;
+  border-radius:10px;
+  margin-top:8px;
+  outline:none;
 }
 
 .modal{
@@ -373,14 +320,27 @@ input,select,textarea{
   cursor:pointer;
 }
 
+.owner-banner{
+  display:none;
+  background:#fff5cf;
+  border:1px solid #efd267;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:15px;
+}
+
+.owner-mode .owner-banner{
+  display:block;
+}
+
 footer{
   text-align:center;
   color:#737b8d;
   padding:35px 15px;
-  line-height:1.7;
 }
 
 @media(max-width:600px){
+
   main{
     padding:14px;
   }
@@ -400,6 +360,7 @@ footer{
   .ai-row{
     flex-direction:column;
   }
+
 }
 </style>
 </head>
@@ -412,7 +373,9 @@ footer{
 
 <div class="brand">
 
-<div class="logo">MD</div>
+<div class="logo">
+MD
+</div>
 
 <div>
 <h1>Mr Dev Learning Hubs</h1>
@@ -425,19 +388,31 @@ footer{
 
 </div>
 
-<nav id="navigation">
+<nav id="nav">
 
-<button onclick="showPage('home')">🏠 Dashboard</button>
+<button onclick="showPage('home')">
+🏠 Dashboard
+</button>
 
-<button onclick="showPage('senior1')">📘 Senior One</button>
+<button onclick="showPage('senior1')">
+📘 Senior One
+</button>
 
-<button onclick="showPage('senior2')">📗 Senior Two</button>
+<button onclick="showPage('senior2')">
+📗 Senior Two
+</button>
 
-<button onclick="showPage('senior3')">📕 Senior Three</button>
+<button onclick="showPage('senior3')">
+📕 Senior Three
+</button>
 
-<button onclick="showPage('ai')">🤖 AI Teacher</button>
+<button onclick="showPage('ai')">
+🤖 AI Teacher
+</button>
 
-<button onclick="openOwnerLogin()">🔐 Owner</button>
+<button onclick="openOwner()">
+🔐 Owner
+</button>
 
 </nav>
 
@@ -447,109 +422,181 @@ footer{
 <main>
 
 <div class="owner-banner">
-🔐 <b>Owner Mode Active</b> — Plus buttons are now visible.
+🔐 <b>Owner Mode Active</b> — You can see the ➕ buttons.
 </div>
 
 
-<!-- HOME -->
+<!-- DASHBOARD -->
 
 <section id="home" class="page active">
 
 <div class="hero">
 
-<h2>Welcome to Mr Dev Learning Hubs 👋</h2>
+<h2>
+Welcome to Mr Dev Learning Hubs 👋
+</h2>
 
 <p>
-A free educational platform for Senior One, Senior Two
-and Senior Three. Learn, practice and improve every day.
+Free education platform for Senior One,
+Senior Two and Senior Three.
 </p>
 
-<button class="btn primary" onclick="showPage('ai')">
+<button class="btn primary"
+onclick="showPage('ai')">
+
 🤖 Open AI Teacher
+
 </button>
 
 </div>
 
 
-<div class="search">
+<h2 style="margin:25px 0 15px">
+Learning Dashboard
+</h2>
 
-<input
-id="searchInput"
-placeholder="🔎 Search Mathematics, Physics, Chemistry, Biology..."
-oninput="searchSite()"
->
-
-</div>
-
-<div id="searchResults"></div>
-
-
-<h2 class="title">Learning Dashboard</h2>
 
 <div class="grid">
 
+
 <div class="card">
-<div class="icon">📘</div>
-<h3>Senior One</h3>
-<p>Start learning your Senior One subjects.</p>
-<button class="btn primary" onclick="showPage('senior1')">
+
+<div class="icon">
+📘
+</div>
+
+<h3>
+Senior One
+</h3>
+
+<p>
+Mathematics, Physics, Chemistry and Biology.
+</p>
+
+<button class="btn primary"
+onclick="showPage('senior1')">
+
 Open Senior One
+
 </button>
+
 </div>
 
+
 <div class="card">
-<div class="icon">📗</div>
-<h3>Senior Two</h3>
-<p>Continue your studies with notes and exercises.</p>
-<button class="btn primary" onclick="showPage('senior2')">
+
+<div class="icon">
+📗
+</div>
+
+<h3>
+Senior Two
+</h3>
+
+<p>
+Study your Senior Two subjects.
+</p>
+
+<button class="btn primary"
+onclick="showPage('senior2')">
+
 Open Senior Two
+
 </button>
+
 </div>
 
+
 <div class="card">
-<div class="icon">📕</div>
-<h3>Senior Three</h3>
-<p>Prepare for advanced topics and examinations.</p>
-<button class="btn primary" onclick="showPage('senior3')">
+
+<div class="icon">
+📕
+</div>
+
+<h3>
+Senior Three
+</h3>
+
+<p>
+Prepare for Senior Three examinations.
+</p>
+
+<button class="btn primary"
+onclick="showPage('senior3')">
+
 Open Senior Three
+
 </button>
+
 </div>
+
 
 <div class="card">
-<div class="icon">🤖</div>
-<h3>AI Teacher</h3>
-<p>Ask questions and get help with your lessons.</p>
-<button class="btn primary" onclick="showPage('ai')">
+
+<div class="icon">
+🤖
+</div>
+
+<h3>
+AI Teacher
+</h3>
+
+<p>
+Ask questions about your lessons.
+</p>
+
+<button class="btn primary"
+onclick="showPage('ai')">
+
 Ask AI Teacher
+
 </button>
-</div>
 
 </div>
 
 
-<h2 class="title">Platform Statistics</h2>
+</div>
+
+
+<h2 style="margin:25px 0 15px">
+Platform
+</h2>
+
 
 <div class="grid">
 
 <div class="card stat">
-<strong>3</strong>
+
+<strong>
+3
+</strong>
+
 Classes
+
 </div>
 
-<div class="card stat">
-<strong>4</strong>
-Main Subjects
-</div>
 
 <div class="card stat">
-<strong>∞</strong>
-Learning
+
+<strong>
+4
+</strong>
+
+Subjects
+
 </div>
 
+
 <div class="card stat">
-<strong>FREE</strong>
-Access
+
+<strong>
+FREE
+</strong>
+
+Education
+
 </div>
+
 
 </div>
 
@@ -560,16 +607,30 @@ Access
 
 <section id="senior1" class="page">
 
-<button class="btn back" onclick="showPage('home')">
+<button class="btn back"
+onclick="showPage('home')">
+
 ← Dashboard
+
 </button>
 
+
 <div class="hero">
-<h2>📘 Senior One</h2>
-<p>Select your subject.</p>
+
+<h2>
+📘 Senior One
+</h2>
+
+<p>
+Choose your subject.
+</p>
+
 </div>
 
-<div id="senior1Subjects" class="grid"></div>
+
+<div id="senior1Grid"
+class="grid">
+</div>
 
 </section>
 
@@ -578,16 +639,30 @@ Access
 
 <section id="senior2" class="page">
 
-<button class="btn back" onclick="showPage('home')">
+<button class="btn back"
+onclick="showPage('home')">
+
 ← Dashboard
+
 </button>
 
+
 <div class="hero">
-<h2>📗 Senior Two</h2>
-<p>Select your subject.</p>
+
+<h2>
+📗 Senior Two
+</h2>
+
+<p>
+Choose your subject.
+</p>
+
 </div>
 
-<div id="senior2Subjects" class="grid"></div>
+
+<div id="senior2Grid"
+class="grid">
+</div>
 
 </section>
 
@@ -596,16 +671,30 @@ Access
 
 <section id="senior3" class="page">
 
-<button class="btn back" onclick="showPage('home')">
+<button class="btn back"
+onclick="showPage('home')">
+
 ← Dashboard
+
 </button>
 
+
 <div class="hero">
-<h2>📕 Senior Three</h2>
-<p>Select your subject.</p>
+
+<h2>
+📕 Senior Three
+</h2>
+
+<p>
+Choose your subject.
+</p>
+
 </div>
 
-<div id="senior3Subjects" class="grid"></div>
+
+<div id="senior3Grid"
+class="grid">
+</div>
 
 </section>
 
@@ -614,19 +703,26 @@ Access
 
 <section id="ai" class="page">
 
-<button class="btn back" onclick="showPage('home')">
+<button class="btn back"
+onclick="showPage('home')">
+
 ← Dashboard
+
 </button>
+
 
 <div class="hero">
 
-<h2>🤖 Mr Dev AI Teacher</h2>
+<h2>
+🤖 Mr Dev AI Teacher
+</h2>
 
 <p>
-Ask about Mathematics, Physics, Chemistry or Biology.
+Ask your learning question.
 </p>
 
 </div>
+
 
 <div class="ai-box">
 
@@ -634,9 +730,13 @@ Ask about Mathematics, Physics, Chemistry or Biology.
 
 <div class="message bot">
 
-<b>Mr Dev AI Teacher:</b><br><br>
+<b>
+Mr Dev AI Teacher:
+</b>
 
-Hello 👋 I am your learning assistant.
+<br><br>
+
+Hello 👋
 
 <br><br>
 
@@ -644,13 +744,19 @@ Tell me your class, subject and question.
 
 <br><br>
 
-Example:<br>
+Example:
 
-<b>Senior Two Mathematics: Explain Pythagoras theorem.</b>
+<br>
+
+<b>
+Senior Two Mathematics:
+Explain Pythagoras theorem.
+</b>
 
 </div>
 
 </div>
+
 
 <div class="ai-row">
 
@@ -660,8 +766,11 @@ placeholder="Ask your teacher..."
 onkeydown="if(event.key==='Enter')askAI()"
 >
 
-<button class="btn primary" onclick="askAI()">
+<button class="btn primary"
+onclick="askAI()">
+
 Send
+
 </button>
 
 </div>
@@ -675,32 +784,51 @@ Send
 
 <footer>
 
-<b>Mr Dev Learning Hubs</b><br>
+<b>
+Mr Dev Learning Hubs
+</b>
 
-Free Education Platform<br>
+<br>
 
-Senior One • Senior Two • Senior Three<br>
+Free Education Platform
 
-© 2026 Mr Dev Learning Hubs
+<br>
+
+Senior One • Senior Two • Senior Three
+
+<br>
+
+© 2026
 
 </footer>
 
 
 <!-- OWNER LOGIN -->
 
-<div id="ownerLoginModal" class="modal">
+<div id="ownerModal"
+class="modal">
 
 <div class="modal-box">
 
-<button class="close" onclick="closeModal('ownerLoginModal')">
+<button class="close"
+onclick="closeOwner()">
+
 ✕
+
 </button>
 
-<h2>🔐 Owner Access</h2>
+
+<h2>
+🔐 Owner Access
+</h2>
 
 <p style="margin-top:10px">
-Enter the owner password.
+
+Only the website owner can activate
+the Plus buttons.
+
 </p>
+
 
 <input
 id="ownerPassword"
@@ -708,11 +836,18 @@ type="password"
 placeholder="Owner password"
 >
 
-<button class="btn primary" onclick="unlockOwner()">
+
+<button class="btn primary"
+onclick="unlockOwner()">
+
 Unlock Owner Mode
+
 </button>
 
-<p id="ownerMessage" style="margin-top:12px"></p>
+
+<p id="ownerMessage"
+style="margin-top:12px">
+</p>
 
 </div>
 
@@ -721,44 +856,69 @@ Unlock Owner Mode
 
 <!-- ADD MATERIAL -->
 
-<div id="addMaterialModal" class="modal">
+<div id="addModal"
+class="modal">
 
 <div class="modal-box">
 
-<button class="close" onclick="closeModal('addMaterialModal')">
+<button class="close"
+onclick="closeAdd()">
+
 ✕
+
 </button>
 
-<h2>➕ Add Learning Material</h2>
 
-<p id="materialLocation" style="margin:10px 0"></p>
+<h2>
+➕ Add Material
+</h2>
 
-<label>Title</label>
+
+<p id="location"
+style="margin-top:10px">
+</p>
+
 
 <input
 id="materialTitle"
-placeholder="Example: Unit 1 Notes"
+placeholder="Material title"
 >
 
-<label>Type</label>
 
 <select id="materialType">
 
-<option>Notes</option>
-<option>Exercises</option>
-<option>Books</option>
+<option>
+Notes
+</option>
+
+<option>
+Exercises
+</option>
+
+<option>
+Books
+</option>
 
 </select>
 
-<label>File</label>
 
-<input id="materialFile" type="file">
+<input
+id="materialFile"
+type="file"
+>
 
-<button class="btn primary" onclick="saveMaterial()">
+
+<button class="btn primary"
+onclick="saveMaterial()">
+
 Save Material
+
 </button>
 
-<p id="materialMessage" style="margin-top:12px"></p>
+
+<p id="saveMessage"
+style="margin-top:12px">
+</p>
 
 </div>
 
@@ -767,48 +927,9 @@ Save Material
 
 <script>
 
-/* ==============================
-   BASIC NAVIGATION
-============================== */
-
-function toggleMenu(){
-
-document
-.getElementById("navigation")
-.classList.toggle("show");
-
-}
-
-
-function showPage(id){
-
-document
-.querySelectorAll(".page")
-.forEach(function(section){
-
-section.classList.remove("active");
-
-});
-
-document
-.getElementById(id)
-.classList.add("active");
-
-document
-.getElementById("navigation")
-.classList.remove("show");
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-/* ==============================
-   SUBJECTS
-============================== */
+/* ==========================
+   SUBJECT DATA
+========================== */
 
 const subjects=[
 
@@ -835,34 +956,83 @@ icon:"🧬"
 ];
 
 
-function createSubjects(){
+let selectedClass="";
+let selectedSubject="";
 
-const classes=[
+let ownerMode=false;
 
-{
-id:"senior1Subjects",
-name:"Senior One"
-},
 
-{
-id:"senior2Subjects",
-name:"Senior Two"
-},
+/* ==========================
+   NAVIGATION
+========================== */
 
-{
-id:"senior3Subjects",
-name:"Senior Three"
+function toggleMenu(){
+
+document
+.getElementById("nav")
+.classList.toggle("show");
+
 }
 
-];
+
+function showPage(id){
+
+document
+.querySelectorAll(".page")
+.forEach(function(page){
+
+page.classList.remove("active");
+
+});
 
 
-classes.forEach(function(classInfo){
+document
+.getElementById(id)
+.classList.add("active");
+
+
+document
+.getElementById("nav")
+.classList.remove("show");
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* ==========================
+   CREATE SUBJECT CARDS
+========================== */
+
+function createSubjects(){
+
+createClass(
+"senior1Grid",
+"Senior One"
+);
+
+createClass(
+"senior2Grid",
+"Senior Two"
+);
+
+createClass(
+"senior3Grid",
+"Senior Three"
+);
+
+}
+
+
+function createClass(containerId,className){
 
 const container=
-document.getElementById(classInfo.id);
+document.getElementById(containerId);
 
-container.innerHTML="";
 
 subjects.forEach(function(subject){
 
@@ -871,73 +1041,98 @@ document.createElement("div");
 
 card.className="card subject";
 
+
 card.innerHTML=`
 
 <button
 class="plus"
-onclick="openAddMaterial('${classInfo.name}','${subject.name}')"
+onclick="openAdd('${className}','${subject.name}')"
 >
 +
 </button>
+
 
 <div class="icon">
 ${subject.icon}
 </div>
 
+
 <h3>
 ${subject.name}
 </h3>
 
+
 <p>
-${classInfo.name} ${subject.name}
-learning materials.
+${className} ${subject.name}
 </p>
+
 
 <div class="actions">
 
-<button onclick="showMaterials('${classInfo.name}','${subject.name}','Notes')">
+<button
+onclick="openMaterial('${className}','${subject.name}','Notes')"
+>
 📚 Notes
 </button>
 
-<button onclick="showMaterials('${classInfo.name}','${subject.name}','Exercises')">
+
+<button
+onclick="openMaterial('${className}','${subject.name}','Exercises')"
+>
 📝 Exercises
 </button>
 
-<button onclick="showMaterials('${classInfo.name}','${subject.name}','Books')">
+
+<button
+onclick="openMaterial('${className}','${subject.name}','Books')"
+>
 📖 Books
 </button>
 
 </div>
+
 `;
 
-container.appendChild(card);
 
-});
+container.appendChild(card);
 
 });
 
 }
 
 
-/* ==============================
-   OWNER
-============================== */
+/* ==========================
+   OWNER LOGIN
+========================== */
 
 /*
-This is only frontend protection.
-Do NOT use this method for real secrets.
+DEMO PASSWORD:
+
+MRDEV-OWNER-2026
+
+Important:
+A password inside frontend HTML is NOT real security.
+For real owner-only protection use authentication/backend.
 */
 
-const OWNER_PASSWORD="MRDEV-OWNER-2026";
+const OWNER_PASSWORD=
+"MRDEV-OWNER-2026";
 
-let ownerMode=false;
 
-
-function openOwnerLogin(){
+function openOwner(){
 
 document
-.getElementById("ownerLoginModal")
+.getElementById("ownerModal")
 .classList.add("show");
+
+}
+
+
+function closeOwner(){
+
+document
+.getElementById("ownerModal")
+.classList.remove("show");
 
 }
 
@@ -945,37 +1140,45 @@ document
 function unlockOwner(){
 
 const password=
-document.getElementById("ownerPassword").value;
+document
+.getElementById("ownerPassword")
+.value;
+
 
 if(password===OWNER_PASSWORD){
 
 ownerMode=true;
 
+
 document
 .body
 .classList.add("owner-mode");
 
+
 localStorage.setItem(
-"mrdev_owner_mode",
+"mrdev_owner",
 "true"
 );
 
+
 document
 .getElementById("ownerMessage")
-.innerHTML=
+innerHTML=
 "✅ Owner Mode activated.";
+
 
 setTimeout(function(){
 
-closeModal("ownerLoginModal");
+closeOwner();
 
-},700);
+},800);
+
 
 }else{
 
 document
 .getElementById("ownerMessage")
-.innerHTML=
+innerHTML=
 "❌ Incorrect password.";
 
 }
@@ -983,8 +1186,10 @@ document
 }
 
 
+/* Remember owner mode */
+
 if(
-localStorage.getItem("mrdev_owner_mode")
+localStorage.getItem("mrdev_owner")
 ==="true"
 ){
 
@@ -997,48 +1202,71 @@ document
 }
 
 
-/* ==============================
-   MATERIALS
-============================== */
+/* ==========================
+   PLUS BUTTON
+========================== */
 
-let selectedClass="";
-let selectedSubject="";
-
-
-function openAddMaterial(className,subject){
+function openAdd(className,subject){
 
 if(!ownerMode){
 
-alert("🔒 Owner access only.");
+alert(
+"🔒 Owner only."
+);
 
 return;
 
 }
 
+
 selectedClass=className;
+
 selectedSubject=subject;
 
-document
-.getElementById("materialLocation")
-.innerHTML=
-"<b>"+className+"</b> → <b>"+subject+"</b>";
 
 document
-.getElementById("addMaterialModal")
+.getElementById("location")
+.innerHTML=
+
+"<b>"+
+className+
+"</b> → <b>"+
+subject+
+"</b>";
+
+
+document
+.getElementById("addModal")
 .classList.add("show");
 
 }
 
 
+function closeAdd(){
+
+document
+.getElementById("addModal")
+.classList.remove("show");
+
+}
+
+
+/* ==========================
+   SAVE MATERIAL
+========================== */
+
 function saveMaterial(){
 
 if(!ownerMode){
 
-alert("🔒 Owner access only.");
+alert(
+"🔒 Owner only."
+);
 
 return;
 
 }
+
 
 const title=
 document
@@ -1046,22 +1274,25 @@ document
 .value
 .trim();
 
+
 const type=
 document
 .getElementById("materialType")
 .value;
+
 
 const file=
 document
 .getElementById("materialFile")
 .files[0];
 
+
 if(!title || !file){
 
 document
-.getElementById("materialMessage")
+.getElementById("saveMessage")
 .innerHTML=
-"⚠️ Enter a title and select a file.";
+"⚠️ Enter a title and choose a file.";
 
 return;
 
@@ -1070,8 +1301,9 @@ return;
 
 let materials=
 JSON.parse(
-localStorage.getItem("mrdev_materials")
-||"[]"
+localStorage.getItem("mrdevMaterials")
+||
+"[]"
 );
 
 
@@ -1087,26 +1319,28 @@ title:title,
 
 fileName:file.name,
 
-date:new Date()
-.toLocaleString()
+date:
+new Date().toLocaleString()
 
 });
 
 
 localStorage.setItem(
-"mrdev_materials",
+"mrdevMaterials",
 JSON.stringify(materials)
 );
 
 
 document
-.getElementById("materialMessage")
+.getElementById("saveMessage")
 .innerHTML=
-"✅ Material added on this browser.";
+"✅ Material saved on this browser.";
+
 
 document
 .getElementById("materialTitle")
 .value="";
+
 
 document
 .getElementById("materialFile")
@@ -1115,15 +1349,25 @@ document
 }
 
 
-function showMaterials(className,subject,type){
+/* ==========================
+   SHOW MATERIAL
+========================== */
 
-const materials=
+function openMaterial(
+className,
+subject,
+type
+){
+
+let materials=
 JSON.parse(
-localStorage.getItem("mrdev_materials")
-||"[]"
+localStorage.getItem("mrdevMaterials")
+||
+"[]"
 );
 
-const filtered=
+
+let found=
 materials.filter(function(item){
 
 return(
@@ -1135,16 +1379,17 @@ item.type===type
 });
 
 
-if(filtered.length===0){
+if(found.length===0){
 
 alert(
 
 className+
-" → "+
+"\n"+
 subject+
-" → "+
+"\n"+
 type+
-"\n\nNo materials have been added yet."
+"\n\n"+
+"No materials uploaded yet."
 
 );
 
@@ -1153,123 +1398,33 @@ return;
 }
 
 
-let text=
-filtered
-.map(function(item){
+let message=
+found.map(function(item){
 
 return(
 "📄 "+
 item.title+
-"\nFile: "+
+"\n"+
+"File: "+
 item.fileName+
-"\nAdded: "+
+"\n"+
+"Added: "+
 item.date
 );
 
-})
-.join("\n\n");
+}).join("\n\n");
 
 
-alert(text);
-
-}
-
-
-/* ==============================
-   SEARCH
-============================== */
-
-function searchSite(){
-
-const input=
-document
-.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
-
-const result=
-document
-.getElementById("searchResults");
-
-
-if(!input){
-
-result.innerHTML="";
-
-return;
+alert(message);
 
 }
 
 
-let matches=[];
+/* ==========================
+   AI TEACHER
+========================== */
 
-
-["Senior One","Senior Two","Senior Three"]
-.forEach(function(cls){
-
-subjects.forEach(function(subject){
-
-if(
-cls.toLowerCase().includes(input) ||
-subject.name.toLowerCase().includes(input)
-){
-
-matches.push(
-cls+" — "+subject.name
-);
-
-}
-
-});
-
-});
-
-
-if(matches.length){
-
-result.innerHTML=`
-
-<div class="card">
-
-<h3>🔎 Search Results</h3>
-
-<p style="margin-top:10px">
-
-${matches
-.map(x=>"<br>📚 "+x)
-.join("")}
-
-</p>
-
-</div>
-
-`;
-
-}else{
-
-result.innerHTML=`
-
-<div class="card">
-
-<h3>No results</h3>
-
-<p>Try another search.</p>
-
-</div>
-
-`;
-
-}
-
-}
-
-
-/* ==============================
-   AI TEACHER INTERFACE
-============================== */
-
-function escapeHTML(text){
+function escapeText(text){
 
 return text
 .replace(/&/g,"&amp;")
@@ -1287,8 +1442,10 @@ const input=
 document
 .getElementById("question");
 
+
 const question=
 input.value.trim();
+
 
 if(!question){
 
@@ -1306,7 +1463,7 @@ chat.innerHTML+=`
 
 <div class="message user">
 
-${escapeHTML(question)}
+${escapeText(question)}
 
 </div>
 
@@ -1322,53 +1479,45 @@ chat.innerHTML+=`
 
 <div class="message bot">
 
-<b>Mr Dev AI Teacher:</b><br><br>
-
-I received your question. The AI Teacher interface
-is ready in this website.
-
-<br><br>
-
-For a real AI response, this frontend must be connected
-to a secure AI backend. Never put an AI API secret directly
-inside this GitHub HTML file.
+<b>
+Mr Dev AI Teacher:
+</b>
 
 <br><br>
 
-You can still use this section as the place where the
-AI Teacher will appear once the secure backend is connected.
+I received your question.
+
+<br><br>
+
+The AI Teacher interface is ready,
+but a real AI model needs to be connected
+through a secure backend/API.
+
+<br><br>
+
+Do not put an AI API key directly
+inside this GitHub file.
 
 </div>
 
 `;
 
-chat.scrollTop=chat.scrollHeight;
+
+chat.scrollTop=
+chat.scrollHeight;
 
 },500);
 
 }
 
 
-/* ==============================
-   MODAL
-============================== */
-
-function closeModal(id){
-
-document
-.getElementById(id)
-.classList.remove("show");
-
-}
-
-
-/* ==============================
-   START
-============================== */
+/* ==========================
+   START WEBSITE
+========================== */
 
 createSubjects();
 
 </script>
 
 </body>
-  </html>
+</html>
