@@ -2,484 +2,1175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Mr Dev Learning Hub</title>
 
 <style>
 *{box-sizing:border-box}
+
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#f4f7fb;
-  color:#172033;
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#172033;
 }
+
 header{
-  background:#111827;
-  color:white;
-  padding:18px;
-  position:sticky;
-  top:0;
-  z-index:10;
+background:#111827;
+color:white;
+padding:16px;
+position:sticky;
+top:0;
+z-index:1000;
 }
-.header{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
+
+.nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
-.logo{font-size:22px;font-weight:bold}
-.menu-btn{
-  background:#2563eb;
-  border:0;
-  color:white;
-  padding:10px 14px;
-  border-radius:8px;
-  cursor:pointer;
+
+.logo{
+font-size:21px;
+font-weight:bold;
 }
+
+button{
+border:0;
+padding:10px 15px;
+border-radius:9px;
+cursor:pointer;
+font-weight:bold;
+background:#2563eb;
+color:white;
+}
+
+button:hover{
+opacity:.9;
+}
+
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
+max-width:1200px;
+margin:auto;
+padding:20px;
 }
+
+.page{
+display:none;
+}
+
+.page.active{
+display:block;
+}
+
 .hero{
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
-  padding:30px;
-  border-radius:18px;
-  margin-bottom:20px;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
+padding:30px;
+border-radius:18px;
+margin-bottom:20px;
 }
-.hero h1{margin-top:0}
+
 .search{
-  width:100%;
-  padding:14px;
-  border:1px solid #d1d5db;
-  border-radius:10px;
-  font-size:16px;
-  margin:15px 0;
+width:100%;
+padding:14px;
+border:1px solid #d1d5db;
+border-radius:10px;
+font-size:16px;
+margin:10px 0 20px;
 }
+
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:18px;
 }
+
 .card{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 4px 15px rgba(0,0,0,.08);
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
 }
-.card h3{margin-top:0}
-.btn{
-  display:inline-block;
-  background:#2563eb;
-  color:white;
-  border:0;
-  padding:10px 15px;
-  border-radius:8px;
-  cursor:pointer;
-  margin-top:8px;
+
+.card h2,
+.card h3{
+margin-top:0;
 }
-.btn.secondary{background:#111827}
-.section{display:none}
-.section.active{display:block}
+
 .subject{
-  padding:15px;
-  background:white;
-  margin:10px 0;
-  border-radius:10px;
-  cursor:pointer;
-  border:1px solid #e5e7eb;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+background:white;
+padding:18px;
+border-radius:14px;
+margin-bottom:12px;
+box-shadow:0 3px 10px rgba(0,0,0,.06);
 }
-#results{margin-top:10px}
+
+.subject-info{
+flex:1;
+}
+
+.plus{
+width:45px;
+height:45px;
+border-radius:50%;
+font-size:25px;
+padding:0;
+display:none;
+background:#16a34a;
+}
+
+.owner-active .plus{
+display:block;
+}
+
+.back{
+background:#374151;
+margin-bottom:15px;
+}
+
+input[type="password"],
+input[type="file"]{
+width:100%;
+padding:13px;
+border:1px solid #d1d5db;
+border-radius:9px;
+margin:10px 0;
+}
+
+.message{
+margin-top:12px;
+padding:12px;
+border-radius:9px;
+display:none;
+}
+
+.success{
+background:#dcfce7;
+color:#166534;
+display:block;
+}
+
+.error{
+background:#fee2e2;
+color:#991b1b;
+display:block;
+}
+
+.owner-box{
+border:2px solid #f59e0b;
+background:#fffbeb;
+}
+
+.file-list{
+margin-top:15px;
+}
+
+.file-item{
+background:#f3f4f6;
+padding:12px;
+border-radius:8px;
+margin:7px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+}
+
+.delete{
+background:#dc2626;
+padding:7px 10px;
+}
+
 footer{
-  margin-top:40px;
-  padding:25px;
-  background:#111827;
-  color:white;
-  text-align:center;
+margin-top:40px;
+padding:25px;
+background:#111827;
+color:white;
+text-align:center;
 }
-.hidden{display:none}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="header">
-    <div class="logo">🚀 Mr Dev Learning Hub</div>
-    <button class="menu-btn" onclick="showPage('dashboard')">
-      Dashboard
-    </button>
-  </div>
+<div class="nav">
+
+<div class="logo">
+🚀 Mr Dev Learning Hub
+</div>
+
+<button onclick="showPage('dashboard')">
+Dashboard
+</button>
+
+</div>
 </header>
+
 
 <main class="container">
 
-  <!-- DASHBOARD -->
-  <section id="dashboard" class="section active">
 
-    <div class="hero">
-      <h1>Welcome to Mr Dev Learning Hub</h1>
-      <p>Learn, practice, search notes and improve your knowledge.</p>
-    </div>
+<!-- DASHBOARD -->
 
-    <input
-      id="searchBox"
-      class="search"
-      type="search"
-      placeholder="🔍 Search notes, subjects, units..."
-      oninput="searchContent()"
-    >
+<section id="dashboard" class="page active">
 
-    <div id="results"></div>
+<div class="hero">
 
-    <div class="grid">
+<h1>Welcome to Mr Dev Learning Hub</h1>
 
-      <div class="card">
-        <h3>📚 Notes</h3>
-        <p>Access learning notes by level and subject.</p>
-        <button class="btn" onclick="showPage('notes')">Open Notes</button>
-      </div>
+<p>
+Free learning platform for students.
+</p>
 
-      <div class="card">
-        <h3>📝 Exercises</h3>
-        <p>Practice with exercises and questions.</p>
-        <button class="btn" onclick="showPage('exercises')">
-          Open Exercises
-        </button>
-      </div>
-
-      <div class="card">
-        <h3>📖 Books</h3>
-        <p>Learning books and study resources.</p>
-        <button class="btn" onclick="showPage('books')">
-          Open Books
-        </button>
-      </div>
-
-      <div class="card">
-        <h3>🤖 AI Teacher</h3>
-        <p>Ask questions and get help with your studies.</p>
-        <button class="btn" onclick="showPage('ai')">
-          AI Teacher
-        </button>
-      </div>
-
-      <div class="card">
-        <h3>📤 Upload</h3>
-        <p>Owner upload area.</p>
-        <button class="btn secondary" onclick="showPage('upload')">
-          Upload
-        </button>
-      </div>
-
-      <div class="card">
-        <h3>💳 Access</h3>
-        <p>Information about learning access and payment.</p>
-        <button class="btn" onclick="showPage('payment')">
-          Payment
-        </button>
-      </div>
-
-    </div>
-  </section>
+</div>
 
 
-  <!-- NOTES -->
-  <section id="notes" class="section">
+<input
+id="search"
+class="search"
+type="search"
+placeholder="🔍 Search subjects, notes and exercises..."
+oninput="searchSite()"
+>
 
-    <h2>📚 Learning Notes</h2>
-
-    <div class="subject">
-      <h3>Senior One</h3>
-      <p>Mathematics • Physics • Chemistry • Biology</p>
-    </div>
-
-    <div class="subject">
-      <h3>Senior Two</h3>
-      <p>Mathematics • Physics • Chemistry • Biology</p>
-    </div>
-
-    <div class="subject">
-      <h3>Senior Three</h3>
-      <p>Mathematics • Physics • Chemistry • Biology</p>
-    </div>
-
-    <button class="btn secondary" onclick="showPage('dashboard')">
-      ← Back
-    </button>
-
-  </section>
+<div id="searchResults"></div>
 
 
-  <!-- EXERCISES -->
-  <section id="exercises" class="section">
+<div class="grid">
 
-    <h2>📝 Exercises</h2>
+<div class="card">
+<h2>📚 Notes</h2>
+<p>Senior One, Senior Two and Senior Three notes.</p>
 
-    <div class="card">
-      <h3>Mathematics</h3>
-      <p>Practice mathematics questions and problems.</p>
-    </div>
-
-    <div class="card">
-      <h3>Physics</h3>
-      <p>Practice physics questions.</p>
-    </div>
-
-    <div class="card">
-      <h3>Chemistry</h3>
-      <p>Practice chemistry questions.</p>
-    </div>
-
-    <div class="card">
-      <h3>Biology</h3>
-      <p>Practice biology questions.</p>
-    </div>
-
-    <button class="btn secondary" onclick="showPage('dashboard')">
-      ← Back
-    </button>
-
-  </section>
+<button onclick="showPage('notes')">
+Open Notes
+</button>
+</div>
 
 
-  <!-- BOOKS -->
-  <section id="books" class="section">
+<div class="card">
+<h2>📝 Exercises</h2>
+<p>Practice questions for different subjects.</p>
 
-    <h2>📖 Books</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Senior One Books</h3>
-        <p>Learning resources for Senior One.</p>
-      </div>
-
-      <div class="card">
-        <h3>Senior Two Books</h3>
-        <p>Learning resources for Senior Two.</p>
-      </div>
-
-      <div class="card">
-        <h3>Senior Three Books</h3>
-        <p>Learning resources for Senior Three.</p>
-      </div>
-    </div>
-
-    <button class="btn secondary" onclick="showPage('dashboard')">
-      ← Back
-    </button>
-
-  </section>
+<button onclick="showPage('exercises')">
+Open Exercises
+</button>
+</div>
 
 
-  <!-- AI TEACHER -->
-  <section id="ai" class="section">
+<div class="card">
+<h2>📖 Books</h2>
+<p>Learning books and study resources.</p>
 
-    <h2>🤖 AI Teacher</h2>
-
-    <div class="card">
-      <p>
-        Ask a question about Mathematics, Physics, Chemistry or Biology.
-      </p>
-
-      <input
-        id="question"
-        class="search"
-        placeholder="Type your question..."
-      >
-
-      <button class="btn" onclick="askTeacher()">
-        Ask
-      </button>
-
-      <div id="answer" style="margin-top:15px"></div>
-    </div>
-
-    <button class="btn secondary" onclick="showPage('dashboard')">
-      ← Back
-    </button>
-
-  </section>
+<button onclick="showPage('books')">
+Open Books
+</button>
+</div>
 
 
-  <!-- UPLOAD -->
-  <section id="upload" class="section">
+<div class="card">
+<h2>🤖 AI Teacher</h2>
+<p>Learning assistant.</p>
 
-    <h2>📤 Owner Upload</h2>
-
-    <div class="card">
-      <p>Select a file from your device.</p>
-
-      <input
-        type="file"
-        id="fileInput"
-        accept=".pdf,.doc,.docx,.ppt,.pptx,.txt"
-      >
-
-      <p id="fileStatus"></p>
-    </div>
-
-    <button class="btn secondary" onclick="showPage('dashboard')">
-      ← Back
-    </button>
-
-  </section>
+<button onclick="showPage('ai')">
+Open AI Teacher
+</button>
+</div>
 
 
-  <!-- PAYMENT -->
-  <section id="payment" class="section">
+<div class="card owner-box">
+<h2>👑 Owner Mode</h2>
 
-    <h2>💳 Learning Access</h2>
+<p>
+Private area for the website owner.
+</p>
 
-    <div class="card">
-      <h3>Payment Information</h3>
+<button onclick="showPage('ownerLogin')">
+Owner Login
+</button>
+</div>
 
-      <p>
-        Contact the website owner for access and payment instructions.
-      </p>
+</div>
 
-      <p>
-        WhatsApp: <strong>0738 939 769</strong>
-      </p>
+</section>
 
-      <button class="btn" onclick="contactWhatsApp()">
-        Contact on WhatsApp
-      </button>
-    </div>
 
-    <button class="btn secondary" onclick="showPage('dashboard')">
-      ← Back
-    </button>
 
-  </section>
+<!-- NOTES -->
+
+<section id="notes" class="page">
+
+<button class="back" onclick="showPage('dashboard')">
+← Back
+</button>
+
+<h1>📚 Learning Notes</h1>
+
+<p>
+The ➕ buttons are available to the owner after login.
+</p>
+
+
+<h2>Senior One</h2>
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>📐 Mathematics</h3>
+<p>Senior One Mathematics notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior One Mathematics')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>⚡ Physics</h3>
+<p>Senior One Physics notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior One Physics')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>🧪 Chemistry</h3>
+<p>Senior One Chemistry notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior One Chemistry')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>🧬 Biology</h3>
+<p>Senior One Biology notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior One Biology')">
++
+</button>
+
+</div>
+
+
+
+<h2>Senior Two</h2>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>📐 Mathematics</h3>
+<p>Senior Two Mathematics notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Two Mathematics')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>⚡ Physics</h3>
+<p>Senior Two Physics notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Two Physics')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>🧪 Chemistry</h3>
+<p>Senior Two Chemistry notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Two Chemistry')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>🧬 Biology</h3>
+<p>Senior Two Biology notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Two Biology')">
++
+</button>
+
+</div>
+
+
+
+<h2>Senior Three</h2>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>📐 Mathematics</h3>
+<p>Senior Three Mathematics notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Three Mathematics')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>⚡ Physics</h3>
+<p>Senior Three Physics notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Three Physics')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>🧪 Chemistry</h3>
+<p>Senior Three Chemistry notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Three Chemistry')">
++
+</button>
+
+</div>
+
+
+<div class="subject owner-area">
+
+<div class="subject-info">
+<h3>🧬 Biology</h3>
+<p>Senior Three Biology notes</p>
+</div>
+
+<button
+class="plus"
+onclick="ownerAdd('Senior Three Biology')">
++
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- EXERCISES -->
+
+<section id="exercises" class="page">
+
+<button class="back" onclick="showPage('dashboard')">
+← Back
+</button>
+
+<h1>📝 Exercises</h1>
+
+<div class="grid">
+
+<div class="card">
+<h3>📐 Mathematics</h3>
+<p>Mathematics exercises.</p>
+</div>
+
+<div class="card">
+<h3>⚡ Physics</h3>
+<p>Physics exercises.</p>
+</div>
+
+<div class="card">
+<h3>🧪 Chemistry</h3>
+<p>Chemistry exercises.</p>
+</div>
+
+<div class="card">
+<h3>🧬 Biology</h3>
+<p>Biology exercises.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- BOOKS -->
+
+<section id="books" class="page">
+
+<button class="back" onclick="showPage('dashboard')">
+← Back
+</button>
+
+<h1>📖 Books</h1>
+
+<div class="grid">
+
+<div class="card">
+<h3>Senior One</h3>
+<p>Free learning resources.</p>
+</div>
+
+<div class="card">
+<h3>Senior Two</h3>
+<p>Free learning resources.</p>
+</div>
+
+<div class="card">
+<h3>Senior Three</h3>
+<p>Free learning resources.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- AI TEACHER -->
+
+<section id="ai" class="page">
+
+<button class="back" onclick="showPage('dashboard')">
+← Back
+</button>
+
+<h1>🤖 AI Teacher</h1>
+
+<div class="card">
+
+<input
+id="question"
+class="search"
+placeholder="Ask a learning question..."
+>
+
+<button onclick="askTeacher()">
+Ask
+</button>
+
+<div id="answer"></div>
+
+</div>
+
+</section>
+
+
+
+<!-- OWNER LOGIN -->
+
+<section id="ownerLogin" class="page">
+
+<button class="back" onclick="showPage('dashboard')">
+← Back
+</button>
+
+<div class="card owner-box">
+
+<h1>👑 Owner Mode</h1>
+
+<p>
+Only the owner can access the ➕ buttons.
+</p>
+
+<input
+id="password"
+type="password"
+placeholder="Enter owner password"
+>
+
+<button onclick="loginOwner()">
+Login
+</button>
+
+<div id="loginMessage" class="message"></div>
+
+</div>
+
+</section>
+
+
+
+<!-- OWNER DASHBOARD -->
+
+<section id="ownerDashboard" class="page">
+
+<button class="back" onclick="logoutOwner()">
+Logout Owner
+</button>
+
+<div class="hero">
+
+<h1>👑 Owner Dashboard</h1>
+
+<p>
+Owner Mode is active.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>📤 Add Learning File</h2>
+
+<p>
+Choose a subject and upload its learning file.
+</p>
+
+<select
+id="subjectSelect"
+style="width:100%;padding:13px;border-radius:9px;margin:10px 0">
+
+<option>Senior One Mathematics</option>
+<option>Senior One Physics</option>
+<option>Senior One Chemistry</option>
+<option>Senior One Biology</option>
+
+<option>Senior Two Mathematics</option>
+<option>Senior Two Physics</option>
+<option>Senior Two Chemistry</option>
+<option>Senior Two Biology</option>
+
+<option>Senior Three Mathematics</option>
+<option>Senior Three Physics</option>
+<option>Senior Three Chemistry</option>
+<option>Senior Three Biology</option>
+
+</select>
+
+
+<input
+id="ownerFile"
+type="file"
+accept=".pdf,.doc,.docx,.ppt,.pptx,.txt"
+>
+
+<button onclick="addFile()">
+Add File
+</button>
+
+<div id="ownerFiles" class="file-list"></div>
+
+</div>
+
+</section>
 
 </main>
 
+
 <footer>
-  <p>© 2026 Mr Dev Learning Hub</p>
+
+<p>© 2026 Mr Dev Learning Hub</p>
+
+<p>Free Education Platform</p>
+
 </footer>
 
 
+
 <script>
+
+/* ==========================
+   OWNER PASSWORD
+========================== */
+
+const OWNER_PASSWORD = "kevin@2026";
+
+
+/* ==========================
+   PAGE NAVIGATION
+========================== */
+
 function showPage(page){
 
-  document.querySelectorAll(".section").forEach(function(section){
-    section.classList.remove("active");
-  });
+document.querySelectorAll(".page").forEach(function(p){
 
-  const selected = document.getElementById(page);
-
-  if(selected){
-    selected.classList.add("active");
-    window.scrollTo({top:0,behavior:"smooth"});
-  }
-}
-
-
-function searchContent(){
-
-  const query =
-    document.getElementById("searchBox").value
-    .toLowerCase()
-    .trim();
-
-  const results = document.getElementById("results");
-
-  if(!query){
-    results.innerHTML="";
-    return;
-  }
-
-  const items = [
-    "Senior One Mathematics",
-    "Senior One Physics",
-    "Senior One Chemistry",
-    "Senior One Biology",
-    "Senior Two Mathematics",
-    "Senior Two Physics",
-    "Senior Two Chemistry",
-    "Senior Two Biology",
-    "Senior Three Mathematics",
-    "Senior Three Physics",
-    "Senior Three Chemistry",
-    "Senior Three Biology",
-    "Exercises",
-    "Books",
-    "AI Teacher"
-  ];
-
-  const found = items.filter(function(item){
-    return item.toLowerCase().includes(query);
-  });
-
-  if(found.length){
-    results.innerHTML =
-      "<div class='card'><strong>Search results:</strong><br><br>" +
-      found.map(function(item){
-        return "📌 " + item;
-      }).join("<br>") +
-      "</div>";
-  }else{
-    results.innerHTML =
-      "<div class='card'>No results found.</div>";
-  }
-}
-
-
-function askTeacher(){
-
-  const question =
-    document.getElementById("question").value.trim();
-
-  const answer =
-    document.getElementById("answer");
-
-  if(!question){
-    answer.innerHTML="<p>Please enter a question.</p>";
-    return;
-  }
-
-  answer.innerHTML =
-    "<div class='card'>" +
-    "<strong>Your question:</strong><br>" +
-    question +
-    "<br><br>" +
-    "🤖 AI Teacher: Please use the learning notes and exercises " +
-    "to study this topic, or connect an AI API to enable automatic answers." +
-    "</div>";
-}
-
-
-document.getElementById("fileInput")
-.addEventListener("change",function(){
-
-  const file = this.files[0];
-
-  if(file){
-    document.getElementById("fileStatus").textContent =
-      "Selected file: " + file.name;
-  }
+p.classList.remove("active");
 
 });
 
+const target=document.getElementById(page);
 
-function contactWhatsApp(){
+if(target){
 
-  const phone = "250738939769";
+target.classList.add("active");
 
-  const message =
-    encodeURIComponent(
-      "Hello Mr Dev, I need access to Mr Dev Learning Hub."
-    );
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
 
-  window.open(
-    "https://wa.me/" + phone + "?text=" + message,
-    "_blank"
-  );
 }
+
+}
+
+
+/* ==========================
+   OWNER LOGIN
+========================== */
+
+function loginOwner(){
+
+const password=
+document.getElementById("password").value;
+
+const message=
+document.getElementById("loginMessage");
+
+
+if(password===OWNER_PASSWORD){
+
+localStorage.setItem(
+"mrdev_owner",
+"true"
+);
+
+document.body.classList.add("owner-active");
+
+message.className="message success";
+
+message.textContent=
+"Owner Mode activated successfully.";
+
+setTimeout(function(){
+
+showPage("ownerDashboard");
+
+},500);
+
+}else{
+
+message.className="message error";
+
+message.textContent=
+"Incorrect password.";
+
+}
+
+}
+
+
+/* ==========================
+   RESTORE OWNER MODE
+========================== */
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+if(
+localStorage.getItem("mrdev_owner")==="true"
+){
+
+document.body.classList.add(
+"owner-active"
+);
+
+}
+
+loadFiles();
+
+}
+);
+
+
+/* ==========================
+   OWNER LOGOUT
+========================== */
+
+function logoutOwner(){
+
+localStorage.removeItem(
+"mrdev_owner"
+);
+
+document.body.classList.remove(
+"owner-active"
+);
+
+showPage("dashboard");
+
+}
+
+
+/* ==========================
+   PLUS BUTTON
+========================== */
+
+function ownerAdd(subject){
+
+if(
+localStorage.getItem("mrdev_owner")!=="true"
+){
+
+alert(
+"Only the website owner can use this button."
+);
+
+return;
+
+}
+
+document.getElementById(
+"subjectSelect"
+).value=subject;
+
+showPage("ownerDashboard");
+
+}
+
+
+/* ==========================
+   ADD FILE
+========================== */
+
+function addFile(){
+
+if(
+localStorage.getItem("mrdev_owner")!=="true"
+){
+
+alert("Owner access required.");
+
+return;
+
+}
+
+const subject=
+document.getElementById(
+"subjectSelect"
+).value;
+
+const input=
+document.getElementById("ownerFile");
+
+if(!input.files.length){
+
+alert("Please choose a file.");
+
+return;
+
+}
+
+const file=input.files[0];
+
+const files=
+JSON.parse(
+localStorage.getItem("mrdev_files")||"[]"
+);
+
+files.push({
+
+subject:subject,
+
+name:file.name,
+
+size:file.size,
+
+date:new Date().toLocaleString()
+
+});
+
+localStorage.setItem(
+"mrdev_files",
+JSON.stringify(files)
+);
+
+input.value="";
+
+loadFiles();
+
+alert(
+"File added to "+subject
+);
+
+}
+
+
+/* ==========================
+   LOAD OWNER FILES
+========================== */
+
+function loadFiles(){
+
+const container=
+document.getElementById("ownerFiles");
+
+if(!container)return;
+
+const files=
+JSON.parse(
+localStorage.getItem("mrdev_files")||"[]"
+);
+
+if(!files.length){
+
+container.innerHTML=
+"<p>No files added yet.</p>";
+
+return;
+
+}
+
+container.innerHTML=
+files.map(function(file,index){
+
+return `
+<div class="file-item">
+
+<div>
+<strong>📄 ${escapeHTML(file.name)}</strong>
+<br>
+<small>${escapeHTML(file.subject)}</small>
+</div>
+
+<button
+class="delete"
+onclick="deleteFile(${index})">
+Delete
+</button>
+
+</div>
+`;
+
+}).join("");
+
+}
+
+
+/* ==========================
+   DELETE FILE
+========================== */
+
+function deleteFile(index){
+
+if(
+localStorage.getItem("mrdev_owner")!=="true"
+){
+
+alert("Owner access required.");
+
+return;
+
+}
+
+const files=
+JSON.parse(
+localStorage.getItem("mrdev_files")||"[]"
+);
+
+files.splice(index,1);
+
+localStorage.setItem(
+"mrdev_files",
+JSON.stringify(files)
+);
+
+loadFiles();
+
+}
+
+
+/* ==========================
+   SAFE HTML
+========================== */
+
+function escapeHTML(text){
+
+const div=
+document.createElement("div");
+
+div.textContent=text;
+
+return div.innerHTML;
+
+}
+
+
+/* ==========================
+   SEARCH
+========================== */
+
+function searchSite(){
+
+const query=
+document.getElementById(
+"search"
+).value.toLowerCase().trim();
+
+const result=
+document.getElementById(
+"searchResults"
+);
+
+if(!query){
+
+result.innerHTML="";
+
+return;
+
+}
+
+const subjects=[
+
+"Senior One Mathematics",
+"Senior One Physics",
+"Senior One Chemistry",
+"Senior One Biology",
+
+"Senior Two Mathematics",
+"Senior Two Physics",
+"Senior Two Chemistry",
+"Senior Two Biology",
+
+"Senior Three Mathematics",
+"Senior Three Physics",
+"Senior Three Chemistry",
+"Senior Three Biology"
+
+];
+
+const found=
+subjects.filter(function(item){
+
+return item
+.toLowerCase()
+.includes(query);
+
+});
+
+if(found.length){
+
+result.innerHTML=
+`<div class="card">
+<h3>Search Results</h3>
+${found.map(function(item){
+return "<p>📌 "+item+"</p>";
+}).join("")}
+</div>`;
+
+}else{
+
+result.innerHTML=
+`<div class="card">
+No results found.
+</div>`;
+
+}
+
+}
+
+
+/* ==========================
+   AI TEACHER DEMO
+========================== */
+
+function askTeacher(){
+
+const question=
+document.getElementById(
+"question"
+).value.trim();
+
+const answer=
+document.getElementById(
+"answer"
+);
+
+if(!question){
+
+answer.innerHTML=
+"<div class='message error'>Please enter a question.</div>";
+
+return;
+
+}
+
+answer.innerHTML=
+`
+<div class="card">
+<strong>🤖 AI Teacher</strong>
+<p>
+Question received:
+</p>
+<p>${escapeHTML(question)}</p>
+<p>
+Connect your preferred AI API here to provide automatic answers.
+</p>
+</div>
+`;
+
+}
+
 </script>
 
 </body>
