@@ -1,1 +1,481 @@
-<meta name="google-site-verification" content="bYCk1Y9nKeSapzJZdpqCAsht6_ZQ7-X2kkra1DQgFI4" />
+const PASSWORD = "kevin@2026";
+
+export default {
+  async fetch(request, env) {
+
+    const url = new URL(request.url);
+
+    if (request.method === "POST" && url.pathname === "/login") {
+      const data = await request.json();
+
+      if (data.password === PASSWORD) {
+        return new Response(JSON.stringify({
+          success: true,
+          owner: true
+        }), {
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+          }
+        });
+      }
+
+      return new Response(JSON.stringify({
+        success: false
+      }), {
+        status: 401,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        }
+      });
+    }
+
+    return new Response(`<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mr Dev Learning Hubs</title>
+
+<style>
+*{
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+margin:0;
+background:#f4f7fb;
+color:#172033;
+}
+
+header{
+background:linear-gradient(135deg,#101c3c,#1769e0);
+color:white;
+padding:18px;
+}
+
+header h1{
+margin:0;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+.dashboard{
+background:linear-gradient(135deg,#1769e0,#7438df);
+color:white;
+padding:30px;
+border-radius:20px;
+margin-bottom:25px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 5px 20px #0001;
+position:relative;
+}
+
+.card h2{
+margin-top:10px;
+}
+
+.icon{
+font-size:40px;
+}
+
+.plus{
+display:none;
+position:absolute;
+right:15px;
+top:15px;
+width:45px;
+height:45px;
+border:0;
+border-radius:50%;
+background:#1769e0;
+color:white;
+font-size:30px;
+cursor:pointer;
+}
+
+.owner .plus{
+display:block;
+}
+
+button{
+border:0;
+padding:11px 15px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.open{
+background:#1769e0;
+color:white;
+margin-top:10px;
+}
+
+.ownerButton{
+background:#111d3d;
+color:white;
+}
+
+#ownerPanel{
+display:none;
+background:#e8fff0;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+color:#08752c;
+font-weight:bold;
+}
+
+.owner #ownerPanel{
+display:block;
+}
+
+#login{
+display:none;
+position:fixed;
+inset:0;
+background:#0009;
+align-items:center;
+justify-content:center;
+z-index:20;
+}
+
+.loginBox{
+background:white;
+padding:25px;
+border-radius:18px;
+width:90%;
+max-width:400px;
+}
+
+input{
+width:100%;
+padding:13px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:9px;
+}
+
+.close{
+background:#ddd;
+}
+
+section{
+margin-bottom:35px;
+}
+
+.subject{
+margin-top:20px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<h1>📚 Mr Dev Learning Hubs</h1>
+<p>Learn • Practice • Achieve</p>
+<button class="ownerButton"
+onclick="showLogin()">
+🔐 Owner Mode
+</button>
+</div>
+</header>
+
+<div class="container">
+
+<div id="ownerPanel">
+🔓 OWNER MODE ACTIVE — You can use all ➕ buttons.
+</div>
+
+<div class="dashboard">
+
+<h2>Welcome to Mr Dev Learning Hubs</h2>
+
+<p>
+Free education platform for Senior One,
+Senior Two and Senior Three.
+</p>
+
+</div>
+
+
+<section>
+
+<h2>📘 Senior One</h2>
+
+<div id="s1" class="grid"></div>
+
+</section>
+
+
+<section>
+
+<h2>📗 Senior Two</h2>
+
+<div id="s2" class="grid"></div>
+
+</section>
+
+
+<section>
+
+<h2>📕 Senior Three</h2>
+
+<div id="s3" class="grid"></div>
+
+</section>
+
+</div>
+
+
+<footer>
+Mr Dev Learning Hubs © 2026
+</footer>
+
+
+<div id="login">
+
+<div class="loginBox">
+
+<h2>🔐 Owner Mode</h2>
+
+<p>Enter Owner password</p>
+
+<input
+id="password"
+type="password"
+placeholder="Password"
+>
+
+<button class="open"
+onclick="login()">
+Unlock
+</button>
+
+<button class="close"
+onclick="closeLogin()">
+Cancel
+</button>
+
+<p id="message"></p>
+
+</div>
+
+</div>
+
+
+<script>
+
+const subjects = [
+["Mathematics","➗"],
+["Physics","⚛️"],
+["Chemistry","🧪"],
+["Biology","🧬"]
+];
+
+
+function createClass(id,className){
+
+const box=document.getElementById(id);
+
+subjects.forEach(function(subject){
+
+const card=document.createElement("div");
+
+card.className="card";
+
+card.innerHTML=`
+
+<button class="plus"
+onclick="addMaterial(
+'${className}',
+'${subject[0]}'
+)">
++
+</button>
+
+<div class="icon">
+${subject[1]}
+</div>
+
+<h2>
+${subject[0]}
+</h2>
+
+<p>
+${className} ${subject[0]}
+</p>
+
+<button class="open"
+onclick="openMaterial(
+'${className}',
+'${subject[0]}'
+)">
+📚 Open
+</button>
+`;
+
+box.appendChild(card);
+
+});
+
+}
+
+
+createClass("s1","Senior One");
+createClass("s2","Senior Two");
+createClass("s3","Senior Three");
+
+
+function showLogin(){
+
+document.getElementById("login").style.display="flex";
+
+document.getElementById("password").focus();
+
+}
+
+
+function closeLogin(){
+
+document.getElementById("login").style.display="none";
+
+}
+
+
+async function login(){
+
+const password=
+document.getElementById("password").value;
+
+const message=
+document.getElementById("message");
+
+message.innerText="Checking...";
+
+try{
+
+const result=await fetch("/login",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+password:password
+})
+
+});
+
+const data=await result.json();
+
+if(data.success){
+
+document.body.classList.add("owner");
+
+localStorage.setItem(
+"mrdev_owner",
+"true"
+);
+
+message.innerText=
+"✅ OWNER MODE ACTIVE";
+
+setTimeout(closeLogin,800);
+
+}else{
+
+message.innerText=
+"❌ Wrong password";
+
+}
+
+}catch(error){
+
+message.innerText=
+"❌ Login error";
+
+}
+
+}
+
+
+if(
+localStorage.getItem("mrdev_owner")
+==="true"
+){
+
+document.body.classList.add("owner");
+
+}
+
+
+function addMaterial(className,subject){
+
+if(
+!document.body.classList.contains("owner")
+){
+
+alert("🔒 Owner Mode required.");
+
+return;
+
+}
+
+alert(
+"➕ Add material\\n\\n"+
+"Class: "+className+
+"\\nSubject: "+subject+
+"\\n\\nOwner upload area."
+);
+
+}
+
+
+function openMaterial(className,subject){
+
+alert(
+"📚 "+className+
+" → "+subject+
+"\\n\\nNotes, exercises and books will appear here."
+);
+
+}
+
+</script>
+
+</body>
+</html>`, {
+      headers: {
+        "Content-Type": "text/html;charset=UTF-8"
+      }
+    });
+  }
+};
