@@ -1,17 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr Dev Learning Hub</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f7fb;
+  color:#172033;
+}
+header{
+  background:#111827;
+  color:white;
+  padding:18px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.header{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+.logo{font-size:22px;font-weight:bold}
+.menu-btn{
+  background:#2563eb;
+  border:0;
+  color:white;
+  padding:10px 14px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+.hero{
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+  color:white;
+  padding:30px;
+  border-radius:18px;
+  margin-bottom:20px;
+}
+.hero h1{margin-top:0}
+.search{
+  width:100%;
+  padding:14px;
+  border:1px solid #d1d5db;
+  border-radius:10px;
+  font-size:16px;
+  margin:15px 0;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+.card h3{margin-top:0}
+.btn{
+  display:inline-block;
+  background:#2563eb;
+  color:white;
+  border:0;
+  padding:10px 15px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:8px;
+}
+.btn.secondary{background:#111827}
+.section{display:none}
+.section.active{display:block}
+.subject{
+  padding:15px;
+  background:white;
+  margin:10px 0;
+  border-radius:10px;
+  cursor:pointer;
+  border:1px solid #e5e7eb;
+}
+#results{margin-top:10px}
+footer{
+  margin-top:40px;
+  padding:25px;
+  background:#111827;
+  color:white;
+  text-align:center;
+}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header">
+    <div class="logo">🚀 Mr Dev Learning Hub</div>
+    <button class="menu-btn" onclick="showPage('dashboard')">
+      Dashboard
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- DASHBOARD -->
+  <section id="dashboard" class="section active">
+
+    <div class="hero">
+      <h1>Welcome to Mr Dev Learning Hub</h1>
+      <p>Learn, practice, search notes and improve your knowledge.</p>
+    </div>
+
+    <input
+      id="searchBox"
+      class="search"
+      type="search"
+      placeholder="🔍 Search notes, subjects, units..."
+      oninput="searchContent()"
+    >
+
+    <div id="results"></div>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>📚 Notes</h3>
+        <p>Access learning notes by level and subject.</p>
+        <button class="btn" onclick="showPage('notes')">Open Notes</button>
+      </div>
+
+      <div class="card">
+        <h3>📝 Exercises</h3>
+        <p>Practice with exercises and questions.</p>
+        <button class="btn" onclick="showPage('exercises')">
+          Open Exercises
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>📖 Books</h3>
+        <p>Learning books and study resources.</p>
+        <button class="btn" onclick="showPage('books')">
+          Open Books
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>🤖 AI Teacher</h3>
+        <p>Ask questions and get help with your studies.</p>
+        <button class="btn" onclick="showPage('ai')">
+          AI Teacher
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>📤 Upload</h3>
+        <p>Owner upload area.</p>
+        <button class="btn secondary" onclick="showPage('upload')">
+          Upload
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>💳 Access</h3>
+        <p>Information about learning access and payment.</p>
+        <button class="btn" onclick="showPage('payment')">
+          Payment
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- NOTES -->
+  <section id="notes" class="section">
+
+    <h2>📚 Learning Notes</h2>
+
+    <div class="subject">
+      <h3>Senior One</h3>
+      <p>Mathematics • Physics • Chemistry • Biology</p>
+    </div>
+
+    <div class="subject">
+      <h3>Senior Two</h3>
+      <p>Mathematics • Physics • Chemistry • Biology</p>
+    </div>
+
+    <div class="subject">
+      <h3>Senior Three</h3>
+      <p>Mathematics • Physics • Chemistry • Biology</p>
+    </div>
+
+    <button class="btn secondary" onclick="showPage('dashboard')">
+      ← Back
+    </button>
+
+  </section>
+
+
+  <!-- EXERCISES -->
+  <section id="exercises" class="section">
+
+    <h2>📝 Exercises</h2>
+
+    <div class="card">
+      <h3>Mathematics</h3>
+      <p>Practice mathematics questions and problems.</p>
+    </div>
+
+    <div class="card">
+      <h3>Physics</h3>
+      <p>Practice physics questions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Chemistry</h3>
+      <p>Practice chemistry questions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Biology</h3>
+      <p>Practice biology questions.</p>
+    </div>
+
+    <button class="btn secondary" onclick="showPage('dashboard')">
+      ← Back
+    </button>
+
+  </section>
+
+
+  <!-- BOOKS -->
+  <section id="books" class="section">
+
+    <h2>📖 Books</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Senior One Books</h3>
+        <p>Learning resources for Senior One.</p>
+      </div>
+
+      <div class="card">
+        <h3>Senior Two Books</h3>
+        <p>Learning resources for Senior Two.</p>
+      </div>
+
+      <div class="card">
+        <h3>Senior Three Books</h3>
+        <p>Learning resources for Senior Three.</p>
+      </div>
+    </div>
+
+    <button class="btn secondary" onclick="showPage('dashboard')">
+      ← Back
+    </button>
+
+  </section>
+
+
+  <!-- AI TEACHER -->
+  <section id="ai" class="section">
+
+    <h2>🤖 AI Teacher</h2>
+
+    <div class="card">
+      <p>
+        Ask a question about Mathematics, Physics, Chemistry or Biology.
+      </p>
+
+      <input
+        id="question"
+        class="search"
+        placeholder="Type your question..."
+      >
+
+      <button class="btn" onclick="askTeacher()">
+        Ask
+      </button>
+
+      <div id="answer" style="margin-top:15px"></div>
+    </div>
+
+    <button class="btn secondary" onclick="showPage('dashboard')">
+      ← Back
+    </button>
+
+  </section>
+
+
+  <!-- UPLOAD -->
+  <section id="upload" class="section">
+
+    <h2>📤 Owner Upload</h2>
+
+    <div class="card">
+      <p>Select a file from your device.</p>
+
+      <input
+        type="file"
+        id="fileInput"
+        accept=".pdf,.doc,.docx,.ppt,.pptx,.txt"
+      >
+
+      <p id="fileStatus"></p>
+    </div>
+
+    <button class="btn secondary" onclick="showPage('dashboard')">
+      ← Back
+    </button>
+
+  </section>
+
+
+  <!-- PAYMENT -->
+  <section id="payment" class="section">
+
+    <h2>💳 Learning Access</h2>
+
+    <div class="card">
+      <h3>Payment Information</h3>
+
+      <p>
+        Contact the website owner for access and payment instructions.
+      </p>
+
+      <p>
+        WhatsApp: <strong>0738 939 769</strong>
+      </p>
+
+      <button class="btn" onclick="contactWhatsApp()">
+        Contact on WhatsApp
+      </button>
+    </div>
+
+    <button class="btn secondary" onclick="showPage('dashboard')">
+      ← Back
+    </button>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Mr Dev Learning Hub</p>
+</footer>
+
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  // Remove visible HTML/code viewer elements
-  document.querySelectorAll(
-    "pre, code, .code, .code-block, .source-code, .html-code, #index-html, #index-code"
-  ).forEach(el => {
-    if (
-      el.textContent.includes("<!DOCTYPE html>") ||
-      el.textContent.includes("<html") ||
-      el.textContent.includes("<body") ||
-      el.textContent.includes("index.html")
-    ) {
-      el.remove();
-    }
+function showPage(page){
+
+  document.querySelectorAll(".section").forEach(function(section){
+    section.classList.remove("active");
   });
+
+  const selected = document.getElementById(page);
+
+  if(selected){
+    selected.classList.add("active");
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+}
+
+
+function searchContent(){
+
+  const query =
+    document.getElementById("searchBox").value
+    .toLowerCase()
+    .trim();
+
+  const results = document.getElementById("results");
+
+  if(!query){
+    results.innerHTML="";
+    return;
+  }
+
+  const items = [
+    "Senior One Mathematics",
+    "Senior One Physics",
+    "Senior One Chemistry",
+    "Senior One Biology",
+    "Senior Two Mathematics",
+    "Senior Two Physics",
+    "Senior Two Chemistry",
+    "Senior Two Biology",
+    "Senior Three Mathematics",
+    "Senior Three Physics",
+    "Senior Three Chemistry",
+    "Senior Three Biology",
+    "Exercises",
+    "Books",
+    "AI Teacher"
+  ];
+
+  const found = items.filter(function(item){
+    return item.toLowerCase().includes(query);
+  });
+
+  if(found.length){
+    results.innerHTML =
+      "<div class='card'><strong>Search results:</strong><br><br>" +
+      found.map(function(item){
+        return "📌 " + item;
+      }).join("<br>") +
+      "</div>";
+  }else{
+    results.innerHTML =
+      "<div class='card'>No results found.</div>";
+  }
+}
+
+
+function askTeacher(){
+
+  const question =
+    document.getElementById("question").value.trim();
+
+  const answer =
+    document.getElementById("answer");
+
+  if(!question){
+    answer.innerHTML="<p>Please enter a question.</p>";
+    return;
+  }
+
+  answer.innerHTML =
+    "<div class='card'>" +
+    "<strong>Your question:</strong><br>" +
+    question +
+    "<br><br>" +
+    "🤖 AI Teacher: Please use the learning notes and exercises " +
+    "to study this topic, or connect an AI API to enable automatic answers." +
+    "</div>";
+}
+
+
+document.getElementById("fileInput")
+.addEventListener("change",function(){
+
+  const file = this.files[0];
+
+  if(file){
+    document.getElementById("fileStatus").textContent =
+      "Selected file: " + file.name;
+  }
+
 });
+
+
+function contactWhatsApp(){
+
+  const phone = "250738939769";
+
+  const message =
+    encodeURIComponent(
+      "Hello Mr Dev, I need access to Mr Dev Learning Hub."
+    );
+
+  window.open(
+    "https://wa.me/" + phone + "?text=" + message,
+    "_blank"
+  );
+}
 </script>
+
+</body>
+</html>
